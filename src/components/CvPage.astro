@@ -19,18 +19,22 @@ const meta = getSiteMeta(lang);
 ---
 
 <BaseLayout lang={lang}>
-  <div class="min-h-screen bg-background">
-    <Navbar lang={lang} />
+  <Navbar lang={lang} />
+  <main>
     <HeroSection lang={lang} />
     <AboutSection lang={lang} />
     <TechStackSection lang={lang} />
     <ExperienceSection lang={lang} />
     <EducationSection lang={lang} />
     <ContactSection lang={lang} />
-    <footer class="py-8 border-t border-border">
-      <div class="container text-center">
-        <p class="font-mono text-sm text-muted-foreground">{meta.footerText}</p>
+  </main>
+  <footer class="border-t border-border/60">
+    <div class="container py-10 grid grid-cols-12 gap-4 items-center font-mono text-[11px] text-muted-foreground tracking-wider">
+      <div class="col-span-12 sm:col-span-6">{meta.footerText}</div>
+      <div class="col-span-12 sm:col-span-6 sm:text-right flex sm:justify-end items-center gap-2">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+        <span class="text-foreground/70">v1.0 · TASHKENT · UZ</span>
       </div>
-    </footer>
-  </div>
+    </div>
+  </footer>
 </BaseLayout>

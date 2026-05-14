@@ -20,6 +20,7 @@ const finalDescription = description ?? meta.description;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#100F0D" />
     <title>{finalTitle}</title>
 
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
@@ -44,7 +45,37 @@ const finalDescription = description ?? meta.description;
 
     <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.jsonLd)} />
   </head>
-  <body>
+  <body class="grain">
     <slot />
+
+    <script is:inline>
+      // Global scroll-reveal observer
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-in");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+      );
+      document.querySelectorAll("[data-reveal], [data-reveal-clip]").forEach((el) => io.observe(el));
+
+      // Magnetic CTA
+      document.querySelectorAll("[data-magnetic]").forEach((btn) => {
+        const strength = 14;
+        btn.addEventListener("mousemove", (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = e.clientX - r.left - r.width / 2;
+          const y = e.clientY - r.top - r.height / 2;
+          btn.style.transform = `translate(${(x / r.width) * strength}px, ${(y / r.height) * strength}px)`;
+        });
+        btn.addEventListener("mouseleave", () => {
+          btn.style.transform = "translate(0,0)";
+        });
+      });
+    </script>
   </body>
 </html>

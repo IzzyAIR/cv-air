@@ -8,29 +8,118 @@ interface Props {
 
 const { lang } = Astro.props;
 const about = getAbout(lang);
+
+const principles: { title: string; desc: string }[] =
+  lang === "ru"
+    ? [
+        {
+          title: "Дизайн × инженерия",
+          desc: "Превращаю сложные требования в элегантные, удобные продукты",
+        },
+        {
+          title: "High-load системы",
+          desc: "Платформы государственного уровня — безопасность, стабильность, масштабируемость",
+        },
+        {
+          title: "Скорость поставки",
+          desc: "Feature Modules + Registry, Clean Architecture, Orval, монорепо-пайплайны",
+        },
+      ]
+    : lang === "uz"
+      ? [
+          {
+            title: "Dizayn × muhandislik",
+            desc: "Murakkab talablarni nafis, qulay mahsulotlarga aylantiraman",
+          },
+          {
+            title: "High-load tizimlar",
+            desc: "Davlat darajasidagi platformalar — xavfsizlik, barqarorlik, miqyoslash",
+          },
+          {
+            title: "Yetkazib berish tezligi",
+            desc: "Feature Modules + Registry, Clean Architecture, Orval, monorepo pipelinelari",
+          },
+        ]
+      : [
+          {
+            title: "Design × Engineering",
+            desc: "Turning complex requirements into elegant, user-friendly products",
+          },
+          {
+            title: "High-load Systems",
+            desc: "State-level platforms with strict security, stability and scalability demands",
+          },
+          {
+            title: "Ship Velocity",
+            desc: "Feature Modules + Registry, Clean Architecture, Orval, monorepo pipelines",
+          },
+        ];
+
+const rows = principles.map((p, i) => ({
+  ...p,
+  body: about.paragraphs[i] ?? "",
+}));
+
+const roman = ["I", "II", "III", "IV"];
 ---
 
-<section id="about" class="py-24 border-t border-border">
+<section id="about" class="relative py-28 lg:py-36">
   <div class="container">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-      <div>
-        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{about.kicker}</p>
-        <h2 class="text-4xl sm:text-5xl font-bold tracking-tight mb-8">
-          {about.titleLeading}
-          <br />
-          <span class="text-gradient">{about.titleHighlighted}</span>{about.titleTrailing}
-        </h2>
+    <header class="grid grid-cols-12 gap-x-6 mb-16 lg:mb-20">
+      <div class="col-span-12 lg:col-span-3 font-mono text-[11px] text-muted-foreground tracking-[0.2em] uppercase flex items-center gap-3 mb-6 lg:mb-0">
+        <span class="text-foreground/40 tnum">§ 01</span>
+        <span class="hairline flex-1 max-w-[60px]"></span>
+        <span>{about.kicker.replace(/^\/\/\s*/, "")}</span>
       </div>
-      <div class="space-y-5 text-muted-foreground text-lg leading-relaxed">
-        {about.paragraphs.map((p) => <p>{p}</p>)}
-        <div class="grid grid-cols-2 gap-6 pt-6">
-          {about.stats.map((stat) => (
-            <div class="border-l-2 border-primary pl-4">
-              <p class="text-3xl font-bold text-foreground">{stat.value}</p>
-              <p class="text-sm text-muted-foreground font-mono">{stat.label}</p>
+      <h2 class="col-span-12 lg:col-span-9 text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1] tracking-[-0.02em]" data-reveal>
+        {about.titleLeading}{" "}
+        <span class="font-display italic text-foreground/80">{about.titleHighlighted}</span>{about.titleTrailing}
+      </h2>
+    </header>
+
+    <ol class="border-t border-border/60">
+      {rows.map((row, i) => (
+        <li
+          class="group grid grid-cols-12 gap-x-6 gap-y-4 py-10 lg:py-14 border-b border-border/60 transition-colors hover:bg-card/30"
+          data-reveal
+          style={`--reveal-delay: ${i * 100}ms`}
+        >
+          <div class="col-span-12 lg:col-span-1 flex lg:block items-baseline gap-3">
+            <span class="font-display italic text-3xl lg:text-4xl text-primary leading-none">{roman[i]}</span>
+            <span class="font-mono text-[10px] text-muted-foreground/70 tracking-[0.2em] lg:hidden">/ 0{i + 1}</span>
+          </div>
+
+          <div class:list={["lg:pr-8", row.body ? "col-span-12 lg:col-span-5" : "col-span-12 lg:col-span-11"]}>
+            <h3 class="font-display italic text-3xl lg:text-4xl leading-[1.05] text-foreground mb-3">
+              {row.title}
+            </h3>
+            <p class:list={["font-mono text-[11px] text-muted-foreground tracking-wider leading-relaxed", row.body ? "max-w-md" : "max-w-3xl"]}>
+              {row.desc}
+            </p>
+          </div>
+
+          {row.body && (
+            <div class="col-span-12 lg:col-span-6 lg:pl-8 lg:border-l lg:border-border/60">
+              <p class="text-base sm:text-lg text-foreground/75 leading-relaxed">{row.body}</p>
             </div>
-          ))}
-        </div>
+          )}
+        </li>
+      ))}
+    </ol>
+
+    <div class="mt-10 flex flex-wrap items-center justify-between gap-y-4 font-mono text-[11px] text-muted-foreground tracking-widest uppercase">
+      <span class="flex items-center gap-2">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+        IN PRACTICE
+      </span>
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-2 tnum">
+        {about.stats.map((s, i) => (
+          <span class="flex items-baseline gap-2">
+            <span class="text-foreground text-base font-medium">{s.value}</span>
+            <span class="text-muted-foreground/80">{s.label}</span>
+            {i < about.stats.length - 1 && <span class="text-foreground/20 ml-6">/</span>}
+          </span>
+        ))}
       </div>
     </div>
   </div>

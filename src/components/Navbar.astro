@@ -13,42 +13,53 @@ const brand = getBrand(lang);
 const sectionIds = links.map((l) => l.href.replace("#", ""));
 ---
 
-<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-transparent transition-colors duration-300">
-  <div class="container flex items-center justify-between h-16 gap-4">
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-transparent"
+>
+  <div class="container flex items-center justify-between h-14 gap-4">
     <a
       href={langHref(lang)}
       data-scroll-top
-      class="font-mono text-primary font-bold text-lg hover:scale-105 transition-transform shrink-0"
+      class="font-mono text-[13px] tracking-tight shrink-0 inline-flex items-center gap-2"
     >
-      {brand.prefix}<span class="text-foreground">{brand.suffix}</span>
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+      <span class="text-foreground">{brand.prefix}</span><span class="text-muted-foreground">{brand.suffix}</span>
     </a>
 
     <div class="hidden md:flex items-center gap-1" data-nav-desktop>
-      {links.map((l) => (
+      {links.map((l, i) => (
         <a
           href={l.href}
           data-nav-link={l.href.replace("#", "")}
-          class="relative px-4 py-2 text-sm font-mono rounded-md transition-colors duration-200 text-muted-foreground hover:text-foreground"
+          class="link-underline relative px-3 py-1.5 text-[13px] font-mono text-muted-foreground hover:text-foreground transition-colors"
         >
-          {l.label}
+          <span class="text-foreground/40 mr-1.5 tnum">{String(i + 1).padStart(2, "0")}</span>{l.label}
         </a>
       ))}
     </div>
 
-    <div class="flex items-center gap-2">
-      <div class="hidden sm:flex items-center gap-1 border border-border rounded-md p-0.5">
-        {LANGUAGES.map((l) => (
-          <a
-            href={langHref(l.code)}
-            class:list={[
-              "px-2.5 py-1 text-xs font-mono rounded transition-colors",
-              l.code === lang
-                ? "bg-primary text-primary-foreground"
-                : "text-muted-foreground hover:text-foreground",
-            ]}
-          >
-            {l.label}
-          </a>
+    <div class="flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-1.5 font-mono text-[11px] text-muted-foreground tnum">
+        <span class="inline-block w-1 h-1 rounded-full bg-primary blink"></span>
+        <span data-clock>—</span>
+        <span class="text-foreground/40">TASHKENT</span>
+      </div>
+
+      <div class="hidden sm:flex items-center font-mono text-[11px] tracking-wider">
+        {LANGUAGES.map((l, i) => (
+          <>
+            {i > 0 && <span class="text-foreground/20 mx-1.5">/</span>}
+            <a
+              href={langHref(l.code)}
+              class:list={[
+                "transition-colors",
+                l.code === lang ? "text-primary" : "text-muted-foreground hover:text-foreground",
+              ]}
+            >
+              {l.label}
+            </a>
+          </>
         ))}
       </div>
 
@@ -57,35 +68,34 @@ const sectionIds = links.map((l) => l.href.replace("#", ""));
         class="md:hidden text-foreground active:scale-90 transition-transform"
         aria-label="Toggle menu"
       >
-        <svg data-icon="menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-        <svg data-icon="close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <svg data-icon="menu" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="9" y2="9"/><line x1="4" x2="20" y1="15" y2="15"/></svg>
+        <svg data-icon="close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
   </div>
 
   <div id="nav-mobile" class="hidden md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-md">
-    {links.map((l) => (
+    {links.map((l, i) => (
       <a
         href={l.href}
         data-nav-link-mobile={l.href.replace("#", "")}
-        class="block px-6 py-3 text-sm font-mono border-b border-border transition-colors text-muted-foreground hover:text-foreground"
+        class="flex items-baseline gap-3 px-6 py-3 text-sm border-b border-border text-muted-foreground hover:text-foreground transition-colors"
       >
-        {l.label}
+        <span class="font-mono text-[11px] text-foreground/40 tnum">{String(i + 1).padStart(2, "0")}</span>
+        <span class="font-mono">{l.label}</span>
       </a>
     ))}
-    <div class="flex items-center justify-center gap-2 px-6 py-3 sm:hidden">
-      {LANGUAGES.map((l) => (
-        <a
-          href={langHref(l.code)}
-          class:list={[
-            "px-3 py-1.5 text-xs font-mono rounded border transition-colors",
-            l.code === lang
-              ? "bg-primary text-primary-foreground border-primary"
-              : "border-border text-muted-foreground hover:text-foreground",
-          ]}
-        >
-          {l.label}
-        </a>
+    <div class="flex items-center justify-center gap-2 px-6 py-3 sm:hidden font-mono text-[11px]">
+      {LANGUAGES.map((l, i) => (
+        <>
+          {i > 0 && <span class="text-foreground/20">/</span>}
+          <a
+            href={langHref(l.code)}
+            class:list={[l.code === lang ? "text-primary" : "text-muted-foreground"]}
+          >
+            {l.label}
+          </a>
+        </>
       ))}
     </div>
   </div>
@@ -99,32 +109,33 @@ const sectionIds = links.map((l) => l.href.replace("#", ""));
   const iconClose = toggle.querySelector('[data-icon="close"]');
   const desktopLinks = document.querySelectorAll("[data-nav-link]");
   const mobileLinks = document.querySelectorAll("[data-nav-link-mobile]");
+  const clock = document.querySelector("[data-clock]");
 
   const setActive = (id) => {
     desktopLinks.forEach((a) => {
       const match = a.dataset.navLink === id;
-      a.classList.toggle("text-primary", match);
-      a.classList.toggle("bg-primary/10", match);
+      a.setAttribute("aria-current", match ? "true" : "false");
+      a.classList.toggle("text-foreground", match);
       a.classList.toggle("text-muted-foreground", !match);
     });
     mobileLinks.forEach((a) => {
       const match = a.dataset.navLinkMobile === id;
       a.classList.toggle("text-primary", match);
-      a.classList.toggle("bg-primary/5", match);
       a.classList.toggle("text-muted-foreground", !match);
     });
   };
 
   const onScroll = () => {
-    const scrolled = window.scrollY > 20;
-    navbar.classList.toggle("bg-background/90", scrolled);
-    navbar.classList.toggle("border-border", scrolled);
+    const scrolled = window.scrollY > 16;
+    navbar.classList.toggle("bg-background/75", scrolled);
+    navbar.classList.toggle("backdrop-blur-xl", scrolled);
+    navbar.classList.toggle("border-border/60", scrolled);
     navbar.classList.toggle("border-transparent", !scrolled);
 
     let active = "";
     for (let i = sectionIds.length - 1; i >= 0; i--) {
       const el = document.getElementById(sectionIds[i]);
-      if (el && el.getBoundingClientRect().top <= 120) {
+      if (el && el.getBoundingClientRect().top <= 140) {
         active = sectionIds[i];
         break;
       }
@@ -163,6 +174,20 @@ const sectionIds = links.map((l) => l.href.replace("#", ""));
       });
     }
   });
+
+  const tickClock = () => {
+    if (!clock) return;
+    const now = new Date();
+    const t = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Tashkent",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    }).format(now);
+    clock.textContent = t;
+  };
+  tickClock();
+  setInterval(tickClock, 30000);
 
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();

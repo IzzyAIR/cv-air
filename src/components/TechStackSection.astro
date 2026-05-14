@@ -8,27 +8,55 @@ interface Props {
 
 const { lang } = Astro.props;
 const data = getTechStack(lang);
+const allItems = data.categories.flatMap((c) => c.items);
+const marquee = [...allItems, ...allItems];
 ---
 
-<section id="stack" class="py-24 relative">
-  <div class="container">
-    <div class="mb-16">
-      <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.kicker}</p>
-      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">{data.title}</h2>
+<section id="stack" class="relative py-28 lg:py-36 border-t border-border/60">
+  <div class="marquee relative -mx-[2rem] mb-20 overflow-hidden border-y border-border/60 bg-card/30 py-4">
+    <div class="marquee-track flex w-max gap-10 whitespace-nowrap font-display text-4xl sm:text-5xl text-foreground/35 italic">
+      {marquee.map((it, i) => (
+        <span class="flex items-center gap-10">
+          <span>{it}</span>
+          {i % 3 === 0 && <span class="text-primary not-italic font-sans text-2xl">✦</span>}
+        </span>
+      ))}
     </div>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {data.categories.map((cat) => (
-        <div class="group p-6 rounded-xl bg-card border border-border hover:border-glow transition-colors duration-300">
-          <h3 class="font-mono text-primary text-xs uppercase tracking-widest mb-5">{cat.title}</h3>
-          <div class="flex flex-wrap gap-2">
-            {cat.items.map((item) => (
-              <span class="px-3 py-1.5 text-sm font-medium rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
-                {item}
-              </span>
-            ))}
+  <div class="container">
+    <header class="grid grid-cols-12 gap-x-6 mb-16">
+      <div class="col-span-12 lg:col-span-3 font-mono text-[11px] text-muted-foreground tracking-[0.2em] uppercase flex items-center gap-3 mb-6 lg:mb-0">
+        <span class="text-foreground/40 tnum">§ 02</span>
+        <span class="hairline flex-1 max-w-[60px]"></span>
+        <span>{data.kicker.replace(/^\/\/\s*/, "")}</span>
+      </div>
+      <h2 class="col-span-12 lg:col-span-9 text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1] tracking-[-0.02em]" data-reveal>
+        <span class="font-display italic text-foreground/80">{data.title.split(" ")[0]}</span>
+        {" "}{data.title.split(" ").slice(1).join(" ")}
+      </h2>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border/60 border border-border/60 rounded-sm overflow-hidden">
+      {data.categories.map((cat, i) => (
+        <article
+          class="group relative bg-background p-6 lg:p-7 transition-colors duration-300 hover:bg-card"
+          data-reveal
+          style={`--reveal-delay: ${(i % 3) * 80}ms`}
+        >
+          <div class="flex items-baseline justify-between mb-5">
+            <h3 class="font-mono text-[10px] tracking-[0.22em] uppercase text-primary">{cat.title}</h3>
+            <span class="font-mono text-[10px] text-muted-foreground/60 tnum">{String(i + 1).padStart(2, "0")}</span>
           </div>
-        </div>
+          <ul class="flex flex-wrap gap-1.5">
+            {cat.items.map((item) => (
+              <li class="px-2.5 py-1 text-xs font-mono rounded-full border border-border bg-card/60 text-foreground/85 transition-all duration-200 group-hover:border-border/80 hover:!border-primary hover:!text-primary hover:!bg-primary/5 cursor-default">
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div class="absolute top-3 right-3 w-2 h-2 border-t border-r border-transparent group-hover:border-primary transition-colors"></div>
+        </article>
       ))}
     </div>
   </div>

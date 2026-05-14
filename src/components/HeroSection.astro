@@ -9,51 +9,132 @@ interface Props {
 
 const { lang } = Astro.props;
 const hero = getHero(lang);
+const availLabel = lang === "ru" ? "ДОСТУПЕН ДЛЯ НАЙМА" : lang === "uz" ? "ISHGA TAYYOR" : "AVAILABLE FOR HIRE";
+const scrollLabel = lang === "ru" ? "ПРОКРУТИТЬ" : lang === "uz" ? "AYLANTIRISH" : "SCROLL";
 ---
 
-<section class="relative min-h-screen flex items-center bg-grid overflow-hidden">
-  <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/10 blur-[120px]"></div>
-  <div class="absolute bottom-1/4 right-0 w-64 h-64 rounded-full bg-primary/5 blur-[100px]"></div>
+<section class="relative min-h-screen flex items-end overflow-hidden pt-28 pb-24 sm:pb-28" id="top">
+  <div class="absolute inset-0 bg-grid opacity-60"></div>
 
-  <div class="container relative z-10 py-20">
-    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-      <div class="max-w-3xl">
-        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-6 animate-fade-in" style="animation-delay: 0.1s;">
-          {hero.tagline}
-        </p>
-        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
-          {hero.firstName}
-          <br />
-          <span class="text-gradient">{hero.lastName}</span>
+  <div class="absolute top-32 -left-40 w-[28rem] h-[28rem] rounded-full bg-primary/10 blur-[140px] pointer-events-none"></div>
+  <div class="absolute bottom-0 right-0 w-[20rem] h-[20rem] rounded-full bg-accent/10 blur-[120px] pointer-events-none"></div>
+
+  <div
+    id="cursor-blob"
+    aria-hidden="true"
+    class="absolute pointer-events-none w-[44rem] h-[44rem] rounded-full opacity-0 transition-opacity duration-500 hidden lg:block"
+    style="background: radial-gradient(circle at center, hsl(var(--primary) / 0.5), hsl(var(--primary) / 0.1) 35%, transparent 65%); mix-blend-mode: screen; filter: blur(60px); will-change: transform, opacity; left: -22rem; top: -22rem;"
+  ></div>
+
+  <div class="container relative z-10 w-full">
+    <div class="grid grid-cols-12 gap-x-6 gap-y-10 items-end">
+      <div class="col-span-12 lg:col-span-8 xl:col-span-9">
+        <div class="flex items-center gap-3 mb-8 font-mono text-[11px] tracking-[0.18em] text-muted-foreground" data-reveal>
+          <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-border bg-card/40">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary pulse-dot"></span>
+            <span class="text-foreground/90">{availLabel}</span>
+          </span>
+          <span class="hidden sm:inline-block flex-1 max-w-[200px] hairline"></span>
+          <span class="hidden sm:inline text-foreground/50 tnum">2019 → 2026</span>
+        </div>
+
+        <h1
+          class="font-display text-[18vw] sm:text-[14vw] lg:text-[11.5vw] xl:text-[10rem] leading-[0.88] tracking-[-0.03em] mb-8"
+          data-reveal
+          style="--reveal-delay: 100ms"
+        >
+          <span class="block font-sans font-medium not-italic">{hero.firstName}</span>
+          <span class="block italic text-foreground/85">{hero.lastName}<span class="text-primary">.</span></span>
         </h1>
-        <p class="text-lg sm:text-xl text-muted-foreground max-w-xl mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">
-          {hero.summary}
-        </p>
-        <p class="text-sm text-muted-foreground font-mono mb-10 animate-fade-in-up" style="animation-delay: 0.45s;">
-          {hero.meta}
-        </p>
-        <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.6s;">
+
+        <div class="max-w-2xl space-y-4 mb-10" data-reveal style="--reveal-delay: 280ms">
+          <p class="text-lg sm:text-xl text-foreground/80 leading-relaxed">
+            {hero.summary}
+          </p>
+          <p class="font-mono text-xs text-muted-foreground tracking-wide">
+            {hero.meta}
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3" data-reveal style="--reveal-delay: 420ms">
           {hero.ctas.map((cta) => (
             <a
               href={cta.href}
+              data-magnetic
               class:list={[
-                "inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-colors",
+                "hover-magnetic group inline-flex items-center gap-3 px-6 py-3.5 rounded-full text-sm font-medium",
                 cta.variant === "primary"
-                  ? "bg-primary text-primary-foreground hover:opacity-90"
-                  : "border border-glow text-foreground hover:bg-secondary",
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "border border-border text-foreground hover:border-foreground/40 hover:bg-card/50",
               ]}
             >
               {cta.label}
+              <svg class="transition-transform group-hover:translate-x-0.5" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           ))}
         </div>
       </div>
 
-      <div class="shrink-0 animate-fade-in" style="animation-delay: 0.5s;">
-        <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-glow shadow-[0_0_40px_hsl(175_80%_50%/0.15)]">
-          <img src={profilePhoto.src} alt={hero.photoAlt} width={profilePhoto.width} height={profilePhoto.height} class="w-full h-full object-cover" />
-        </div>
-      </div>
+      <aside class="col-span-12 lg:col-span-4 xl:col-span-3 lg:pl-6" data-reveal style="--reveal-delay: 540ms">
+        <figure class="relative group max-w-[280px] mx-auto lg:ml-auto lg:mr-0 pt-6">
+          <div class="absolute top-0 left-0 right-0 flex items-center justify-between font-mono text-[10px] text-muted-foreground tracking-[0.2em]">
+            <span>— 01</span>
+            <span class="text-foreground/40">PORTRAIT</span>
+          </div>
+          <div class="absolute top-5 -right-1 w-3 h-3 border-t border-r border-primary"></div>
+          <div class="absolute -bottom-1 -left-1 w-3 h-3 border-b border-l border-primary"></div>
+
+          <div class="aspect-[3/4] w-full overflow-hidden rounded-sm bg-card border border-border">
+            <img
+              src={profilePhoto.src}
+              alt={hero.photoAlt}
+              width={profilePhoto.width}
+              height={profilePhoto.height}
+              class="w-full h-full object-cover grayscale-[0.15] saturate-[0.9] ken-burns"
+            />
+          </div>
+
+          <figcaption class="mt-4 font-mono text-[10px] text-muted-foreground tracking-wider flex items-center justify-between">
+            <span>{hero.photoAlt.toUpperCase()}</span>
+            <span class="text-foreground/40">F/1.4 · 50MM</span>
+          </figcaption>
+        </figure>
+      </aside>
     </div>
   </div>
+
+  <div class="absolute bottom-6 left-0 right-0 z-10 flex items-center justify-between font-mono text-[10px] tracking-[0.2em] text-muted-foreground px-6 sm:px-8 pointer-events-none">
+    <span class="flex items-center gap-2">
+      <span class="inline-block w-8 h-px bg-muted-foreground/50"></span>
+      {scrollLabel}
+    </span>
+    <span class="tnum">{hero.tagline}</span>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const blob = document.getElementById("cursor-blob");
+      const sec = document.getElementById("top");
+      if (!blob || !sec || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      let tx = 0, ty = 0, x = 0, y = 0, raf = 0;
+      const loop = () => {
+        x += (tx - x) * 0.12;
+        y += (ty - y) * 0.12;
+        blob.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        raf = requestAnimationFrame(loop);
+      };
+      sec.addEventListener("mouseenter", () => {
+        blob.style.opacity = "1";
+        if (!raf) raf = requestAnimationFrame(loop);
+      });
+      sec.addEventListener("mouseleave", () => {
+        blob.style.opacity = "0";
+      });
+      sec.addEventListener("mousemove", (e) => {
+        const r = sec.getBoundingClientRect();
+        tx = e.clientX - r.left;
+        ty = e.clientY - r.top;
+      });
+    })();
+  </script>
 </section>

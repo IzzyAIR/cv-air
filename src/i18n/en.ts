@@ -67,9 +67,9 @@ export const en: CvContent = {
   },
   about: {
     kicker: "// about me",
-    titleLeading: "Passionate about",
-    titleHighlighted: "pixel-perfect",
-    titleTrailing: " UI",
+    titleLeading: "Engineering, refined by",
+    titleHighlighted: "AIDD",
+    titleTrailing: ".",
     paragraphs: [
       "Senior FullStack developer with 6+ years of experience building high-load and modern web applications. Strong on the frontend across React, Next.js, Vue 3, Angular, Svelte and Astro — and equally comfortable on the backend with Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB.",
       "I thrive where design meets engineering — turning complex requirements into elegant, user-friendly products. Currently at Uzcloud building systems on the Frappe framework, after leading fullstack work at UZINFOCOM on state-level platforms with high security, stability and scalability demands.",

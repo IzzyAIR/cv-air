@@ -10,44 +10,129 @@ const { lang } = Astro.props;
 const data = getExperience(lang);
 ---
 
-<section id="experience" class="py-24 border-t border-border">
+<section id="experience" class="relative py-28 lg:py-36 border-t border-border/60">
   <div class="container">
-    <div class="mb-16">
-      <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.kicker}</p>
-      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">{data.title}</h2>
-    </div>
+    <header class="grid grid-cols-12 gap-x-6 mb-16">
+      <div class="col-span-12 lg:col-span-3 font-mono text-[11px] text-muted-foreground tracking-[0.2em] uppercase flex items-center gap-3 mb-6 lg:mb-0">
+        <span class="text-foreground/40 tnum">§ 03</span>
+        <span class="hairline flex-1 max-w-[60px]"></span>
+        <span>{data.kicker.replace(/^\/\/\s*/, "")}</span>
+      </div>
+      <h2 class="col-span-12 lg:col-span-9 text-4xl sm:text-5xl lg:text-6xl font-medium leading-[1] tracking-[-0.02em]" data-reveal>
+        <span class="font-display italic text-foreground/80">{data.title.split(" ")[0]}</span>
+        {" "}{data.title.split(" ").slice(1).join(" ")}
+      </h2>
+    </header>
 
-    <div class="space-y-0">
-      {data.items.map((exp) => (
-        <div class="group grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-4 lg:gap-10 py-10 border-b border-border last:border-b-0 hover:bg-card/50 -mx-6 px-6 rounded-lg transition-colors">
-          <div>
-            <p class="font-mono text-sm text-muted-foreground whitespace-nowrap">{exp.period}</p>
-            {exp.location && (
-              <p class="font-mono text-xs text-muted-foreground/60 mt-1">📍 {exp.location}</p>
-            )}
-          </div>
-          <div>
-            <h3 class="text-xl font-semibold mb-1">{exp.role}</h3>
-            <p class="text-primary font-mono text-sm mb-3">{exp.company}</p>
-            <p class="text-muted-foreground mb-3">{exp.description}</p>
-            {exp.highlights && (
-              <ul class="text-muted-foreground text-sm space-y-1 mb-4 list-none">
-                {exp.highlights.map((h) => (
-                  <li class="flex gap-2">
-                    <span class="text-primary shrink-0">→</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-            <div class="flex flex-wrap gap-2">
-              {exp.stack.map((tech) => (
-                <span class="px-2.5 py-1 text-xs font-mono rounded bg-secondary text-secondary-foreground">{tech}</span>
-              ))}
+    <ol class="relative">
+      {data.items.map((exp, i) => {
+        const yearMatch = exp.period.match(/(\d{4})/g);
+        const year = yearMatch ? yearMatch[yearMatch.length - 1] : "";
+        const open = i === 0;
+        return (
+          <li
+            class="group relative grid grid-cols-12 gap-x-6 gap-y-3 py-10 lg:py-12 border-t border-border/60 first:border-t-0"
+            data-exp
+            data-reveal
+          >
+            <div class="col-span-12 lg:col-span-3">
+              <div class="lg:sticky lg:top-28 flex lg:flex-col items-baseline lg:items-start gap-3 lg:gap-1">
+                <div class="font-display italic text-5xl lg:text-6xl leading-none text-foreground/85 tnum">{year}</div>
+                <div class="font-mono text-[11px] text-muted-foreground tracking-wider">{exp.period}</div>
+                {exp.location && (
+                  <div class="hidden lg:block font-mono text-[10px] text-muted-foreground/70 tracking-wider mt-2">↳ {exp.location}</div>
+                )}
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
-    </div>
+
+            <div class="col-span-12 lg:col-span-9 lg:pl-8 lg:border-l lg:border-border/60">
+              <div class="flex flex-wrap items-baseline justify-between gap-2 mb-3">
+                <div>
+                  <h3 class="text-2xl sm:text-3xl font-medium tracking-tight leading-tight">
+                    {exp.role}
+                    <span class="text-foreground/40 font-display italic font-normal"> @ </span>
+                    <span class="font-display italic text-primary">{exp.company}</span>
+                  </h3>
+                </div>
+                {exp.highlights && exp.highlights.length > 0 && (
+                  <button
+                    type="button"
+                    data-exp-toggle
+                    aria-expanded={open ? "true" : "false"}
+                    class="shrink-0 group/btn inline-flex items-center gap-2 pl-3 pr-1.5 py-1.5 rounded-full border border-border bg-card/40 hover:border-primary/60 hover:text-foreground transition-colors font-mono text-[11px] tracking-widest uppercase text-foreground/80 [&[aria-expanded=true]]:border-primary [&[aria-expanded=true]]:bg-primary/10 [&[aria-expanded=true]]:text-foreground"
+                  >
+                    <span class="hidden sm:inline">{open ? "Hide" : "Details"}</span>
+                    <span class="px-1.5 py-0.5 rounded-full bg-border/60 text-foreground/80 text-[10px] tnum group-hover/btn:bg-primary/20 [.group\/btn[aria-expanded=true]_&]:bg-primary/30">{exp.highlights.length}</span>
+                    <span
+                      data-exp-label
+                      class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-foreground text-base font-bold leading-none"
+                    >
+                      {open ? "−" : "+"}
+                    </span>
+                  </button>
+                )}
+              </div>
+
+              <p class="text-foreground/70 leading-relaxed max-w-3xl mb-5">{exp.description}</p>
+
+              {exp.highlights && (
+                <ul
+                  data-exp-body
+                  class="grid gap-2.5 mb-5 transition-all duration-500 overflow-hidden"
+                  style={open ? "" : "max-height: 0; opacity: 0; margin-bottom: 0;"}
+                >
+                  {exp.highlights.map((h) => (
+                    <li class="flex gap-3 text-foreground/75 text-sm leading-relaxed">
+                      <span class="text-primary shrink-0 mt-1.5 inline-block w-3 h-px bg-primary"></span>
+                      <span>{h}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <div class="flex flex-wrap gap-1.5">
+                {exp.stack.map((tech) => (
+                  <span class="px-2 py-0.5 text-[10px] font-mono rounded-full border border-border/80 text-muted-foreground/85 hover:text-foreground hover:border-foreground/40 transition-colors">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ol>
   </div>
+
+  <script is:inline>
+    document.querySelectorAll("[data-exp]").forEach((row) => {
+      const btn = row.querySelector("[data-exp-toggle]");
+      const body = row.querySelector("[data-exp-body]");
+      const label = row.querySelector("[data-exp-label]");
+      if (!btn || !body) return;
+      btn.addEventListener("click", () => {
+        const open = btn.getAttribute("aria-expanded") === "true";
+        const next = !open;
+        btn.setAttribute("aria-expanded", String(next));
+        if (label) label.textContent = next ? "−" : "+";
+        if (next) {
+          body.style.maxHeight = body.scrollHeight + "px";
+          body.style.opacity = "1";
+          body.style.marginBottom = "1.25rem";
+        } else {
+          body.style.maxHeight = body.scrollHeight + "px";
+          requestAnimationFrame(() => {
+            body.style.maxHeight = "0px";
+            body.style.opacity = "0";
+            body.style.marginBottom = "0";
+          });
+        }
+      });
+      // Sync open rows on load
+      if (btn.getAttribute("aria-expanded") === "true") {
+        body.style.maxHeight = body.scrollHeight + "px";
+        body.style.opacity = "1";
+      }
+    });
+  </script>
 </section>

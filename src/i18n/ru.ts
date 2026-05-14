@@ -67,9 +67,9 @@ export const ru: CvContent = {
   },
   about: {
     kicker: "// обо мне",
-    titleLeading: "Увлечён",
-    titleHighlighted: "pixel-perfect",
-    titleTrailing: " интерфейсами",
+    titleLeading: "Инженерия, усиленная",
+    titleHighlighted: "AIDD",
+    titleTrailing: ".",
     paragraphs: [
       "Senior FullStack-разработчик с опытом более 6 лет в создании high-load и современных веб-приложений. Уверенно работаю во фронтенде — React, Next.js, Vue 3, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, MongoDB.",
       "Мне интересно там, где дизайн встречается с инженерией — превращаю сложные требования в элегантные, удобные продукты. Сейчас в Uzcloud строю системы на Frappe; до этого вёл fullstack-разработку в UZINFOCOM на государственных платформах с жёсткими требованиями к безопасности, стабильности и масштабируемости.",

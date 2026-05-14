@@ -8,36 +8,74 @@ interface Props {
 
 const { lang } = Astro.props;
 const data = getEducation(lang);
+
+const levelToPct = (level: string): number => {
+  const m = level.match(/[ABC][12]/);
+  if (!m) return 0;
+  const map: Record<string, number> = { A1: 0.15, A2: 0.3, B1: 0.5, B2: 0.7, C1: 0.88, C2: 1 };
+  return map[m[0]] ?? 0;
+};
 ---
 
-<section id="education" class="py-24 border-t border-border">
+<section id="education" class="relative py-28 lg:py-36 border-t border-border/60">
   <div class="container">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-      <div>
-        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.educationKicker}</p>
-        <h2 class="text-4xl font-bold tracking-tight mb-10">{data.educationTitle}</h2>
+    <div class="grid grid-cols-12 gap-x-6 gap-y-16">
+      <div class="col-span-12 lg:col-span-6 lg:pr-8 lg:border-r lg:border-border/60">
+        <header class="mb-12">
+          <div class="font-mono text-[11px] text-muted-foreground tracking-[0.2em] uppercase flex items-center gap-3 mb-6">
+            <span class="text-foreground/40 tnum">§ 04</span>
+            <span class="hairline flex-1 max-w-[60px]"></span>
+            <span>{data.educationKicker.replace(/^\/\/\s*/, "")}</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-medium tracking-[-0.02em]" data-reveal>
+            <span class="font-display italic text-foreground/80">{data.educationTitle}</span>
+          </h2>
+        </header>
+
         <div class="space-y-8">
-          {data.education.map((edu) => (
-            <div class="border-l-2 border-border pl-6 hover:border-primary transition-colors">
-              <p class="font-mono text-xs text-muted-foreground mb-1">{edu.period}</p>
-              <h3 class="text-lg font-semibold mb-1">{edu.school}</h3>
-              <p class="text-muted-foreground text-sm">{edu.degree}</p>
-            </div>
+          {data.education.map((edu, i) => (
+            <article class="grid grid-cols-[auto_1fr] gap-x-5" data-reveal style={`--reveal-delay: ${i * 100}ms`}>
+              <div class="font-mono text-[10px] text-muted-foreground/80 tracking-wider tnum pt-2">
+                {edu.period.split(" — ").map((p) => <div>{p}</div>)}
+              </div>
+              <div class="border-l border-border pl-5 -ml-1">
+                <h3 class="text-lg font-medium leading-tight mb-1.5">{edu.school}</h3>
+                <p class="text-sm text-foreground/65 font-mono">{edu.degree}</p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
 
-      <div>
-        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.languagesKicker}</p>
-        <h2 class="text-4xl font-bold tracking-tight mb-10">{data.languagesTitle}</h2>
-        <div class="space-y-4">
-          {data.languages.map((item) => (
-            <div class="flex items-center justify-between p-4 rounded-lg bg-card border border-border">
-              <span class="font-semibold">{item.name}</span>
-              <span class="font-mono text-sm text-muted-foreground">{item.level}</span>
-            </div>
-          ))}
-        </div>
+      <div class="col-span-12 lg:col-span-6 lg:pl-2">
+        <header class="mb-12">
+          <div class="font-mono text-[11px] text-muted-foreground tracking-[0.2em] uppercase flex items-center gap-3 mb-6">
+            <span class="text-foreground/40 tnum">§ 05</span>
+            <span class="hairline flex-1 max-w-[60px]"></span>
+            <span>{data.languagesKicker.replace(/^\/\/\s*/, "")}</span>
+          </div>
+          <h2 class="text-4xl sm:text-5xl font-medium tracking-[-0.02em]" data-reveal>
+            <span class="font-display italic text-foreground/80">{data.languagesTitle}</span>
+          </h2>
+        </header>
+
+        <ul class="space-y-6">
+          {data.languages.map((item, i) => {
+            const pct = Math.round(levelToPct(item.level) * 100);
+            return (
+              <li data-reveal style={`--reveal-delay: ${i * 90}ms`}>
+                <div class="flex items-baseline justify-between mb-2.5">
+                  <span class="text-lg font-medium">{item.name}</span>
+                  <span class="font-mono text-[11px] text-muted-foreground tracking-wider tnum">{item.level}</span>
+                </div>
+                <div class="relative h-px bg-border">
+                  <div class="absolute inset-y-0 left-0 bg-primary" style={`width: ${pct}%; height: 1px;`}></div>
+                  <div class="absolute -top-[3px] bg-primary w-[7px] h-[7px] rounded-full" style={`left: calc(${pct}% - 4px);`}></div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   </div>

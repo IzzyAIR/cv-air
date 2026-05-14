@@ -67,9 +67,9 @@ export const uz: CvContent = {
   },
   about: {
     kicker: "// men haqimda",
-    titleLeading: "Mukammal",
-    titleHighlighted: "pixel-perfect",
-    titleTrailing: " UI’ga ishqibozman",
+    titleLeading: "Muhandislik,",
+    titleHighlighted: "AIDD",
+    titleTrailing: " bilan kuchaytirilgan.",
     paragraphs: [
       "Yuqori yuklamali va zamonaviy veb-ilovalar yaratish boʻyicha 6+ yillik tajribaga ega Senior FullStack dasturchi. Frontendda React, Next.js, Vue 3, Angular, Svelte va Astro bilan; backendda Node.js, NestJS, Express, GraphQL, REST, PostgreSQL va MongoDB bilan ishlayman.",
       "Dizayn va muhandislik birlashgan joyda oʻzimni topaman — murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Hozir Uzcloud’da Frappe asosida tizimlar quryapman; oldin UZINFOCOM’da xavfsizlik, barqarorlik va kengaytiriluvchanlik talablari yuqori boʻlgan davlat darajasidagi platformalar boʻyicha fullstack ishni boshqarganman.",
