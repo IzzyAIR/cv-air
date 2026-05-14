@@ -1,0 +1,59 @@
+---
+import profilePhoto from "../assets/profile-photo.jpg";
+import { getHero } from "../services";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const hero = getHero(lang);
+---
+
+<section class="relative min-h-screen flex items-center bg-grid overflow-hidden">
+  <div class="absolute top-1/4 -left-32 w-96 h-96 rounded-full bg-primary/10 blur-[120px]"></div>
+  <div class="absolute bottom-1/4 right-0 w-64 h-64 rounded-full bg-primary/5 blur-[100px]"></div>
+
+  <div class="container relative z-10 py-20">
+    <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+      <div class="max-w-3xl">
+        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-6 animate-fade-in" style="animation-delay: 0.1s;">
+          {hero.tagline}
+        </p>
+        <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+          {hero.firstName}
+          <br />
+          <span class="text-gradient">{hero.lastName}</span>
+        </h1>
+        <p class="text-lg sm:text-xl text-muted-foreground max-w-xl mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+          {hero.summary}
+        </p>
+        <p class="text-sm text-muted-foreground font-mono mb-10 animate-fade-in-up" style="animation-delay: 0.45s;">
+          {hero.meta}
+        </p>
+        <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.6s;">
+          {hero.ctas.map((cta) => (
+            <a
+              href={cta.href}
+              class:list={[
+                "inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-colors",
+                cta.variant === "primary"
+                  ? "bg-primary text-primary-foreground hover:opacity-90"
+                  : "border border-glow text-foreground hover:bg-secondary",
+              ]}
+            >
+              {cta.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="shrink-0 animate-fade-in" style="animation-delay: 0.5s;">
+        <div class="w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden border-2 border-glow shadow-[0_0_40px_hsl(175_80%_50%/0.15)]">
+          <img src={profilePhoto.src} alt={hero.photoAlt} width={profilePhoto.width} height={profilePhoto.height} class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

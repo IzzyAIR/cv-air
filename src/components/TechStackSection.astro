@@ -1,0 +1,35 @@
+---
+import { getTechStack } from "../services";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const data = getTechStack(lang);
+---
+
+<section id="stack" class="py-24 relative">
+  <div class="container">
+    <div class="mb-16">
+      <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.kicker}</p>
+      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight">{data.title}</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {data.categories.map((cat) => (
+        <div class="group p-6 rounded-xl bg-card border border-border hover:border-glow transition-colors duration-300">
+          <h3 class="font-mono text-primary text-xs uppercase tracking-widest mb-5">{cat.title}</h3>
+          <div class="flex flex-wrap gap-2">
+            {cat.items.map((item) => (
+              <span class="px-3 py-1.5 text-sm font-medium rounded-md bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-colors cursor-default">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

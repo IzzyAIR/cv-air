@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "./Navbar.astro";
+import HeroSection from "./HeroSection.astro";
+import AboutSection from "./AboutSection.astro";
+import TechStackSection from "./TechStackSection.astro";
+import ExperienceSection from "./ExperienceSection.astro";
+import EducationSection from "./EducationSection.astro";
+import ContactSection from "./ContactSection.astro";
+import { getSiteMeta } from "../services";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const meta = getSiteMeta(lang);
+---
+
+<BaseLayout lang={lang}>
+  <div class="min-h-screen bg-background">
+    <Navbar lang={lang} />
+    <HeroSection lang={lang} />
+    <AboutSection lang={lang} />
+    <TechStackSection lang={lang} />
+    <ExperienceSection lang={lang} />
+    <EducationSection lang={lang} />
+    <ContactSection lang={lang} />
+    <footer class="py-8 border-t border-border">
+      <div class="container text-center">
+        <p class="font-mono text-sm text-muted-foreground">{meta.footerText}</p>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>

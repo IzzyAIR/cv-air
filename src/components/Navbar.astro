@@ -1,0 +1,169 @@
+---
+import { getNavLinks, getBrand } from "../services";
+import { LANGUAGES, langHref } from "../i18n";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const links = getNavLinks(lang);
+const brand = getBrand(lang);
+const sectionIds = links.map((l) => l.href.replace("#", ""));
+---
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-transparent transition-colors duration-300">
+  <div class="container flex items-center justify-between h-16 gap-4">
+    <a
+      href={langHref(lang)}
+      data-scroll-top
+      class="font-mono text-primary font-bold text-lg hover:scale-105 transition-transform shrink-0"
+    >
+      {brand.prefix}<span class="text-foreground">{brand.suffix}</span>
+    </a>
+
+    <div class="hidden md:flex items-center gap-1" data-nav-desktop>
+      {links.map((l) => (
+        <a
+          href={l.href}
+          data-nav-link={l.href.replace("#", "")}
+          class="relative px-4 py-2 text-sm font-mono rounded-md transition-colors duration-200 text-muted-foreground hover:text-foreground"
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+
+    <div class="flex items-center gap-2">
+      <div class="hidden sm:flex items-center gap-1 border border-border rounded-md p-0.5">
+        {LANGUAGES.map((l) => (
+          <a
+            href={langHref(l.code)}
+            class:list={[
+              "px-2.5 py-1 text-xs font-mono rounded transition-colors",
+              l.code === lang
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground",
+            ]}
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+
+      <button
+        id="nav-toggle"
+        class="md:hidden text-foreground active:scale-90 transition-transform"
+        aria-label="Toggle menu"
+      >
+        <svg data-icon="menu" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg data-icon="close" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="nav-mobile" class="hidden md:hidden overflow-hidden border-t border-border bg-background/95 backdrop-blur-md">
+    {links.map((l) => (
+      <a
+        href={l.href}
+        data-nav-link-mobile={l.href.replace("#", "")}
+        class="block px-6 py-3 text-sm font-mono border-b border-border transition-colors text-muted-foreground hover:text-foreground"
+      >
+        {l.label}
+      </a>
+    ))}
+    <div class="flex items-center justify-center gap-2 px-6 py-3 sm:hidden">
+      {LANGUAGES.map((l) => (
+        <a
+          href={langHref(l.code)}
+          class:list={[
+            "px-3 py-1.5 text-xs font-mono rounded border transition-colors",
+            l.code === lang
+              ? "bg-primary text-primary-foreground border-primary"
+              : "border-border text-muted-foreground hover:text-foreground",
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script is:inline define:vars={{ sectionIds }}>
+  const navbar = document.getElementById("navbar");
+  const toggle = document.getElementById("nav-toggle");
+  const mobile = document.getElementById("nav-mobile");
+  const iconMenu = toggle.querySelector('[data-icon="menu"]');
+  const iconClose = toggle.querySelector('[data-icon="close"]');
+  const desktopLinks = document.querySelectorAll("[data-nav-link]");
+  const mobileLinks = document.querySelectorAll("[data-nav-link-mobile]");
+
+  const setActive = (id) => {
+    desktopLinks.forEach((a) => {
+      const match = a.dataset.navLink === id;
+      a.classList.toggle("text-primary", match);
+      a.classList.toggle("bg-primary/10", match);
+      a.classList.toggle("text-muted-foreground", !match);
+    });
+    mobileLinks.forEach((a) => {
+      const match = a.dataset.navLinkMobile === id;
+      a.classList.toggle("text-primary", match);
+      a.classList.toggle("bg-primary/5", match);
+      a.classList.toggle("text-muted-foreground", !match);
+    });
+  };
+
+  const onScroll = () => {
+    const scrolled = window.scrollY > 20;
+    navbar.classList.toggle("bg-background/90", scrolled);
+    navbar.classList.toggle("border-border", scrolled);
+    navbar.classList.toggle("border-transparent", !scrolled);
+
+    let active = "";
+    for (let i = sectionIds.length - 1; i >= 0; i--) {
+      const el = document.getElementById(sectionIds[i]);
+      if (el && el.getBoundingClientRect().top <= 120) {
+        active = sectionIds[i];
+        break;
+      }
+    }
+    setActive(active);
+  };
+
+  const closeMobile = () => {
+    mobile.classList.add("hidden");
+    iconMenu.classList.remove("hidden");
+    iconClose.classList.add("hidden");
+  };
+
+  toggle.addEventListener("click", () => {
+    const isHidden = mobile.classList.contains("hidden");
+    mobile.classList.toggle("hidden");
+    iconMenu.classList.toggle("hidden", isHidden);
+    iconClose.classList.toggle("hidden", !isHidden);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    if (a.hasAttribute("data-scroll-top")) {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        closeMobile();
+      });
+      return;
+    }
+    if (a.dataset.navLink || a.dataset.navLinkMobile) {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        const id = a.dataset.navLink || a.dataset.navLinkMobile;
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+        closeMobile();
+      });
+    }
+  });
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+</script>

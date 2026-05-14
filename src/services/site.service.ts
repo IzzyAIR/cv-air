@@ -1,0 +1,6 @@
+import type { Lang } from "../i18n";
+import { getContent } from "../i18n";
+
+export function getSiteMeta(lang: Lang) {
+  return getContent(lang).siteMeta;
+}

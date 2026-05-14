@@ -1,0 +1,52 @@
+---
+import { getContact } from "../services";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const data = getContact(lang);
+---
+
+<section id="contact" class="py-24 border-t border-border">
+  <div class="container">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.kicker}</p>
+      <h2 class="text-4xl sm:text-5xl font-bold tracking-tight mb-6">
+        {data.titleLeading}
+        <br />
+        <span class="text-gradient">{data.titleHighlighted}</span>
+      </h2>
+      <p class="text-lg text-muted-foreground mb-10">{data.description}</p>
+
+      <a
+        href={`mailto:${data.email}`}
+        class="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground font-semibold rounded-lg hover:opacity-90 transition-opacity text-lg mb-12"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        {data.emailLabel}
+      </a>
+
+      <div class="flex justify-center gap-4 flex-wrap">
+        {data.links.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith("http") ? "_blank" : undefined}
+            rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+            class="flex items-center gap-2 px-4 py-2 text-muted-foreground hover:text-foreground border border-border hover:border-glow rounded-lg transition-colors"
+          >
+            {link.type === "telegram" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            )}
+            {link.type === "portfolio" && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            )}
+            <span class="text-sm font-mono">{link.label}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

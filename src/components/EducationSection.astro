@@ -1,0 +1,44 @@
+---
+import { getEducation } from "../services";
+import type { Lang } from "../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const data = getEducation(lang);
+---
+
+<section id="education" class="py-24 border-t border-border">
+  <div class="container">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      <div>
+        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.educationKicker}</p>
+        <h2 class="text-4xl font-bold tracking-tight mb-10">{data.educationTitle}</h2>
+        <div class="space-y-8">
+          {data.education.map((edu) => (
+            <div class="border-l-2 border-border pl-6 hover:border-primary transition-colors">
+              <p class="font-mono text-xs text-muted-foreground mb-1">{edu.period}</p>
+              <h3 class="text-lg font-semibold mb-1">{edu.school}</h3>
+              <p class="text-muted-foreground text-sm">{edu.degree}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <p class="font-mono text-primary text-sm tracking-widest uppercase mb-3">{data.languagesKicker}</p>
+        <h2 class="text-4xl font-bold tracking-tight mb-10">{data.languagesTitle}</h2>
+        <div class="space-y-4">
+          {data.languages.map((item) => (
+            <div class="flex items-center justify-between p-4 rounded-lg bg-card border border-border">
+              <span class="font-semibold">{item.name}</span>
+              <span class="font-mono text-sm text-muted-foreground">{item.level}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
