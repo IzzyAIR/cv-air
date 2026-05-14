@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Izzatilla Aliev — Senior FullStack Developer">
+  <defs>
+    <linearGradient id="og-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15130F"/>
+      <stop offset="1" stop-color="#0B0A08"/>
+    </linearGradient>
+    <radialGradient id="og-glow" cx="0.85" cy="0.18" r="0.55">
+      <stop offset="0" stop-color="#F4B240" stop-opacity="0.28"/>
+      <stop offset="0.6" stop-color="#F4B240" stop-opacity="0.06"/>
+      <stop offset="1" stop-color="#F4B240" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="og-grid" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#F4B240" fill-opacity="0.06"/>
+    </pattern>
+    <style>
+      .display { font-family: "Instrument Serif", "Iowan Old Style", Georgia, serif; font-style: italic; }
+      .sans { font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif; }
+      .mono { font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#og-bg)"/>
+  <rect width="1200" height="630" fill="url(#og-grid)"/>
+  <rect width="1200" height="630" fill="url(#og-glow)"/>
+
+  <!-- top rule -->
+  <line x1="72" y1="80" x2="1128" y2="80" stroke="#F4B240" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- top row: § 00 / kicker / clock -->
+  <text x="72" y="64" class="mono" font-size="14" letter-spacing="3" fill="#F4B240" fill-opacity="0.9">§ 00</text>
+  <text x="140" y="64" class="mono" font-size="14" letter-spacing="3" fill="#FFFAF0" fill-opacity="0.55">PORTFOLIO — IZZATILLA ALIEV</text>
+  <text x="1128" y="64" text-anchor="end" class="mono" font-size="14" letter-spacing="3" fill="#FFFAF0" fill-opacity="0.55">TASHKENT · UZ</text>
+
+  <!-- AVAILABLE pill -->
+  <g transform="translate(72,140)">
+    <rect width="232" height="36" rx="18" fill="none" stroke="#F4B240" stroke-opacity="0.55"/>
+    <circle cx="22" cy="18" r="4" fill="#F4B240"/>
+    <text x="38" y="23" class="mono" font-size="12" letter-spacing="3" fill="#F4B240">AVAILABLE FOR HIRE</text>
+  </g>
+
+  <!-- Headline -->
+  <text x="72" y="320" class="display" font-size="148" fill="#FFFAF0" letter-spacing="-4">Izzatilla<tspan class="sans" font-style="normal" fill="#FFFAF0" fill-opacity="0.95"> Aliev</tspan><tspan fill="#F4B240">.</tspan></text>
+
+  <!-- Role line -->
+  <text x="72" y="392" class="sans" font-size="34" fill="#FFFAF0" fill-opacity="0.78" letter-spacing="-0.5">Senior <tspan class="display">FullStack</tspan> Developer — <tspan class="display" fill="#F4B240">6+</tspan> years</text>
+
+  <!-- Stack mono row -->
+  <text x="72" y="448" class="mono" font-size="16" letter-spacing="2" fill="#FFFAF0" fill-opacity="0.55">REACT · VUE · ANGULAR · SVELTE · ASTRO · NODE · NESTJS · FRAPPE · POSTGRES</text>
+
+  <!-- bottom rule -->
+  <line x1="72" y1="540" x2="1128" y2="540" stroke="#F4B240" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- footer -->
+  <text x="72" y="582" class="mono" font-size="14" letter-spacing="3" fill="#FFFAF0" fill-opacity="0.55">IZZYCODE-TWO.VERCEL.APP</text>
+  <text x="1128" y="582" text-anchor="end" class="mono" font-size="14" letter-spacing="3" fill="#F4B240">v1.0 · EN / RU / UZ</text>
+
+  <!-- corner marks -->
+  <g stroke="#F4B240" stroke-opacity="0.55" stroke-width="1" fill="none">
+    <path d="M60 100 L60 80 L80 80"/>
+    <path d="M1140 100 L1140 80 L1120 80"/>
+    <path d="M60 530 L60 550 L80 550"/>
+    <path d="M1140 530 L1140 550 L1120 550"/>
+  </g>
+</svg>
