@@ -28,7 +28,9 @@ const finalDescription = description ?? meta.description;
 
 const canonical = absoluteUrl(pathFor(lang));
 const ogImageUrl = absoluteUrl(OG_IMAGE);
-const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const robotsContent = noindex
+  ? "noindex, nofollow"
+  : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 ---
 
 <!doctype html>
@@ -41,16 +43,26 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-
     <title>{finalTitle}</title>
 
     <link rel="canonical" href={canonical} />
-    {LANGUAGES.map(({ code }) => (
-      <link rel="alternate" hreflang={LOCALE_MAP[code].replace("_", "-")} href={absoluteUrl(pathFor(code))} />
-    ))}
-    <link rel="alternate" hreflang="x-default" href={absoluteUrl(pathFor("en"))} />
+    {
+      LANGUAGES.map(({ code }) => (
+        <link
+          rel="alternate"
+          hreflang={LOCALE_MAP[code].replace("_", "-")}
+          href={absoluteUrl(pathFor(code))}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={absoluteUrl(pathFor("en"))}
+    />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="CV — Izzy" />
+    <meta name="apple-mobile-web-app-title" content="izzyAIR" />
     <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -71,9 +83,11 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE_NAME} />
     <meta property="og:locale" content={meta.ogLocale} />
-    {LANGUAGES.filter((l) => l.code !== lang).map(({ code }) => (
-      <meta property="og:locale:alternate" content={LOCALE_MAP[code]} />
-    ))}
+    {
+      LANGUAGES.filter((l) => l.code !== lang).map(({ code }) => (
+        <meta property="og:locale:alternate" content={LOCALE_MAP[code]} />
+      ))
+    }
     <meta property="og:image" content={ogImageUrl} />
     <meta property="og:image:secure_url" content={ogImageUrl} />
     <meta property="og:image:type" content="image/svg+xml" />
@@ -96,15 +110,23 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-
     <meta name="referrer" content="strict-origin-when-cross-origin" />
     <meta http-equiv="x-ua-compatible" content="IE=edge" />
 
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(meta.jsonLd)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      url: SITE_URL,
-      name: SITE_NAME,
-      inLanguage: LOCALE_MAP[lang].replace("_", "-"),
-      author: { "@type": "Person", name: meta.author },
-    })} />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(meta.jsonLd)}
+    />
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        url: SITE_URL,
+        name: SITE_NAME,
+        inLanguage: LOCALE_MAP[lang].replace("_", "-"),
+        author: { "@type": "Person", name: meta.author },
+      })}
+    />
   </head>
   <body class="grain">
     <slot />
@@ -120,9 +142,11 @@ const robotsContent = noindex ? "noindex, nofollow" : "index, follow, max-image-
             }
           });
         },
-        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
       );
-      document.querySelectorAll("[data-reveal], [data-reveal-clip]").forEach((el) => io.observe(el));
+      document
+        .querySelectorAll("[data-reveal], [data-reveal-clip]")
+        .forEach((el) => io.observe(el));
 
       // Magnetic CTA
       document.querySelectorAll("[data-magnetic]").forEach((btn) => {

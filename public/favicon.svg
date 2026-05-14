@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Izzatilla Aliev — A.">
-  <defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Izzatilla Aliev — A."><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#15130F"/>
-      <stop offset="1" stop-color="#0B0A08"/>
+      <stop offset="0" stop-color="#15130F"></stop>
+      <stop offset="1" stop-color="#0B0A08"></stop>
     </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="#F4B240" stroke-opacity="0.18"/>
-  <path d="M16 50 L31 14 L36 14 L51 50 L44 50 L40.2 40.5 L26.8 40.5 L23 50 Z M29.2 34.5 L37.8 34.5 L33.5 23.8 Z" fill="#F4B240"/>
-  <circle cx="52" cy="50" r="2.6" fill="#F4B240"/>
-</svg>
+  </defs><rect width="64" height="64" rx="14" fill="url(#bg)"></rect><rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="#F4B240" stroke-opacity="0.18"></rect><path d="M16 50 L31 14 L36 14 L51 50 L44 50 L40.2 40.5 L26.8 40.5 L23 50 Z M29.2 34.5 L37.8 34.5 L33.5 23.8 Z" fill="#F4B240"></path><circle cx="52" cy="50" r="2.6" fill="#F4B240"></circle></svg>
