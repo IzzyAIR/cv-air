@@ -186,6 +186,7 @@ const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.
 
       .sheet {
         width: 210mm;
+        max-width: 100%;
         min-height: 297mm;
         margin: 24px auto;
         padding: 16mm 15mm;
@@ -254,6 +255,13 @@ const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.
       .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
       .langs { list-style: none; padding: 0; margin: 0; }
       .langs li { margin-bottom: 4px; }
+
+      @media screen and (max-width: 780px) {
+        .sheet { min-height: 0; margin: 12px auto; padding: 22px 18px; }
+        h1 { font-size: 22pt; }
+        .two-col { grid-template-columns: 1fr; gap: 16px; }
+        .skill-row { grid-template-columns: 1fr; gap: 2px; padding: 7px 0; }
+      }
 
       @page { size: A4; margin: 14mm; }
       @media print {
