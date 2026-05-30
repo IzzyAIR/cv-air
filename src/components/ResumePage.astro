@@ -34,6 +34,9 @@ const telegram = contact.links.find((l) => l.type === "telegram")?.href;
 const portfolio = contact.links.find((l) => l.type === "portfolio")?.href;
 const clean = (url?: string) => url?.replace(/^https?:\/\//, "").replace(/\/$/, "");
 const fileName = `${hero.firstName}-${hero.lastName}-CV-${lang.toUpperCase()}`;
+
+const HIDDEN_SKILLS = ["Forms & Validation", "Формы и валидация", "Formalar va validatsiya"];
+const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.title));
 ---
 
 <!doctype html>
@@ -99,7 +102,7 @@ const fileName = `${hero.firstName}-${hero.lastName}-CV-${lang.toUpperCase()}`;
       <section>
         <h2>{ui.skills}</h2>
         <dl class="skills">
-          {tech.categories.map((c) => (
+          {skillCategories.map((c) => (
             <div class="skill-row">
               <dt>{c.title}</dt>
               <dd>{c.items.join(", ")}</dd>
