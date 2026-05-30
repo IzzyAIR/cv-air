@@ -29,7 +29,8 @@ Content flows in a strict one-direction chain. Do not bypass it.
 
 - `src/pages/index.astro` — `/` (English, default).
 - `src/pages/[lang]/index.astro` — `/ru/` and `/uz/`. `getStaticPaths` returns only `ru` and `uz` (English is NOT routed via this file, it lives at the root).
-- Both pages render `<CvPage lang={lang} />`. To add a fourth language: create `src/i18n/xx.ts`, add it to `translations` in `i18n/index.ts`, add it to `LANGUAGES`, and add `{ params: { lang: "xx" } }` to `getStaticPaths`. No component changes needed.
+- Both pages render `<CvPage lang={lang} />`. To add a fourth language: create `src/i18n/xx.ts`, add it to `translations` in `i18n/index.ts`, add it to `LANGUAGES`, and add `{ params: { lang: "xx" } }` to `getStaticPaths` (in both `[lang]/index.astro` and `[lang]/resume.astro`). No component changes needed.
+- `src/pages/resume.astro` (`/resume`) and `src/pages/[lang]/resume.astro` (`/ru/resume`, `/uz/resume`) render `<ResumePage lang={lang} />` — the printable, downloadable CV.
 
 ### Components
 
@@ -37,7 +38,9 @@ Content flows in a strict one-direction chain. Do not bypass it.
 
 `src/layouts/BaseLayout.astro` owns `<head>`: meta tags, OG/Twitter, JSON-LD (`set:html` from `meta.jsonLd`), favicons. SEO data is per-locale via `getSiteMeta(lang)`.
 
-`Navbar.astro` is the only place with client JS — an `is:inline` script handling scroll-spy (highlights nav link of the section in view), mobile menu toggle, smooth-scroll, and scrolled-state styling. Section IDs are derived from `navLinks[].href` (strip the leading `#`).
+`Navbar.astro` is the only place with client JS — an `is:inline` script handling scroll-spy (highlights nav link of the section in view), mobile menu toggle, smooth-scroll, and scrolled-state styling. Section IDs are derived from `navLinks[].href` (strip the leading `#`). It also renders the "Resume PDF" link to `/resume` (per-locale).
+
+`src/components/ResumePage.astro` is a **standalone** light/A4 document — it does NOT use `BaseLayout` (which is dark + indexed). It renders its own `<html>` (white background, `noindex`, scoped `<style>` instead of Tailwind), pulls the same content through the services, and ships a "Download PDF" button that calls `window.print()`. The print stylesheet (`@page { size: A4 }`, `@media print` hides the toolbar) produces a clean A4 PDF — no PDF library/dependency. UI strings (button/section labels) are inlined per-locale in the component.
 
 ### Styling
 

@@ -11,6 +11,8 @@ const { lang } = Astro.props;
 const links = getNavLinks(lang);
 const brand = getBrand(lang);
 const sectionIds = links.map((l) => l.href.replace("#", ""));
+const resumeHref = lang === "en" ? "/resume" : `/${lang}/resume`;
+const resumeLabel = lang === "ru" ? "Резюме PDF" : lang === "uz" ? "Rezyume PDF" : "Resume PDF";
 ---
 
 <nav
@@ -62,6 +64,14 @@ const sectionIds = links.map((l) => l.href.replace("#", ""));
           </>
         ))}
       </div>
+
+      <a
+        href={resumeHref}
+        class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/50 bg-primary/10 text-primary font-mono text-[11px] tracking-wider hover:bg-primary/20 transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+        <span class="hidden sm:inline">{resumeLabel}</span>
+      </a>
 
       <button
         id="nav-toggle"
