@@ -103,6 +103,8 @@ export const ru: CvContent = {
     tagline: "<Senior FullStack-разработчик />",
     firstName: "Иззатилла",
     lastName: "Алиев",
+    headline:
+      "Senior Frontend разработчик | Фундамент Full-Stack | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack-разработчик. Создаю high-load и современные веб-приложения. Глубокая экспертиза во фронтенде — React, Vue, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, GraphQL, PostgreSQL, Frappe.",
     meta: "📍 Ташкент · Remote · Full-time / Part-time / Project",
@@ -119,7 +121,7 @@ export const ru: CvContent = {
     titleTrailing: ".",
     paragraphs: [
       "Senior FullStack-разработчик с опытом более 6 лет в создании high-load и современных веб-приложений. Уверенно работаю во фронтенде — React, Next.js, Vue 3, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, MongoDB.",
-      "Мне интересно там, где дизайн встречается с инженерией — превращаю сложные требования в элегантные, удобные продукты. Сейчас в Uzcloud строю системы на Frappe; до этого вёл fullstack-разработку в UZINFOCOM на государственных платформах с жёсткими требованиями к безопасности, стабильности и масштабируемости.",
+      "Мне интересно там, где дизайн встречается с инженерией — превращаю сложные требования в элегантные, удобные продукты. Последние годы я полностью перешёл на AI-first разработку — выстраиваю agentic AI-workflow и процессы AIDD (AI-Driven Development), которые помогают командам поставлять быстрее, не жертвуя качеством, безопасностью и масштабируемостью.",
     ],
     stats: [
       { label: "Фреймворков", value: "6+" },
@@ -132,6 +134,10 @@ export const ru: CvContent = {
     kicker: "// технологический стек",
     title: "Инструменты, с которыми работаю",
     categories: [
+      {
+        title: "AI-инженерия",
+        items: ["Agentic AI Workflows", "AI-First разработка", "AIDD", "Интеграция LLM", "Prompt Engineering", "AI-генерация кода"],
+      },
       {
         title: "Языки",
         items: ["JavaScript (ES6+)", "TypeScript", "Go", "Python", "HTML5", "CSS3"],
@@ -199,8 +205,12 @@ export const ru: CvContent = {
           "UzCloud CMS Dashboard — админ-панель на Vue 3 + Quasar 2 + Pinia + Vite; плоская сервисная архитектура с декораторами @SimpleTry, автоматический sidebar из route meta, формы VeeValidate + Zod, зеркалирующие валидацию бэка",
           "EDOC v2 — React-фронтенд системы электронного документооборота на Frappe; архитектура Feature Modules + Registry, сущности генерируются Orval из OpenAPI, TanStack Query v5 + Zustand, presence через WebSocket",
           "edoc_workflow — декларативный версионируемый workflow-движок для Frappe: DocTypes статусов/переходов, паттерн адаптеров, реестр conditions/validators/post-functions, whitelisted API переходов",
+          "AI-first разработка — внедрил agentic AI-workflow и практики AIDD (AI-Driven Development) в команде, опираясь на LLM-ассистированные пайплайны с почти 100% AI-сгенерированным кодом, чтобы поставлять быстрее без потери качества ревью",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "Frappe",
           "Python",
           "TypeScript",
@@ -237,8 +247,12 @@ export const ru: CvContent = {
           "Genadi — генератор кода на Go: парсит спецификации Swagger/OpenAPI v2 и собирает готовые модули Vue 3 + TypeScript (service, router, CRUD-страницы) из встроенных text/template-шаблонов; в комплекте веб-интерфейс на templ для просмотра сервисов и тегов",
           "Report Dashboard (UFA) — приложение на Vue 3 + UnoCSS, генерирующее PDF-отчёты о футбольных матчах из API через Bearer-авторизацию, с мультиязычным контентом и настройкой print-color-adjust",
           "Отвечал за схему БД, дизайн REST/GraphQL API и переиспользуемые UI-библиотеки во всех этих продуктах; зафиксировал паттерны SSR + SEO для гос-заказа",
+          "AI-first подход на государственных проектах — выстроил agentic AI-разработку и практики AIDD, использовал LLM-ассистированное программирование для ускорения поставки при жёстких требованиях к безопасности и стабильности",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "TypeScript",
           "Go",
           "Node.js",

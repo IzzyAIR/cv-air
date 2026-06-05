@@ -103,6 +103,8 @@ export const uz: CvContent = {
     tagline: "<Senior FullStack Dasturchi />",
     firstName: "Izzatilla",
     lastName: "Aliyev",
+    headline:
+      "Senior Frontend dasturchi | Full-Stack poydevori | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack dasturchi. Yuqori yuklamali va zamonaviy veb-ilovalar yarataman. Frontendda — React, Vue, Angular, Svelte, Astro; backendda — Node.js, NestJS, GraphQL, PostgreSQL, Frappe boʻyicha chuqur tajribaga egaman.",
     meta: "📍 Toshkent · Remote · Full-time / Part-time / Loyiha asosida",
@@ -119,7 +121,7 @@ export const uz: CvContent = {
     titleTrailing: " bilan kuchaytirilgan.",
     paragraphs: [
       "Yuqori yuklamali va zamonaviy veb-ilovalar yaratish boʻyicha 6+ yillik tajribaga ega Senior FullStack dasturchi. Frontendda React, Next.js, Vue 3, Angular, Svelte va Astro bilan; backendda Node.js, NestJS, Express, GraphQL, REST, PostgreSQL va MongoDB bilan ishlayman.",
-      "Dizayn va muhandislik birlashgan joyda oʻzimni topaman — murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Hozir Uzcloud’da Frappe asosida tizimlar quryapman; oldin UZINFOCOM’da xavfsizlik, barqarorlik va kengaytiriluvchanlik talablari yuqori boʻlgan davlat darajasidagi platformalar boʻyicha fullstack ishni boshqarganman.",
+      "Dizayn va muhandislik birlashgan joyda oʻzimni topaman — murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Soʻnggi yillarda toʻliq AI-first ishlab chiqishga oʻtdim — jamoalarga sifat, xavfsizlik va kengaytiriluvchanlikni yoʻqotmasdan tezroq yetkazib berishga yordam beradigan agentic AI-workflow va AIDD (AI-Driven Development) jarayonlarini quryapman.",
     ],
     stats: [
       { label: "Freymvorklar", value: "6+" },
@@ -132,6 +134,10 @@ export const uz: CvContent = {
     kicker: "// texnologik stek",
     title: "Ishlayotgan vositalarim",
     categories: [
+      {
+        title: "AI muhandisligi",
+        items: ["Agentic AI Workflows", "AI-First ishlab chiqish", "AIDD", "LLM integratsiyasi", "Prompt Engineering", "AI kod generatsiyasi"],
+      },
       {
         title: "Tillar",
         items: ["JavaScript (ES6+)", "TypeScript", "Go", "Python", "HTML5", "CSS3"],
@@ -199,8 +205,12 @@ export const uz: CvContent = {
           "UzCloud CMS Dashboard — Vue 3 + Quasar 2 + Pinia + Vite’dagi admin panel; @SimpleTry dekoratorlari bilan tekis servis arxitekturasi, route meta’dan avtomatik sidebar, backend validatsiyasini aks ettiruvchi VeeValidate + Zod formalari",
           "EDOC v2 — Frappe asosidagi elektron hujjat aylanmasi tizimi uchun React frontend; Feature Modules + Registry arxitekturasi, OpenAPI’dan Orval orqali yaratilgan entitilar, TanStack Query v5 + Zustand, WebSocket presence",
           "edoc_workflow — Frappe uchun deklarativ versiyalanadigan workflow-engine: status/transition DocType’lar, adapter pattern, condition/validator/post-function reestri, whitelisted transition API",
+          "AI-first ishlab chiqish — jamoada agentic AI-workflow va AIDD (AI-Driven Development) amaliyotlarini joriy qildim; deyarli 100% AI tomonidan yaratilgan kodli LLM-yordamli pipeline’lar bilan review sifatini saqlagan holda tezroq yetkazib berdim",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "Frappe",
           "Python",
           "TypeScript",
@@ -237,8 +247,12 @@ export const uz: CvContent = {
           "Genadi — Go’da yozilgan kod generatori: Swagger/OpenAPI v2 spetsifikatsiyalarini parslab, oʻrnatilgan text/template’lardan tayyor Vue 3 + TypeScript modullarini (service, router, CRUD sahifalar) yaratadi; servislar va teglarni koʻrish uchun templ asosidagi veb-interfeys ham bor",
           "Report Dashboard (UFA) — API’dan Bearer autentifikatsiya orqali olingan maʼlumotlardan chop etishga tayyor PDF futbol o‘yini hisobotlarini yaratadigan Vue 3 + UnoCSS ilovasi; koʻp tilli kontent va print-color-adjust sozlamalari bilan",
           "Bu mahsulotlarda maʼlumotlar bazasi sxemasi, REST/GraphQL API dizayni va qayta ishlatiluvchi UI-komponent kutubxonalari boʻyicha javobgar boʻldim; davlat buyurtmalari uchun SSR + SEO shablonlarini oʻrnatdim",
+          "Davlat loyihalarida AI-first yondashuv — agentic AI ishlab chiqish va AIDD amaliyotlarini joriy qildim; xavfsizlik va barqarorlik talablari yuqori boʻlsa-da, LLM-yordamli kod yozish orqali yetkazib berishni tezlashtirdim",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "TypeScript",
           "Go",
           "Node.js",

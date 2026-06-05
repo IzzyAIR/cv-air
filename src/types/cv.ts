@@ -28,6 +28,7 @@ export interface Hero {
   tagline: string;
   firstName: string;
   lastName: string;
+  headline: string;
   summary: string;
   meta: string;
   ctas: HeroCta[];

@@ -108,6 +108,8 @@ export const en: CvContent = {
     tagline: "<Senior FullStack Developer />",
     firstName: "Izzatilla",
     lastName: "Aliev",
+    headline:
+      "Senior Frontend Developer | Full-Stack Foundation | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack developer focused on high-load and modern web applications. Deep expertise across React, Vue, Angular, Svelte, Astro on the frontend and Node.js, NestJS, GraphQL, PostgreSQL, Frappe on the backend.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",
@@ -124,7 +126,7 @@ export const en: CvContent = {
     titleTrailing: ".",
     paragraphs: [
       "Senior FullStack developer with 6+ years of experience building high-load and modern web applications. Strong on the frontend across React, Next.js, Vue 3, Angular, Svelte and Astro — and equally comfortable on the backend with Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB.",
-      "I thrive where design meets engineering — turning complex requirements into elegant, user-friendly products. Currently at Uzcloud building systems on the Frappe framework, after leading fullstack work at UZINFOCOM on state-level platforms with high security, stability and scalability demands.",
+      "I thrive where design meets engineering — turning complex requirements into elegant, user-friendly products. Over the last few years I've gone all-in on AI-first development — building agentic AI workflows and AIDD (AI-Driven Development) pipelines that help teams ship faster while keeping quality, security and scalability uncompromised.",
     ],
     stats: [
       { label: "Frameworks", value: "6+" },
@@ -137,6 +139,10 @@ export const en: CvContent = {
     kicker: "// tech stack",
     title: "Tools I Work With",
     categories: [
+      {
+        title: "AI Engineering",
+        items: ["Agentic AI Workflows", "AI-First Development", "AIDD", "LLM Integration", "Prompt Engineering", "AI Code Generation"],
+      },
       {
         title: "Languages",
         items: ["JavaScript (ES6+)", "TypeScript", "Go", "Python", "HTML5", "CSS3"],
@@ -204,8 +210,12 @@ export const en: CvContent = {
           "UzCloud CMS Dashboard — Vue 3 + Quasar 2 + Pinia + Vite admin panel; flat-service architecture with @SimpleTry decorators, automatic sidebar from route meta, VeeValidate + Zod forms mirroring backend validation",
           "EDOC v2 — React frontend for an electronic document management system on Frappe; Feature Modules + Registry architecture, Orval-generated entities from OpenAPI, TanStack Query v5 + Zustand, WebSocket presence",
           "edoc_workflow — declarative versioned workflow engine for Frappe: status/transition DocTypes, adapter pattern, condition/validator/post-function registry, whitelisted transition API",
+          "AI-first delivery — drove agentic AI workflows and AIDD (AI-Driven Development) across the team, leaning on LLM-assisted, near-100% AI-generated code pipelines to ship faster without compromising review quality",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "Frappe",
           "Python",
           "TypeScript",
@@ -242,8 +252,12 @@ export const en: CvContent = {
           "Genadi — Go-based code generator: parses Swagger/OpenAPI v2 specs and produces ready Vue 3 + TypeScript modules (service, router, CRUD pages) from embedded text/template templates; ships with a templ-powered web UI for browsing services and tags",
           "Report Dashboard (UFA) — Vue 3 + UnoCSS app that generates print-ready PDF match reports from API data via Bearer auth, with multilingual content and print-color-adjust tuning",
           "Owned database schema, REST/GraphQL API design and reusable UI component libraries across these products; established SSR + SEO patterns for state-order projects",
+          "AI-first workflows on state-level projects — introduced agentic AI development and AIDD practices, using LLM-assisted coding to accelerate delivery while meeting strict security and stability requirements",
         ],
         stack: [
+          "AI-First Development",
+          "Agentic AI Workflows",
+          "AIDD",
           "TypeScript",
           "Go",
           "Node.js",

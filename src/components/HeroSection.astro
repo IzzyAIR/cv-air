@@ -47,6 +47,19 @@ const scrollLabel = lang === "ru" ? "ПРОКРУТИТЬ" : lang === "uz" ? "AY
           <span class="block italic text-foreground/85">{hero.lastName}<span class="text-primary">.</span></span>
         </h1>
 
+        <p
+          class="max-w-3xl mb-8 font-mono text-[13px] sm:text-sm leading-relaxed text-foreground/70"
+          data-reveal
+          style="--reveal-delay: 220ms"
+        >
+          {hero.headline.split("|").map((part, i) => (
+            <>
+              {i > 0 && <span class="px-1.5 text-primary/60">|</span>}
+              <span class="text-foreground/80">{part.trim()}</span>
+            </>
+          ))}
+        </p>
+
         <div class="max-w-2xl space-y-4 mb-10" data-reveal style="--reveal-delay: 280ms">
           <p class="text-lg sm:text-xl text-foreground/80 leading-relaxed">
             {hero.summary}
