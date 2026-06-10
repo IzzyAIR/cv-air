@@ -121,7 +121,7 @@ export const uz: CvContent = {
     titleTrailing: " bilan kuchaytirilgan.",
     paragraphs: [
       "Yuqori yuklamali va zamonaviy veb-ilovalar yaratish boʻyicha 6+ yillik tajribaga ega Senior FullStack dasturchi. Frontendda React, Next.js, Vue 3, Angular, Svelte va Astro bilan; backendda Node.js, NestJS, Express, GraphQL, REST, PostgreSQL va MongoDB bilan ishlayman.",
-      "Dizayn va muhandislik birlashgan joyda oʻzimni topaman — murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Soʻnggi yillarda toʻliq AI-first ishlab chiqishga oʻtdim — jamoalarga sifat, xavfsizlik va kengaytiriluvchanlikni yoʻqotmasdan tezroq yetkazib berishga yordam beradigan agentic AI-workflow va AIDD (AI-Driven Development) jarayonlarini quryapman.",
+      "Dizayn va muhandislik birlashgan joyda oʻzimni topaman, murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Soʻnggi yillarda men shuningdek AI-first ishlab chiqish yondashuvini oʻrganib, joriy qilyapman — jamoalarga sifat, xavfsizlik va kengaytiriluvchanlikni yoʻqotmasdan tezroq yetkazib berishga yordam beradigan agentic AI-workflow va AIDD (AI-Driven Development) jarayonlarini quryapman.",
     ],
     stats: [
       { label: "Freymvorklar", value: "6+" },

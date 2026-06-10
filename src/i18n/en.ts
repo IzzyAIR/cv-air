@@ -126,7 +126,7 @@ export const en: CvContent = {
     titleTrailing: ".",
     paragraphs: [
       "Senior FullStack developer with 6+ years of experience building high-load and modern web applications. Strong on the frontend across React, Next.js, Vue 3, Angular, Svelte and Astro — and equally comfortable on the backend with Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB.",
-      "I thrive where design meets engineering — turning complex requirements into elegant, user-friendly products. Over the last few years I've gone all-in on AI-first development — building agentic AI workflows and AIDD (AI-Driven Development) pipelines that help teams ship faster while keeping quality, security and scalability uncompromised.",
+      "I thrive where design meets engineering, turning complex requirements into elegant, user-friendly products. Over the last few years I've also been exploring and adopting an AI-first approach to development, building agentic AI workflows and AIDD (AI-Driven Development) pipelines that help teams ship faster while keeping quality, security and scalability uncompromised.",
     ],
     stats: [
       { label: "Frameworks", value: "6+" },
