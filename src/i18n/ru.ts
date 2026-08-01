@@ -6,7 +6,7 @@ export const ru: CvContent = {
     description:
       "Senior FullStack-разработчик с опытом 6+ лет: React, Vue.js, Angular, TypeScript, Node.js, NestJS, Frappe и современные веб-технологии. Ташкент, Узбекистан.",
     keywords:
-      "fullstack разработчик, senior разработчик, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, веб-разработчик, Ташкент, Узбекистан, Иззатилла Алиев",
+      "fullstack разработчик, senior разработчик, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, Capacitor, Android, мобильная разработка, веб-разработчик, Ташкент, Узбекистан, Иззатилла Алиев",
     author: "Иззатилла Алиев",
     ogTitle: "Иззатилла Алиев — Senior FullStack-разработчик",
     ogDescription:
@@ -51,7 +51,7 @@ export const ru: CvContent = {
         name: "Senior FullStack-разработчик",
         occupationLocation: { "@type": "City", name: "Ташкент" },
         skills:
-          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Docker",
+          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
       },
       knowsLanguage: [
         { "@type": "Language", name: "Узбекский", alternateName: "uz" },
@@ -77,6 +77,9 @@ export const ru: CvContent = {
         "Prisma",
         "Frappe",
         "ERPNext",
+        "Capacitor",
+        "Android",
+        "Mobile Development",
         "Docker",
         "Tailwind CSS",
         "WebRTC",
@@ -104,7 +107,7 @@ export const ru: CvContent = {
     firstName: "Иззатилла",
     lastName: "Алиев",
     headline:
-      "Senior Frontend разработчик | Фундамент Full-Stack | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Frontend разработчик | Фундамент Full-Stack | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack-разработчик. Создаю high-load и современные веб-приложения. Глубокая экспертиза во фронтенде — React, Vue, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, GraphQL, PostgreSQL, Frappe.",
     meta: "📍 Ташкент · Remote · Full-time / Part-time / Project",
@@ -145,6 +148,10 @@ export const ru: CvContent = {
       {
         title: "Фронтенд-фреймворки",
         items: ["React", "Next.js", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro"],
+      },
+      {
+        title: "Мобильная разработка",
+        items: ["Capacitor", "Android (WebView)", "Mobile-first UI", "Кроссплатформенность (Web → Mobile)"],
       },
       {
         title: "Состояние и данные",
@@ -198,12 +205,13 @@ export const ru: CvContent = {
         location: "Ташкент · Гибрид",
         period: "Март 2026 — настоящее время",
         description:
-          "Fullstack-разработка ключевых веб-продуктов компании: маркетинговый сайт, CMS, внутренняя платформа электронного документооборота и декларативный workflow-движок поверх Frappe.",
+          "Fullstack-разработка ключевых веб- и мобильных продуктов компании: маркетинговый сайт, админ-платформа/CMS, Android-приложение, внутренняя платформа электронного документооборота и декларативный workflow-движок поверх Frappe.",
         highlights: [
           "UzCloud Web — SSR-маркетинговый сайт на Astro 5 + React 19 islands + Tailwind 4 с полной локализацией ru/uz/en через middleware и [lang]-роутинг, Express SSR-runtime в Docker за Traefik",
-          "UzCloud CMS Backend — REST API на NestJS 11 + Prisma 6 + PostgreSQL: раздельные admin/public-контроллеры, i18n через отдельные таблицы, транзакционные мутации, httpOnly-cookie refresh-токены",
-          "UzCloud CMS Dashboard — админ-панель на Vue 3 + Quasar 2 + Pinia + Vite; плоская сервисная архитектура с декораторами @SimpleTry, автоматический sidebar из route meta, формы VeeValidate + Zod, зеркалирующие валидацию бэка",
-          "EDOC v2 — React-фронтенд системы электронного документооборота на Frappe; архитектура Feature Modules + Registry, сущности генерируются Orval из OpenAPI, TanStack Query v5 + Zustand, presence через WebSocket",
+          "UzCloud CMS Backend — REST API на NestJS 11 + Prisma 6 + PostgreSQL: раздельные admin/public-контроллеры, i18n через отдельные таблицы, транзакционные мутации, JWT + httpOnly-cookie refresh, файловое хранилище и домен автогенерации договоров (каталог, версионируемые шаблоны, PDF, задачи в Asana)",
+          "UzCloud Admin Platform — панель на Vue 3 + Quasar 2 + Pinia + Vite, выросшая из контент-менеджера во внутреннюю бизнес-платформу: реестр договоров с мастером и каталогом-калькулятором, версионируемые шаблоны с плейсхолдерами, генератор коммерческих предложений, автозаполнение контрагента по ИНН (Didox / Soliq), выгрузка PDF и передача задач в Asana, RBAC (admin / manager × организации), медиабиблиотека, блог на Quill и вход через Telegram Mini App; плоские сервисы с @SimpleTry, автоматический sidebar из route meta, формы VeeValidate + Zod, зеркалирующие валидацию бэка",
+          "EDOC v2 — React-фронтенд системы электронного документооборота на Frappe; архитектура Feature Modules + Registry, ручной типизированный слой сущностей, движок динамических форм, TanStack Query v5 + Zustand, presence через WebSocket",
+          "EDOC Mobile — Android-приложение EDOC на Capacitor 8: WebView-оболочка над тем же React-SPA (same-origin API, переключение стендов через env) плюс мобильный UI-слой — три адаптивных режима layout, плавающая нижняя навигация, свайпаемые bottom sheets с reference-counted блокировкой скролла, работа с safe-area",
           "edoc_workflow — декларативный версионируемый workflow-движок для Frappe: DocTypes статусов/переходов, паттерн адаптеров, реестр conditions/validators/post-functions, whitelisted API переходов",
           "AI-first разработка — внедрил agentic AI-workflow и практики AIDD (AI-Driven Development) в команде, опираясь на LLM-ассистированные пайплайны с почти 100% AI-сгенерированным кодом, чтобы поставлять быстрее без потери качества ревью",
         ],
@@ -226,7 +234,8 @@ export const ru: CvContent = {
           "Tailwind CSS",
           "TanStack Query",
           "Zustand",
-          "Orval",
+          "Capacitor",
+          "Android",
           "Docker",
           "Traefik",
         ],

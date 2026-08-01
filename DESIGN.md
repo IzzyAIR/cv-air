@@ -118,3 +118,24 @@ When changing copy, **only edit the locale file**. Section components must keep 
 - **Don't use raised surfaces / shadows for hierarchy.** Use hairlines, type weight, italic.
 - **Don't introduce a client framework.** The single inline script per interactive island is the architectural ceiling. If something needs more, redesign the interaction.
 - **Don't animate without a reason.** Every motion in §5 has a functional or rhythmical role. New motion needs the same justification.
+
+## 10. The résumé document (`/resume`)
+
+A **separate visual system on purpose.** The site is a dark editorial artifact; the résumé is a printed business document read by recruiters and parsed by machines. It does not inherit the tokens, the Tailwind layer or `BaseLayout` — it owns its own `<html>` and an unscoped `<style is:inline>`.
+
+What carries over, and what deliberately doesn't:
+
+| | Site | Résumé |
+| --- | --- | --- |
+| Canvas | warm near-black | white A4 sheet |
+| Accent | honey-gold `38 92% 62%` | bronze `#8a5c0d` — the same hue darkened until it holds contrast on white and survives greyscale printing |
+| Type | Inter + Instrument Serif italic + JetBrains Mono | Inter only — display italic and mono micro-type don't survive ATS parsing or a fax-grade print |
+| Hierarchy | hairlines, italic, weight | same instinct: 1px rules under uppercase section labels, weight and colour for rank, no fills or shadows |
+| Motion | §5 | none |
+
+Rules specific to this document:
+
+1. **Machine-readability outranks styling.** Single column, standard section names, real text, contacts as links. No icons, tables or images carrying information — an ATS reads the text layer, not the layout.
+2. **One page box, two outputs.** Content is laid out into A4 `.page` elements by script and those same boxes are printed, so the preview *is* the PDF. Anything added must be a top-level `.block` inside `#flow` or it won't paginate.
+3. **Bronze is the only colour.** Section labels, company names, bullet markers. Everything else is ink, body or muted grey.
+4. **Nothing decorative.** No grain, no glow, no corner brackets. A recruiter's eye budget is ~6 seconds; every mark on the sheet must be doing navigational work.

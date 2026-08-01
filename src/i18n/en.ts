@@ -6,7 +6,7 @@ export const en: CvContent = {
     description:
       "Senior FullStack Developer with 6+ years of experience in React, Vue.js, Angular, TypeScript, Node.js, NestJS, Frappe and modern web technologies. Based in Tashkent, Uzbekistan.",
     keywords:
-      "fullstack developer, senior developer, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, web developer, Tashkent, Uzbekistan, Izzatilla Aliev",
+      "fullstack developer, senior developer, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, Capacitor, Android, mobile development, web developer, Tashkent, Uzbekistan, Izzatilla Aliev",
     author: "Izzatilla Aliev",
     ogTitle: "Izzatilla Aliev — Senior FullStack Developer",
     ogDescription:
@@ -51,7 +51,7 @@ export const en: CvContent = {
         name: "Senior FullStack Developer",
         occupationLocation: { "@type": "City", name: "Tashkent" },
         skills:
-          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Docker",
+          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
         estimatedSalary: {
           "@type": "MonetaryAmountDistribution",
           name: "base",
@@ -82,6 +82,9 @@ export const en: CvContent = {
         "Prisma",
         "Frappe",
         "ERPNext",
+        "Capacitor",
+        "Android",
+        "Mobile Development",
         "Docker",
         "Tailwind CSS",
         "WebRTC",
@@ -109,7 +112,7 @@ export const en: CvContent = {
     firstName: "Izzatilla",
     lastName: "Aliev",
     headline:
-      "Senior Frontend Developer | Full-Stack Foundation | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Frontend Developer | Full-Stack Foundation | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack developer focused on high-load and modern web applications. Deep expertise across React, Vue, Angular, Svelte, Astro on the frontend and Node.js, NestJS, GraphQL, PostgreSQL, Frappe on the backend.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",
@@ -150,6 +153,10 @@ export const en: CvContent = {
       {
         title: "Frontend Frameworks",
         items: ["React", "Next.js", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro"],
+      },
+      {
+        title: "Mobile",
+        items: ["Capacitor", "Android (WebView)", "Mobile-first UI", "Cross-platform (Web → Mobile)"],
       },
       {
         title: "State & Data",
@@ -203,12 +210,13 @@ export const en: CvContent = {
         location: "Tashkent · Hybrid",
         period: "Mar 2026 — Present",
         description:
-          "Fullstack work across the company's core web products — marketing site, CMS, internal document-management platform and a declarative workflow engine on top of Frappe.",
+          "Fullstack work across the company's core web and mobile products — marketing site, admin/CMS platform, an Android app, an internal document-management platform and a declarative workflow engine on top of Frappe.",
         highlights: [
           "UzCloud Web — SSR marketing site on Astro 5 + React 19 islands + Tailwind 4 with full ru/uz/en i18n via middleware-driven [lang] routing, Express SSR runtime in Docker behind Traefik",
-          "UzCloud CMS Backend — NestJS 11 + Prisma 6 + PostgreSQL REST API with split admin/public controllers, per-language i18n tables, transactional mutations and httpOnly-cookie refresh-token auth",
-          "UzCloud CMS Dashboard — Vue 3 + Quasar 2 + Pinia + Vite admin panel; flat-service architecture with @SimpleTry decorators, automatic sidebar from route meta, VeeValidate + Zod forms mirroring backend validation",
-          "EDOC v2 — React frontend for an electronic document management system on Frappe; Feature Modules + Registry architecture, Orval-generated entities from OpenAPI, TanStack Query v5 + Zustand, WebSocket presence",
+          "UzCloud CMS Backend — NestJS 11 + Prisma 6 + PostgreSQL REST API with split admin/public controllers, per-language i18n tables, transactional mutations, JWT + httpOnly-cookie refresh auth, media storage and a contract-generation domain (catalog, versioned templates, PDF, Asana tasks)",
+          "UzCloud Admin Platform — Vue 3 + Quasar 2 + Pinia + Vite panel grown from a content manager into an internal business platform: contract registry with a catalog-calculator wizard, versioned templates with placeholder rendering, commercial-offer generator, counterparty autofill by TIN (Didox / Soliq), PDF export and Asana hand-off, RBAC (admin / manager × organizations), media library, Quill-based blog and Telegram Mini App sign-in; flat @SimpleTry services, sidebar auto-built from route meta, VeeValidate + Zod forms mirroring backend validation",
+          "EDOC v2 — React frontend for an electronic document management system on Frappe; Feature Modules + Registry architecture, hand-written typed entity layer, dynamic form engine, TanStack Query v5 + Zustand, WebSocket presence",
+          "EDOC Mobile — Android app for EDOC on Capacitor 8: WebView shell over the same React SPA (same-origin API, stand switching via env) plus the mobile UI layer — three adaptive layout modes, floating bottom navigation, swipeable bottom sheets with reference-counted scroll lock, safe-area handling",
           "edoc_workflow — declarative versioned workflow engine for Frappe: status/transition DocTypes, adapter pattern, condition/validator/post-function registry, whitelisted transition API",
           "AI-first delivery — drove agentic AI workflows and AIDD (AI-Driven Development) across the team, leaning on LLM-assisted, near-100% AI-generated code pipelines to ship faster without compromising review quality",
         ],
@@ -231,7 +239,8 @@ export const en: CvContent = {
           "Tailwind CSS",
           "TanStack Query",
           "Zustand",
-          "Orval",
+          "Capacitor",
+          "Android",
           "Docker",
           "Traefik",
         ],

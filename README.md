@@ -24,6 +24,7 @@ Static. Trilingual. Minimal JS.
 - 🎨 **Tailwind 3** design system on CSS variables — single source of truth for theme
 - 🧠 **Zero React** — interactivity is a few lines of vanilla `<script>` in the Navbar
 - 📦 **One bundle** — built site is just HTML + CSS + a tiny inline script
+- 📄 **Printable résumé** at `/resume` — ATS-friendly single-column A4, paginated on screen exactly as it prints, no PDF library
 
 ## 🛠️ Stack
 
@@ -41,7 +42,8 @@ Static. Trilingual. Minimal JS.
 src/
 ├── components/         # Astro section components (Hero, About, …)
 │   ├── CvPage.astro    # Composition of all sections for one locale
-│   └── Navbar.astro    # Sticky nav + scroll-spy + lang switcher
+│   ├── Navbar.astro    # Sticky nav + scroll-spy + lang switcher
+│   └── ResumePage.astro        # Standalone A4 résumé document (own <html>)
 ├── i18n/
 │   ├── index.ts        # Lang type, LANGUAGES, getContent(lang)
 │   ├── en.ts | ru.ts | uz.ts   # All copy + data per locale
@@ -50,6 +52,7 @@ src/
 ├── pages/
 │   ├── index.astro             # / — English
 │   ├── [lang]/index.astro      # /ru/, /uz/
+│   ├── resume.astro            # /resume  (+ [lang]/resume.astro)
 │   └── 404.astro
 ├── services/                   # getHero(lang), getExperience(lang), …
 ├── styles/global.css           # Tailwind + tokens
@@ -107,12 +110,23 @@ npm run preview
 
 ## 🧭 Routes
 
-| Path        | Locale        |
-| ----------- | ------------- |
-| `/`         | English (default) |
-| `/ru/`      | Русский       |
-| `/uz/`      | Oʻzbek        |
-| `/404`      | Not Found     |
+| Path          | Locale            |
+| ------------- | ----------------- |
+| `/`           | English (default) |
+| `/ru/`        | Русский           |
+| `/uz/`        | Oʻzbek            |
+| `/resume`     | Résumé — English  |
+| `/ru/resume`  | Résumé — Русский  |
+| `/uz/resume`  | Résumé — Oʻzbek   |
+| `/404`        | Not Found         |
+
+## 📄 Résumé
+
+`/resume` renders the same content as an A4 document — no PDF dependency, "Download PDF" just calls `window.print()`.
+
+- **Paginated preview.** An inline script measures the content blocks and lays them out into real A4 page boxes. The same boxes are what the browser prints, so **what you see is page-for-page the PDF**. Section and entry headings are pushed to the next page instead of being orphaned; every page carries a `Name — N / M` footer.
+- **ATS-friendly.** Single column, standard section names (Professional Summary / Work Experience / Technical Skills / Education / Languages), plain selectable text, contacts as `mailto:` / `tel:` / https links — no icons, tables or images carrying data, so applicant-tracking parsers and AI screeners read it cleanly.
+- Content comes through the same services as the site; only résumé-specific trimming (e.g. hidden skill categories) lives in the component.
 
 ## 🚢 Deploy
 
