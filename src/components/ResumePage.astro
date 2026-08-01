@@ -22,21 +22,31 @@ const education = getEducation(lang);
 const contact = getContact(lang);
 
 const ui = {
-  en: { download: "Download PDF", summary: "Summary", experience: "Experience", education: "Education", skills: "Technical Skills", languages: "Languages", back: "Back to site" },
-  ru: { download: "Скачать PDF", summary: "О себе", experience: "Опыт работы", education: "Образование", skills: "Технические навыки", languages: "Языки", back: "На сайт" },
-  uz: { download: "PDF yuklab olish", summary: "Men haqimda", experience: "Tajriba", education: "Ta'lim", skills: "Texnik ko‘nikmalar", languages: "Tillar", back: "Saytga qaytish" },
+  en: { download: "Download PDF", back: "Back to site", summary: "Professional Summary", experience: "Work Experience", education: "Education", skills: "Technical Skills", languages: "Languages", stack: "Stack", pages: "pages" },
+  ru: { download: "Скачать PDF", back: "На сайт", summary: "О себе", experience: "Опыт работы", education: "Образование", skills: "Технические навыки", languages: "Языки", stack: "Стек", pages: "стр." },
+  uz: { download: "PDF yuklab olish", back: "Saytga qaytish", summary: "Men haqimda", experience: "Ish tajribasi", education: "Ta'lim", skills: "Texnik ko‘nikmalar", languages: "Tillar", stack: "Stek", pages: "bet" },
 }[lang];
 
 const title = hero.tagline.replace(/[<>/]/g, "").trim();
-const location = hero.meta.replace(/^📍\s*/, "");
-const phone = contact.links.find((l) => l.type === "phone")?.label.replace(/^📞\s*/, "");
+const [location, ...availability] = hero.meta
+  .replace(/^📍\s*/, "")
+  .split("·")
+  .map((s) => s.trim());
+const phone = contact.links.find((l) => l.type === "phone");
 const telegram = contact.links.find((l) => l.type === "telegram")?.href;
 const portfolio = contact.links.find((l) => l.type === "portfolio")?.href;
-const clean = (url?: string) => url?.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const clean = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+const fullName = `${hero.firstName} ${hero.lastName}`;
 const fileName = `${hero.firstName}-${hero.lastName}-CV-${lang.toUpperCase()}`;
 
 const HIDDEN_SKILLS = ["Forms & Validation", "Формы и валидация", "Formalar va validatsiya"];
 const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.title));
+
+// "Project — description" → bold lead-in, keeps bullets scannable for a 6-second HR pass
+const splitHighlight = (h: string) => {
+  const m = h.match(/^(.{2,70}?)\s+—\s+([\s\S]+)$/);
+  return m ? { lead: m[1], text: m[2] } : { lead: "", text: h };
+};
 ---
 
 <!doctype html>
@@ -45,7 +55,7 @@ const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>{`${hero.firstName} ${hero.lastName} — ${title}`}</title>
+    <title>{`${fullName} — ${title}`}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,118 +67,187 @@ const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.
   <body>
     <div class="toolbar no-print">
       <a href={langHref(lang)} class="btn-link">← {ui.back}</a>
+      <span class="meta-chip">A4 · <span id="page-count">1</span> {ui.pages}</span>
       <button id="download-btn" class="btn-print">{ui.download}</button>
     </div>
 
-    <main class="sheet">
-      <header class="head">
-        <h1>{hero.firstName} {hero.lastName}</h1>
-        <p class="role">{title}</p>
-        <p class="headline">{hero.headline}</p>
-        <div class="contacts">
-          <span>{contact.email}</span>
-          {phone && <span>{phone}</span>}
-          {telegram && <span>{clean(telegram)}</span>}
-          {portfolio && <span>{clean(portfolio)}</span>}
-          <span>{location}</span>
-        </div>
-      </header>
+    <div id="stage">
+      <div id="paper">
+        <div id="flow">
+          <header class="block head">
+            <h1>{fullName}</h1>
+            <p class="role">{title}</p>
+            <p class="headline">{hero.headline}</p>
+            <ul class="contacts">
+              <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
+              {phone && <li><a href={phone.href}>{phone.label.replace(/^📞\s*/, "")}</a></li>}
+              {telegram && <li><a href={telegram}>{clean(telegram)}</a></li>}
+              {portfolio && <li><a href={portfolio}>{clean(portfolio)}</a></li>}
+              <li>{location}</li>
+            </ul>
+            {availability.length > 0 && <p class="availability">{availability.join(" · ")}</p>}
+          </header>
 
-      <section>
-        <h2>{ui.summary}</h2>
-        <p class="lead">{hero.summary}</p>
-        {about.paragraphs.map((p) => <p>{p}</p>)}
-      </section>
+          <h2 class="block sec">{ui.summary}</h2>
+          <p class="block lead">{hero.summary}</p>
+          {about.paragraphs.map((p) => <p class="block">{p}</p>)}
 
-      <section>
-        <h2>{ui.experience}</h2>
-        {experience.items.map((item) => (
-          <div class="entry">
-            <div class="entry-head">
-              <span class="entry-title">{item.role} · {item.company}</span>
-              <span class="entry-period">{item.period}</span>
-            </div>
-            {item.location && <p class="entry-meta">{item.location}</p>}
-            <p class="entry-desc">{item.description}</p>
-            {item.highlights && (
-              <ul>
-                {item.highlights.map((h) => <li>{h}</li>)}
-              </ul>
-            )}
-            <p class="entry-stack">{item.stack.join(" · ")}</p>
-          </div>
-        ))}
-      </section>
-
-      <section>
-        <h2>{ui.skills}</h2>
-        <dl class="skills">
+          <h2 class="block sec">{ui.skills}</h2>
           {skillCategories.map((c) => (
-            <div class="skill-row">
-              <dt>{c.title}</dt>
-              <dd>{c.items.join(", ")}</dd>
+            <div class="block skill-row">
+              <span class="skill-title">{c.title}</span>
+              <span class="skill-items">{c.items.join(", ")}</span>
             </div>
           ))}
-        </dl>
-      </section>
 
-      <section class="two-col">
-        <div>
-          <h2>{ui.education}</h2>
+          <h2 class="block sec">{ui.experience}</h2>
+          {experience.items.map((item) => (
+            <>
+              <div class="block entry-head">
+                <div class="entry-line">
+                  <span class="entry-role">{item.role}</span>
+                  <span class="entry-period">{item.period}</span>
+                </div>
+                <div class="entry-line">
+                  <span class="entry-company">{item.company}</span>
+                  {item.location && <span class="entry-location">{item.location}</span>}
+                </div>
+              </div>
+              <p class="block entry-desc">{item.description}</p>
+              {item.highlights?.map((h) => {
+                const { lead, text } = splitHighlight(h);
+                return (
+                  <p class="block hl">
+                    {lead && <strong>{lead} — </strong>}{text}
+                  </p>
+                );
+              })}
+              <p class="block entry-stack"><span class="stack-label">{ui.stack}:</span> {item.stack.join(" · ")}</p>
+            </>
+          ))}
+
+          <h2 class="block sec">{ui.education}</h2>
           {education.education.map((e) => (
-            <div class="entry">
-              <div class="entry-head">
-                <span class="entry-title">{e.school}</span>
+            <div class="block entry-head">
+              <div class="entry-line">
+                <span class="entry-role">{e.school}</span>
                 <span class="entry-period">{e.period}</span>
               </div>
-              <p class="entry-meta">{e.degree}</p>
+              <div class="entry-line"><span class="entry-company">{e.degree}</span></div>
             </div>
           ))}
-        </div>
-        <div>
-          <h2>{ui.languages}</h2>
-          <ul class="langs">
-            {education.languages.map((l) => (
-              <li><strong>{l.name}</strong> — {l.level}</li>
-            ))}
-          </ul>
-        </div>
-      </section>
-    </main>
 
-    <script is:inline define:vars={{ fileName }}>
+          <h2 class="block sec">{ui.languages}</h2>
+          <div class="block langs">
+            {education.languages.map((l) => (
+              <span class="lang"><strong>{l.name}</strong> — {l.level}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline define:vars={{ fileName, fullName }}>
       document.title = fileName;
+
+      const stage = document.getElementById("stage");
+      const paper = document.getElementById("paper");
+      const flow = document.getElementById("flow");
+
+      const el = (tag, cls, text) => {
+        const n = document.createElement(tag);
+        n.className = cls;
+        if (text) n.textContent = text;
+        return n;
+      };
+
+      function paginate() {
+        const blocks = [...flow.children];
+        flow.remove();
+        paper.textContent = "";
+
+        let body;
+        const addPage = () => {
+          const page = el("div", "page");
+          body = el("div", "page-body");
+          page.append(body);
+          paper.append(page);
+        };
+        addPage();
+
+        for (const block of blocks) {
+          body.append(block);
+          if (body.scrollHeight <= body.clientHeight + 1) continue;
+          const prev = body;
+          addPage();
+          body.append(block);
+          // never leave a section/entry heading orphaned at the bottom of a page
+          let last = prev.lastElementChild;
+          while (last && prev.children.length > 1 && /\b(sec|entry-head)\b/.test(last.className)) {
+            body.prepend(last);
+            last = prev.lastElementChild;
+          }
+        }
+
+        const pages = [...paper.children];
+        pages.forEach((page, i) => {
+          page.append(el("div", "page-num", `${fullName} — ${i + 1} / ${pages.length}`));
+        });
+        document.getElementById("page-count").textContent = pages.length;
+      }
+
+      // A4 width in CSS px — scale the preview down on narrow screens
+      function fit() {
+        const scale = Math.min(1, (stage.clientWidth - 24) / 794);
+        paper.style.transform = scale < 1 ? `scale(${scale})` : "";
+        stage.style.height = scale < 1 ? `${paper.offsetHeight * scale}px` : "";
+      }
+
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
+        paginate();
+        fit();
+      });
+      addEventListener("resize", fit);
       document.getElementById("download-btn").addEventListener("click", () => window.print());
     </script>
 
-    <style>
+    <!-- inline (unscoped): pages are created by the pagination script, so scoped ids wouldn't stick -->
+    <style is:inline>
       :root {
-        --ink: #1a1a1a;
-        --muted: #4a4a4a;
-        --soft: #666;
-        --line: #cfcfcf;
-        --accent: #1a1a1a;
+        --ink: #16181c;
+        --body: #2f3339;
+        --soft: #6a6f77;
+        --line: #dcdee2;
+        --accent: #8a5c0d;
+        --page-w: 210mm;
+        --page-h: 297mm;
+        --pad-x: 15mm;
+        --pad-t: 13mm;
+        --pad-b: 14mm;
       }
       * { box-sizing: border-box; }
-      html { background: #525659; }
+      html { background: #4c5054; }
       body {
         margin: 0;
         font-family: "Inter", Arial, system-ui, sans-serif;
-        color: var(--ink);
-        font-size: 11pt;
-        line-height: 1.55;
+        color: var(--body);
+        font-size: 10.2pt;
+        line-height: 1.5;
         -webkit-font-smoothing: antialiased;
       }
+      a { color: inherit; text-decoration: none; }
 
+      /* ---------- toolbar ---------- */
       .toolbar {
         position: sticky;
         top: 0;
         z-index: 10;
         display: flex;
+        align-items: center;
         justify-content: center;
         gap: 12px;
-        padding: 14px;
-        background: rgba(20, 20, 20, 0.85);
+        padding: 12px;
+        background: rgba(18, 18, 20, 0.88);
         backdrop-filter: blur(8px);
       }
       .btn-link, .btn-print {
@@ -178,105 +257,176 @@ const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.
         padding: 9px 18px;
         border-radius: 8px;
         cursor: pointer;
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.22);
       }
-      .btn-link { color: #e5e5e5; background: transparent; display: inline-flex; align-items: center; }
+      .btn-link { color: #e5e5e5; }
       .btn-print { color: #1a1a1a; background: #f5b94d; border-color: #f5b94d; }
       .btn-print:hover { background: #f7c869; }
+      .meta-chip {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.5);
+      }
 
-      .sheet {
-        width: 210mm;
-        max-width: 100%;
-        min-height: 297mm;
-        margin: 24px auto;
-        padding: 16mm 15mm;
+      /* ---------- pages ---------- */
+      #stage { padding: 24px 12px 40px; }
+      #paper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        transform-origin: top center;
+      }
+      .page {
+        position: relative;
+        flex: none;
+        width: var(--page-w);
+        height: var(--page-h);
+        padding: var(--pad-t) var(--pad-x) var(--pad-b);
         background: #fff;
-        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+        overflow: hidden;
+      }
+      .page-body {
+        display: flex;
+        flex-direction: column;
+        gap: 3.4mm;
+        /* fixed, not 100% — the print rule shaves the page box, not the type area */
+        height: calc(var(--page-h) - var(--pad-t) - var(--pad-b));
+        overflow: hidden;
+      }
+      .page-body > * { flex: none; }
+      .page-num {
+        position: absolute;
+        left: var(--pad-x);
+        right: var(--pad-x);
+        bottom: 6mm;
+        padding-top: 2mm;
+        border-top: 1px solid var(--line);
+        font-size: 7.5pt;
+        letter-spacing: 0.04em;
+        color: var(--soft);
+        text-align: right;
       }
 
-      .head { border-bottom: 2px solid var(--ink); padding-bottom: 14px; margin-bottom: 22px; }
+      /* ---------- header ---------- */
+      .head { border-bottom: 2px solid var(--ink); padding-bottom: 4mm; }
       h1 {
-        font-size: 26pt;
+        margin: 0;
+        font-size: 25pt;
         font-weight: 700;
-        line-height: 1.1;
-        margin: 0 0 4px;
-        letter-spacing: -0.01em;
+        line-height: 1.05;
+        letter-spacing: -0.022em;
+        color: var(--ink);
       }
-      .role { font-size: 12.5pt; font-weight: 600; color: var(--muted); margin: 0 0 4px; }
-      .headline { font-size: 9.5pt; font-weight: 500; color: var(--soft); margin: 0 0 10px; }
-      .contacts { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 9.5pt; color: var(--soft); }
-      .contacts span { position: relative; }
-      .contacts span + span::before {
+      .role {
+        margin: 2mm 0 0;
+        font-size: 12pt;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        color: var(--accent);
+      }
+      .headline { margin: 1.5mm 0 0; font-size: 9pt; color: var(--soft); }
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1mm 5mm;
+        margin: 3mm 0 0;
+        padding: 0;
+        list-style: none;
+        font-size: 9.2pt;
+        color: var(--ink);
+      }
+      .contacts li { position: relative; }
+      .contacts li + li::before {
         content: "";
         position: absolute;
-        left: -8px;
-        top: 4px;
-        bottom: 4px;
+        left: -2.5mm;
+        top: 0.9mm;
+        bottom: 0.9mm;
         border-left: 1px solid var(--line);
       }
+      .availability { margin: 1.5mm 0 0; font-size: 8.6pt; color: var(--soft); }
 
-      section { margin-bottom: 20px; }
-      h2 {
-        font-size: 10pt;
+      /* ---------- sections ---------- */
+      h2.sec {
+        position: relative;
+        margin: 0;
+        padding: 2.5mm 0 1.6mm;
+        font-size: 9.2pt;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--ink);
-        border-bottom: 1.5px solid var(--ink);
-        padding-bottom: 5px;
-        margin: 0 0 12px;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        border-bottom: 1px solid var(--line);
       }
-      p { margin: 0 0 7px; }
-      .lead { font-weight: 500; }
+      h2.sec::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -1px;
+        width: 16mm;
+        border-bottom: 2px solid var(--accent);
+      }
+      p { margin: 0; }
+      .lead { font-weight: 500; color: var(--ink); }
 
-      .entry { margin-bottom: 14px; break-inside: avoid; }
-      .entry-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
-      .entry-title { font-weight: 700; font-size: 11.5pt; }
-      .entry-period { font-size: 9.5pt; color: var(--soft); white-space: nowrap; }
-      .entry-meta { font-size: 9.5pt; color: var(--soft); margin: 1px 0 5px; }
-      .entry-desc { margin-bottom: 5px; }
-      ul { margin: 0 0 6px; padding-left: 18px; }
-      li { margin-bottom: 4px; }
-      .entry-stack { font-size: 9pt; color: var(--muted); }
+      /* ---------- experience ---------- */
+      .entry-head { padding-top: 1mm; }
+      .entry-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 6mm;
+      }
+      .entry-role { font-size: 11pt; font-weight: 700; color: var(--ink); }
+      .entry-period {
+        font-size: 9pt;
+        font-weight: 500;
+        color: var(--soft);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+      .entry-company { font-size: 10pt; font-weight: 600; color: var(--accent); }
+      .entry-location { font-size: 9pt; color: var(--soft); white-space: nowrap; }
+      .entry-desc { color: var(--body); }
+      .hl { padding-left: 4.2mm; text-indent: -4.2mm; }
+      .hl::before { content: "▪"; color: var(--accent); margin-right: 2mm; }
+      .hl strong { color: var(--ink); font-weight: 600; }
+      .entry-stack { font-size: 8.8pt; color: var(--soft); }
+      .stack-label { font-weight: 600; color: var(--body); }
 
-      .skills { margin: 0; }
+      /* ---------- skills ---------- */
       .skill-row {
         display: grid;
-        grid-template-columns: 160px 1fr;
-        gap: 16px;
-        padding: 6px 0;
+        grid-template-columns: 42mm 1fr;
+        gap: 5mm;
         align-items: baseline;
-        border-bottom: 1px solid #ececec;
-        break-inside: avoid;
       }
-      .skill-row:last-child { border-bottom: none; }
-      dt { font-weight: 700; color: var(--ink); }
-      dd { margin: 0; color: var(--ink); }
+      .skill-title { font-weight: 600; color: var(--ink); }
+      .skill-items { color: var(--body); }
 
-      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-      .langs { list-style: none; padding: 0; margin: 0; }
-      .langs li { margin-bottom: 4px; }
+      /* ---------- languages ---------- */
+      .langs { display: flex; flex-wrap: wrap; gap: 1.5mm 8mm; }
+      .lang strong { color: var(--ink); font-weight: 600; }
 
-      @media screen and (max-width: 780px) {
-        .sheet { min-height: 0; margin: 12px auto; padding: 22px 18px; }
-        h1 { font-size: 22pt; }
-        .two-col { grid-template-columns: 1fr; gap: 16px; }
-        .skill-row { grid-template-columns: 1fr; gap: 2px; padding: 7px 0; }
-      }
-
-      @page { size: A4; margin: 14mm; }
+      /* ---------- print: pages are already laid out, just emit them ---------- */
+      @page { size: A4; margin: 0; }
       @media print {
         html { background: #fff; }
         .no-print { display: none !important; }
-        .sheet {
-          width: auto;
-          min-height: 0;
-          margin: 0;
-          padding: 0;
+        #stage { padding: 0; height: auto !important; }
+        #paper { gap: 0; transform: none !important; }
+        .page {
           box-shadow: none;
+          /* a hair under A4 so sub-pixel rounding can't push a blank sheet after each page */
+          height: 296.6mm;
+          break-after: page;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
         }
-        body { font-size: 10pt; }
+        .page:last-child { break-after: auto; }
       }
     </style>
   </body>

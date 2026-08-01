@@ -6,7 +6,7 @@ export const uz: CvContent = {
     description:
       "6+ yillik tajribaga ega Senior FullStack dasturchi: React, Vue.js, Angular, TypeScript, Node.js, NestJS, Frappe va zamonaviy veb-texnologiyalar. Toshkent, Oʻzbekiston.",
     keywords:
-      "fullstack dasturchi, senior dasturchi, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, veb-dasturchi, Toshkent, Oʻzbekiston, Izzatilla Aliyev",
+      "fullstack dasturchi, senior dasturchi, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, Capacitor, Android, mobil ishlab chiqish, veb-dasturchi, Toshkent, Oʻzbekiston, Izzatilla Aliyev",
     author: "Izzatilla Aliyev",
     ogTitle: "Izzatilla Aliyev — Senior FullStack Dasturchi",
     ogDescription:
@@ -51,7 +51,7 @@ export const uz: CvContent = {
         name: "Senior FullStack Dasturchi",
         occupationLocation: { "@type": "City", name: "Toshkent" },
         skills:
-          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Docker",
+          "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
       },
       knowsLanguage: [
         { "@type": "Language", name: "Oʻzbek tili", alternateName: "uz" },
@@ -77,6 +77,9 @@ export const uz: CvContent = {
         "Prisma",
         "Frappe",
         "ERPNext",
+        "Capacitor",
+        "Android",
+        "Mobile Development",
         "Docker",
         "Tailwind CSS",
         "WebRTC",
@@ -147,6 +150,10 @@ export const uz: CvContent = {
         items: ["React", "Next.js", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro"],
       },
       {
+        title: "Mobil ishlab chiqish",
+        items: ["Capacitor", "Android (WebView)", "Mobile-first UI", "Kross-platforma (Web → Mobile)"],
+      },
+      {
         title: "Holat va maʼlumotlar",
         items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query", "Nanostores"],
       },
@@ -198,12 +205,13 @@ export const uz: CvContent = {
         location: "Toshkent · Gibrid",
         period: "Mart 2026 — hozir",
         description:
-          "Kompaniyaning asosiy veb-mahsulotlari boʻyicha fullstack ish: marketing sayti, CMS, ichki hujjat aylanmasi platformasi va Frappe asosida deklarativ workflow-engine.",
+          "Kompaniyaning asosiy veb- va mobil mahsulotlari boʻyicha fullstack ish: marketing sayti, admin platforma/CMS, Android ilova, ichki hujjat aylanmasi platformasi va Frappe asosida deklarativ workflow-engine.",
         highlights: [
           "UzCloud Web — Astro 5 + React 19 islands + Tailwind 4 asosidagi SSR marketing sayti, middleware boshqaruvidagi [lang] routing orqali toʻliq ru/uz/en lokalizatsiya, Traefik orqasidagi Docker’da Express SSR runtime",
-          "UzCloud CMS Backend — NestJS 11 + Prisma 6 + PostgreSQL’dagi REST API: admin/public kontrollerlar boʻlinishi, til boʻyicha alohida i18n jadvallari, tranzaksion mutatsiyalar, httpOnly-cookie refresh tokenlari",
-          "UzCloud CMS Dashboard — Vue 3 + Quasar 2 + Pinia + Vite’dagi admin panel; @SimpleTry dekoratorlari bilan tekis servis arxitekturasi, route meta’dan avtomatik sidebar, backend validatsiyasini aks ettiruvchi VeeValidate + Zod formalari",
-          "EDOC v2 — Frappe asosidagi elektron hujjat aylanmasi tizimi uchun React frontend; Feature Modules + Registry arxitekturasi, OpenAPI’dan Orval orqali yaratilgan entitilar, TanStack Query v5 + Zustand, WebSocket presence",
+          "UzCloud CMS Backend — NestJS 11 + Prisma 6 + PostgreSQL’dagi REST API: admin/public kontrollerlar boʻlinishi, til boʻyicha alohida i18n jadvallari, tranzaksion mutatsiyalar, JWT + httpOnly-cookie refresh, fayl saqlash va shartnomalarni avtomatik yaratish domeni (katalog, versiyalanadigan shablonlar, PDF, Asana vazifalari)",
+          "UzCloud Admin Platform — kontent-menejerdan ichki biznes platformaga oʻsgan Vue 3 + Quasar 2 + Pinia + Vite paneli: master va katalog-kalkulyatorli shartnomalar reestri, pleysxolderli versiyalanadigan shablonlar, tijorat taklifi generatori, STIR boʻyicha kontragentni avtomatik toʻldirish (Didox / Soliq), PDF eksporti va Asana’ga vazifa uzatish, RBAC (admin / manager × tashkilotlar), mediakutubxona, Quill asosidagi blog va Telegram Mini App orqali kirish; @SimpleTry bilan tekis servislar, route meta’dan avtomatik sidebar, backend validatsiyasini aks ettiruvchi VeeValidate + Zod formalari",
+          "EDOC v2 — Frappe asosidagi elektron hujjat aylanmasi tizimi uchun React frontend; Feature Modules + Registry arxitekturasi, qoʻlda yozilgan tiplashtirilgan entiti qatlami, dinamik forma dvigateli, TanStack Query v5 + Zustand, WebSocket presence",
+          "EDOC Mobile — Capacitor 8 asosidagi EDOC uchun Android ilova: oʻsha React SPA ustidagi WebView qobiq (same-origin API, stendlarni env orqali almashtirish) va mobil UI qatlami — layout’ning uchta moslashuvchan rejimi, suzuvchi pastki navigatsiya, reference-counted skroll bloklashli svayp bottom sheet’lar, safe-area bilan ishlash",
           "edoc_workflow — Frappe uchun deklarativ versiyalanadigan workflow-engine: status/transition DocType’lar, adapter pattern, condition/validator/post-function reestri, whitelisted transition API",
           "AI-first ishlab chiqish — jamoada agentic AI-workflow va AIDD (AI-Driven Development) amaliyotlarini joriy qildim; deyarli 100% AI tomonidan yaratilgan kodli LLM-yordamli pipeline’lar bilan review sifatini saqlagan holda tezroq yetkazib berdim",
         ],
@@ -226,7 +234,8 @@ export const uz: CvContent = {
           "Tailwind CSS",
           "TanStack Query",
           "Zustand",
-          "Orval",
+          "Capacitor",
+          "Android",
           "Docker",
           "Traefik",
         ],
