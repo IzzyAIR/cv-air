@@ -13,6 +13,12 @@ npm run astro     # Direct Astro CLI access (e.g. `npm run astro check` for type
 
 There is no test runner, linter, or formatter configured. Type-checking is via `astro check` (run through `npm run astro check`).
 
+## Skills
+
+`.claude/skills/design-taste-frontend/` — [tasteskill](https://www.tasteskill.dev/docs) (MIT, `Leonxlnx/taste-skill`), an anti-slop frontend ruleset for landing pages, portfolios and redesigns. Useful for **new** surfaces.
+
+**`DESIGN.md` outranks it inside this repo.** The skill's "AI tells" ban list forbids several things that are deliberate signatures here: numbered section eyebrows (`§ 01`), middle-dot separators, em-dashes, hairline rules as decoration, the custom cursor blob, Inter as the default face. Do not "fix" the existing design to satisfy the skill — apply it when designing something new, and defer to `DESIGN.md` on anything the site already does.
+
 ## Architecture
 
 Static, trilingual (`en` / `ru` / `uz`) personal CV site built with Astro 5 + Tailwind 3. Output is pure HTML/CSS with one small inline `<script>` in the Navbar — no React, no hydration, no client framework.
