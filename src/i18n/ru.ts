@@ -107,7 +107,7 @@ export const ru: CvContent = {
     firstName: "Иззатилла",
     lastName: "Алиев",
     headline:
-      "Senior Frontend разработчик | Фундамент Full-Stack | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Frontend разработчик | Фундамент Full-Stack | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack-разработчик. Создаю high-load и современные веб-приложения. Глубокая экспертиза во фронтенде — React, Vue, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, GraphQL, PostgreSQL, Frappe.",
     meta: "📍 Ташкент · Remote · Full-time / Part-time / Project",

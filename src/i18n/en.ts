@@ -112,7 +112,7 @@ export const en: CvContent = {
     firstName: "Izzatilla",
     lastName: "Aliev",
     headline:
-      "Senior Frontend Developer | Full-Stack Foundation | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Frontend Developer | Full-Stack Foundation | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack developer focused on high-load and modern web applications. Deep expertise across React, Vue, Angular, Svelte, Astro on the frontend and Node.js, NestJS, GraphQL, PostgreSQL, Frappe on the backend.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",

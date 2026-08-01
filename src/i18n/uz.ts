@@ -107,7 +107,7 @@ export const uz: CvContent = {
     firstName: "Izzatilla",
     lastName: "Aliyev",
     headline:
-      "Senior Frontend dasturchi | Full-Stack poydevori | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Frontend dasturchi | Full-Stack poydevori | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
     summary:
       "Senior FullStack dasturchi. Yuqori yuklamali va zamonaviy veb-ilovalar yarataman. Frontendda — React, Vue, Angular, Svelte, Astro; backendda — Node.js, NestJS, GraphQL, PostgreSQL, Frappe boʻyicha chuqur tajribaga egaman.",
     meta: "📍 Toshkent · Remote · Full-time / Part-time / Loyiha asosida",
