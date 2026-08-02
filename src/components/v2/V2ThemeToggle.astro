@@ -1,0 +1,30 @@
+---
+import sunIcon from "@tabler/icons/outline/sun.svg?raw";
+import moonIcon from "@tabler/icons/outline/moon.svg?raw";
+import type { Lang } from "../../i18n";
+import { getUi } from "./ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const ui = getUi(lang);
+
+// Tabler ships 24px icons; scale them down and let the button colour them.
+const icon = (svg: string, cls: string) =>
+  svg
+    .replace("<svg", `<svg class="${cls} h-[18px] w-[18px]" aria-hidden="true"`)
+    .replace(/stroke-width="[^"]*"/, 'stroke-width="1.5"');
+---
+
+<button
+  type="button"
+  id="v2-theme"
+  aria-label={ui.theme}
+  title={ui.theme}
+  class="grid h-8 w-8 place-items-center rounded-full text-v2-mut transition-colors hover:bg-v2-surface hover:text-v2-ink"
+>
+  <Fragment set:html={icon(moonIcon, "v2-icon-moon")} />
+  <Fragment set:html={icon(sunIcon, "v2-icon-sun")} />
+</button>

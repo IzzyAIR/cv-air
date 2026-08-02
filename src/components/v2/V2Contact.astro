@@ -1,0 +1,81 @@
+---
+import { getContact, getHero } from "../../services";
+import type { Lang } from "../../i18n";
+import { getUi, noDash, stripUrl, v1Href } from "./ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const contact = getContact(lang);
+const hero = getHero(lang);
+const ui = getUi(lang);
+
+// The middle dot is rationed to one per metadata line, so the city rides with the
+// contact channels and the availability line sits alone in the footer.
+const [city, ...availability] = noDash(hero.meta.replace(/^📍\s*/, ""))
+  .split("·")
+  .map((s) => s.trim());
+const channels = contact.links.map((l) => ({
+  href: l.href,
+  label: l.type === "phone" ? l.label.replace(/^📞\s*/, "") : stripUrl(l.href),
+}));
+---
+
+<section
+  id="contact"
+  class="mx-auto max-w-[1240px] scroll-mt-24 px-5 py-24 text-center sm:px-8 md:py-32"
+>
+  <h2
+    class="v2-reveal mx-auto max-w-[16ch] text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-semibold tracking-[-0.035em]"
+  >
+    {ui.contactTitle}
+  </h2>
+
+  <p class="v2-reveal mx-auto mt-5 max-w-[52ch] text-[16.5px] leading-relaxed text-v2-mut">
+    {noDash(contact.description)}
+  </p>
+
+  <a
+    href={`mailto:${contact.email}`}
+    class="v2-sweep v2-reveal mt-10 inline-block text-[clamp(1.35rem,3.4vw,2.1rem)] font-medium tracking-[-0.02em] break-all text-v2-accent"
+  >
+    {contact.email}
+  </a>
+
+  <div class="v2-reveal mt-8">
+    <a
+      href={`mailto:${contact.email}`}
+      data-magnetic
+      class="inline-block rounded-full bg-v2-accent px-7 py-3.5 text-[15.5px] font-medium whitespace-nowrap text-v2-accent-ink transition-[filter,transform] duration-300 hover:brightness-110 active:translate-y-px"
+    >
+      {ui.contact}
+    </a>
+  </div>
+
+  <ul
+    class="v2-reveal mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[14.5px] text-v2-mut"
+  >
+    {
+      channels.map((c) => (
+        <li>
+          <a href={c.href} class="hover:text-v2-ink">
+            {c.label}
+          </a>
+        </li>
+      ))
+    }
+    <li>{city}</li>
+  </ul>
+</section>
+
+<footer class="border-t border-v2-line">
+  <div
+    class="mx-auto flex max-w-[1240px] flex-wrap items-center justify-between gap-4 px-5 py-8 text-[13px] text-v2-mut sm:px-8"
+  >
+    <span>{hero.firstName} {hero.lastName}</span>
+    {availability.length > 0 && <span>{availability.join(" · ")}</span>}
+    <a href={v1Href(lang)} class="hover:text-v2-ink">{ui.v1}</a>
+  </div>
+</footer>

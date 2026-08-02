@@ -110,15 +110,27 @@ npm run preview
 
 ## 🧭 Routes
 
-| Path          | Locale            |
-| ------------- | ----------------- |
-| `/`           | English (default) |
-| `/ru/`        | Русский           |
-| `/uz/`        | Oʻzbek            |
-| `/resume`     | Résumé — English  |
-| `/ru/resume`  | Résumé — Русский  |
-| `/uz/resume`  | Résumé — Oʻzbek   |
-| `/404`        | Not Found         |
+| Path         | Page                     | Indexed |
+| ------------ | ------------------------ | ------- |
+| `/`          | Site — English (default) | yes     |
+| `/ru/`       | Site — Русский           | yes     |
+| `/uz/`       | Site — Oʻzbek            | yes     |
+| `/v1`        | Archived v1 — English    | no      |
+| `/ru/v1`     | Archived v1 — Русский    | no      |
+| `/uz/v1`     | Archived v1 — Oʻzbek     | no      |
+| `/resume`    | Résumé — English         | no      |
+| `/ru/resume` | Résumé — Русский         | no      |
+| `/uz/resume` | Résumé — Oʻzbek          | no      |
+| `/404`       | Not Found                | —       |
+
+## 🧊 The design
+
+The live site is **v2** — a full redesign that replaced the original warm-dark editorial layout. The first design is kept at `/v1` as an archive: reachable, `noindex`, out of the sitemap, linked from the nav and the footer. Both are built from the same services and locale bundles; only the presentation differs.
+
+- **Cold Luxury** palette: cool grey neutrals with one cobalt accent. Two themes — the system preference by default, plus a nav toggle that pins a choice in `localStorage` and applies it before first paint. Geist + Geist Mono, self-hosted.
+- **Real brand marks** from Simple Icons: a logo marquee under the hero, a named grid in the stack section. No hand-drawn icon paths.
+- **Motion is CSS first** — scroll-driven reveals, a `scroll()`-timeline reading-progress line, a masked name reveal, word-by-word ink-in. No scroll listeners. One small inline script covers the stat count-up and the magnetic CTA, and it bails out entirely under `prefers-reduced-motion`.
+- Tokens live in `src/styles/v2.css` and never touch `global.css`, so the two designs cannot affect each other.
 
 ## 📄 Résumé
 

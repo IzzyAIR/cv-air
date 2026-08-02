@@ -18,7 +18,8 @@ const { lang } = Astro.props;
 const meta = getSiteMeta(lang);
 ---
 
-<BaseLayout lang={lang}>
+{/* v1 is archived at /v1 and serves the same content as the site root */}
+<BaseLayout lang={lang} noindex>
   <Navbar lang={lang} />
   <main>
     <HeroSection lang={lang} />

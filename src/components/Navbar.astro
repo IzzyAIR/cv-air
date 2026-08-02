@@ -1,6 +1,7 @@
 ---
 import { getNavLinks, getBrand } from "../services";
-import { LANGUAGES, langHref } from "../i18n";
+import { LANGUAGES } from "../i18n";
+import { v1PathFor } from "../consts";
 import type { Lang } from "../i18n";
 
 interface Props {
@@ -21,7 +22,7 @@ const resumeLabel = lang === "ru" ? "Резюме PDF" : lang === "uz" ? "Rezyum
 >
   <div class="container flex items-center justify-between h-14 gap-4">
     <a
-      href={langHref(lang)}
+      href={v1PathFor(lang)}
       data-scroll-top
       class="font-mono text-[13px] tracking-tight shrink-0 inline-flex items-center gap-2"
     >
@@ -53,7 +54,7 @@ const resumeLabel = lang === "ru" ? "Резюме PDF" : lang === "uz" ? "Rezyum
           <>
             {i > 0 && <span class="text-foreground/20 mx-1.5">/</span>}
             <a
-              href={langHref(l.code)}
+              href={v1PathFor(l.code)}
               class:list={[
                 "transition-colors",
                 l.code === lang ? "text-primary" : "text-muted-foreground hover:text-foreground",
@@ -100,7 +101,7 @@ const resumeLabel = lang === "ru" ? "Резюме PDF" : lang === "uz" ? "Rezyum
         <>
           {i > 0 && <span class="text-foreground/20">/</span>}
           <a
-            href={langHref(l.code)}
+            href={v1PathFor(l.code)}
             class:list={[l.code === lang ? "text-primary" : "text-muted-foreground"]}
           >
             {l.label}

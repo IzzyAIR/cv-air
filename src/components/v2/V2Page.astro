@@ -1,0 +1,86 @@
+---
+import V2Layout from "../../layouts/V2Layout.astro";
+import V2Nav from "./V2Nav.astro";
+import V2Hero from "./V2Hero.astro";
+import V2Marquee from "./V2Marquee.astro";
+import V2Stats from "./V2Stats.astro";
+import V2About from "./V2About.astro";
+import V2Experience from "./V2Experience.astro";
+import V2Stack from "./V2Stack.astro";
+import V2Credentials from "./V2Credentials.astro";
+import V2Contact from "./V2Contact.astro";
+import type { Lang } from "../../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+---
+
+<V2Layout lang={lang}>
+  <V2Nav lang={lang} />
+  <main>
+    <V2Hero lang={lang} />
+    <V2Marquee />
+    <V2Stats lang={lang} />
+    <V2About lang={lang} />
+    <V2Experience lang={lang} />
+    <V2Stack lang={lang} />
+    <V2Credentials lang={lang} />
+    <V2Contact lang={lang} />
+  </main>
+
+  <script is:inline>
+    // One island: count-up on the stats and a magnetic pull on the primary CTA.
+    // Both are feedback/hierarchy devices; everything else on the page is CSS.
+    (() => {
+      const root = document.documentElement;
+      document.getElementById("v2-theme")?.addEventListener("click", () => {
+        const current =
+          root.dataset.theme ??
+          (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        const next = current === "dark" ? "light" : "dark";
+        root.dataset.theme = next;
+        try {
+          localStorage.setItem("v2-theme", next);
+        } catch {}
+      });
+
+      const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (calm) return;
+
+      const counters = document.querySelectorAll("[data-count]");
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            io.unobserve(el);
+            const target = Number(el.dataset.count);
+            const started = performance.now();
+            const tick = (now) => {
+              const t = Math.min((now - started) / 900, 1);
+              el.textContent = String(Math.round(target * (1 - Math.pow(1 - t, 3))));
+              if (t < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+          });
+        },
+        { threshold: 0.6 },
+      );
+      counters.forEach((el) => io.observe(el));
+
+      document.querySelectorAll("[data-magnetic]").forEach((btn) => {
+        const pull = 10;
+        btn.addEventListener("pointermove", (e) => {
+          const r = btn.getBoundingClientRect();
+          btn.style.transform = `translate(${((e.clientX - r.left - r.width / 2) / r.width) * pull}px, ${((e.clientY - r.top - r.height / 2) / r.height) * pull}px)`;
+        });
+        btn.addEventListener("pointerleave", () => {
+          btn.style.transform = "";
+        });
+      });
+    })();
+  </script>
+</V2Layout>

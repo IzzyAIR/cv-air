@@ -11,6 +11,8 @@ export default defineConfig({
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap({
+      // The archived v1 design and the printable résumé are both noindex.
+      filter: (page) => !/\/(v1|resume)\/?$/.test(page),
       i18n: {
         defaultLocale: "en",
         locales: {

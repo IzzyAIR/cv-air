@@ -1,0 +1,28 @@
+---
+import { MARQUEE_LOGOS } from "./logos";
+
+// The page's single marquee. Real Simple Icons marks, no labels, no wordmarks.
+const row = [...MARQUEE_LOGOS, ...MARQUEE_LOGOS];
+---
+
+<div
+  class="v2-marquee overflow-hidden border-y border-v2-line bg-v2-surface py-7"
+  style="mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)"
+>
+  <ul class="v2-marquee-track flex w-max items-center gap-14 px-7">
+    {
+      row.map((logo, i) => (
+        <li aria-hidden={i >= MARQUEE_LOGOS.length ? "true" : undefined}>
+          <svg
+            role="img"
+            viewBox="0 0 24 24"
+            class="h-7 w-7 fill-v2-ink opacity-45 transition-opacity duration-300 hover:opacity-100"
+          >
+            <title>{logo.name}</title>
+            <path d={logo.path} />
+          </svg>
+        </li>
+      ))
+    }
+  </ul>
+</div>
