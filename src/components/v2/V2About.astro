@@ -1,0 +1,49 @@
+---
+import { getAbout } from "../../services";
+import type { Lang } from "../../i18n";
+import { getUi, leadFrom, noDash } from "./ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const about = getAbout(lang);
+const ui = getUi(lang);
+
+const [opening, ...rest] = about.paragraphs.map(noDash);
+// Only the opening claim runs at display size; the remainder stays body copy.
+const statement = leadFrom(opening, 22);
+const body = [opening.slice(statement.length).trim(), ...rest].filter(Boolean);
+const words = statement.split(/\s+/);
+---
+
+<section
+  id="about"
+  class="mx-auto max-w-[1240px] scroll-mt-24 border-t border-v2-line px-5 py-20 sm:px-8 md:py-28"
+>
+  <div class="grid gap-10 md:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] md:gap-16">
+    <div class="md:sticky md:top-24 md:self-start">
+      <h2 class="text-[22px] font-semibold tracking-tight">{ui.about}</h2>
+      <span class="v2-rule mt-3"></span>
+    </div>
+
+    <div>
+      <!-- The opening statement inks in word by word as it enters, so the eye
+           is walked through the claim instead of hitting a paragraph wall. -->
+      <p
+        class="v2-ink max-w-[26ch] text-[clamp(1.5rem,3.4vw,2.35rem)] leading-[1.22] font-medium tracking-[-0.025em]"
+      >
+        {words.map((w, i) => <span style={`--i:${i}`}>{w} </span>)}
+      </p>
+
+      <div class="mt-8 max-w-[62ch] space-y-5 text-[16.5px] leading-relaxed text-v2-mut">
+        {body.map((p, i) => (
+          <p class="v2-reveal" style={`--d:${i * 70}ms`}>
+            {p}
+          </p>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

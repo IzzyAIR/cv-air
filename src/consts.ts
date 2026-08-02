@@ -14,8 +14,14 @@ export const LOCALE_MAP: Record<Lang, string> = {
   uz: "uz_UZ",
 };
 
+/** Canonical site path — v2 lives at the root. */
 export function pathFor(lang: Lang): string {
   return lang === "en" ? "/" : `/${lang}/`;
+}
+
+/** The archived first design. Reachable, but out of the index. */
+export function v1PathFor(lang: Lang): string {
+  return lang === "en" ? "/v1" : `/${lang}/v1`;
 }
 
 export function absoluteUrl(path: string): string {

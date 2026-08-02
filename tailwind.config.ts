@@ -15,8 +15,21 @@ export default {
         sans: ["Inter", "system-ui", "sans-serif"],
         display: ["Instrument Serif", "Times New Roman", "serif"],
         mono: ["JetBrains Mono", "SFMono-Regular", "monospace"],
+        // v2 only
+        geist: ["Geist Variable", "system-ui", "sans-serif"],
+        "geist-mono": ["Geist Mono Variable", "ui-monospace", "monospace"],
       },
       colors: {
+        // v2 only — tokens live in src/styles/v2.css
+        v2: {
+          bg: "hsl(var(--v2-bg))",
+          surface: "hsl(var(--v2-surface))",
+          ink: "hsl(var(--v2-ink))",
+          mut: "hsl(var(--v2-mut))",
+          line: "hsl(var(--v2-line))",
+          accent: "hsl(var(--v2-accent))",
+          "accent-ink": "hsl(var(--v2-accent-ink))",
+        },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -55,6 +68,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        // v2 shape lock: panels 16px, media 20px, interactive full pill
+        v2: "16px",
+        "v2-lg": "20px",
       },
       keyframes: {
         "fade-in-up": {

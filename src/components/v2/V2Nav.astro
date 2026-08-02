@@ -1,0 +1,104 @@
+---
+import { getHero } from "../../services";
+import { LANGUAGES, type Lang } from "../../i18n";
+import { getUi, v1Href, v2Href } from "./ui";
+import V2ThemeToggle from "./V2ThemeToggle.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const hero = getHero(lang);
+const ui = getUi(lang);
+
+const links = [
+  { label: ui.navAbout, href: "#about" },
+  { label: ui.navWork, href: "#work" },
+  { label: ui.navStack, href: "#stack" },
+  { label: ui.navContact, href: "#contact" },
+];
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-v2-line/70 bg-v2-bg/85 backdrop-blur-md"
+>
+  <!-- Reading progress, driven by the document scroll timeline -->
+  <div
+    aria-hidden="true"
+    class="v2-progress absolute inset-x-0 top-0 h-px bg-v2-accent"
+  >
+  </div>
+  <nav
+    class="mx-auto flex h-16 max-w-[1240px] items-center gap-6 px-5 sm:px-8"
+    aria-label={hero.firstName}
+  >
+    <a
+      href={v2Href(lang)}
+      class="text-[15px] font-semibold tracking-tight whitespace-nowrap"
+    >
+      {hero.firstName}
+      <span class="text-v2-mut">{hero.lastName}</span>
+    </a>
+
+    <ul class="ml-auto hidden items-center gap-7 lg:flex">
+      {
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="text-[14px] text-v2-mut transition-colors hover:text-v2-ink"
+            >
+              {l.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="ml-auto flex items-center gap-1 lg:ml-0">
+      <V2ThemeToggle lang={lang} />
+      {
+        LANGUAGES.map(({ code, label }) => (
+          <a
+            href={v2Href(code)}
+            aria-current={code === lang ? "page" : undefined}
+            class:list={[
+              "rounded-full px-2.5 py-1 text-[12px] font-medium uppercase transition-colors",
+              code === lang
+                ? "bg-v2-ink text-v2-bg"
+                : "text-v2-mut hover:text-v2-ink",
+            ]}
+          >
+            {label}
+          </a>
+        ))
+      }
+    </div>
+
+    <a
+      href="#contact"
+      class="hidden rounded-full bg-v2-accent px-4 py-2 text-[13px] font-medium whitespace-nowrap text-v2-accent-ink transition-transform hover:brightness-110 active:translate-y-px sm:inline-block"
+    >
+      {ui.contact}
+    </a>
+  </nav>
+
+  <!-- Mobile section links: a second row instead of a hamburger, so the bar stays one line -->
+  <div class="border-t border-v2-line/70 lg:hidden">
+    <ul
+      class="mx-auto flex max-w-[1240px] gap-5 overflow-x-auto px-5 py-2.5 text-[13px] text-v2-mut sm:px-8"
+    >
+      {
+        links.map((l) => (
+          <li class="whitespace-nowrap">
+            <a href={l.href}>{l.label}</a>
+          </li>
+        ))
+      }
+      <li class="whitespace-nowrap">
+        <a href={v1Href(lang)}>{ui.v1}</a>
+      </li>
+    </ul>
+  </div>
+</header>

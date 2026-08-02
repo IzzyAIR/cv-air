@@ -1,0 +1,36 @@
+---
+import { getAbout } from "../../services";
+import type { Lang } from "../../i18n";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const about = getAbout(lang);
+
+// "6+" / "25+" — the digits animate, the suffix stays put
+const parse = (value: string) => {
+  const m = value.match(/^(\d+)(.*)$/);
+  return { num: m ? Number(m[1]) : 0, suffix: m ? m[2] : value };
+};
+---
+
+<!-- Numbers breathe in plain layout, no card containers -->
+<section class="mx-auto max-w-[1240px] px-5 py-16 sm:px-8 md:py-20">
+  <dl class="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
+    {
+      about.stats.map((stat, i) => {
+        const { num, suffix } = parse(stat.value);
+        return (
+          <div class="v2-reveal border-t border-v2-line pt-4" style={`--d:${i * 60}ms`}>
+            <dd class="tnum font-geist-mono text-[clamp(2.4rem,6vw,3.8rem)] leading-none font-medium tracking-tight">
+              <span data-count={num}>{num}</span>{suffix}
+            </dd>
+            <dt class="mt-3 text-[13px] text-v2-mut">{stat.label}</dt>
+          </div>
+        );
+      })
+    }
+  </dl>
+</section>

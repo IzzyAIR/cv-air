@@ -1,0 +1,320 @@
+/* v2 — self-hosted (no <link> to Google Fonts in production) */
+@import "@fontsource-variable/geist/index.css";
+@import "@fontsource-variable/geist-mono/index.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Cold Luxury palette: cool silver-grey neutrals, chrome surfaces, smoke lines,
+   * one saturated accent. Deliberately not the warm honey system of v1, and not the
+   * beige/brass/espresso family that premium-consumer briefs default to.
+   * Radius rule: panels 16px, media 20px, interactive full pill.
+   */
+  :root {
+    --v2-bg: 220 24% 97%;
+    --v2-surface: 0 0% 100%;
+    --v2-ink: 220 24% 8%;
+    --v2-mut: 218 12% 42%;
+    --v2-line: 216 20% 89%;
+    --v2-accent: 230 68% 51%;
+    --v2-accent-ink: 0 0% 100%;
+    --v2-shadow: 220 30% 12%;
+    --v2-sheen: 220 40% 88%;
+    color-scheme: light;
+  }
+
+  /* Dark values live in one place; the media query is the system default and the
+     [data-theme] attribute is the manual override. Attribute selectors outrank
+     the bare :root inside the media query, so order does not matter. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --v2-bg: 216 18% 6%;
+      --v2-surface: 217 17% 10%;
+      --v2-ink: 214 22% 92%;
+      --v2-mut: 216 12% 65%;
+      --v2-line: 217 16% 17%;
+      --v2-accent: 227 72% 74%;
+      --v2-accent-ink: 227 60% 12%;
+      --v2-shadow: 216 40% 2%;
+      --v2-sheen: 220 30% 22%;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --v2-bg: 216 18% 6%;
+    --v2-surface: 217 17% 10%;
+    --v2-ink: 214 22% 92%;
+    --v2-mut: 216 12% 65%;
+    --v2-line: 217 16% 17%;
+    --v2-accent: 227 72% 74%;
+    --v2-accent-ink: 227 60% 12%;
+    --v2-shadow: 216 40% 2%;
+    --v2-sheen: 220 30% 22%;
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    --v2-bg: 220 24% 97%;
+    --v2-surface: 0 0% 100%;
+    --v2-ink: 220 24% 8%;
+    --v2-mut: 218 12% 42%;
+    --v2-line: 216 20% 89%;
+    --v2-accent: 230 68% 51%;
+    --v2-accent-ink: 0 0% 100%;
+    --v2-shadow: 220 30% 12%;
+    --v2-sheen: 220 40% 88%;
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-v2-bg text-v2-ink font-geist;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: hsl(var(--v2-accent));
+    color: hsl(var(--v2-accent-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--v2-accent));
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+}
+
+@layer components {
+  /* Highlight bullets. Kept in CSS so the marker glyph is not an escaped
+     arbitrary Tailwind value inside a class attribute. */
+  .v2-list > li {
+    position: relative;
+    padding-left: 1.15rem;
+  }
+  .v2-list > li::before {
+    content: "–";
+    position: absolute;
+    left: 0;
+    color: hsl(var(--v2-accent));
+  }
+
+  /* Chrome edge: a cool sheen plus a 1px inner highlight, the premium-consumer
+     glass treatment done with a real inner border rather than blur alone. */
+  .v2-frame {
+    position: relative;
+    background: linear-gradient(
+      145deg,
+      hsl(var(--v2-sheen) / 0.9),
+      hsl(var(--v2-surface)) 45%
+    );
+    box-shadow:
+      0 36px 90px -40px hsl(var(--v2-shadow) / 0.65),
+      inset 0 1px 0 hsl(0 0% 100% / 0.14);
+  }
+
+  /* Section headline rule that draws itself as the heading enters. */
+  .v2-rule {
+    display: block;
+    height: 2px;
+    width: 100%;
+    transform-origin: left;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--v2-accent)),
+      hsl(var(--v2-accent) / 0)
+    );
+  }
+
+  .v2-card {
+    transition:
+      transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.4s ease,
+      box-shadow 0.4s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .v2-card:hover {
+      transform: translateY(-3px);
+      border-color: hsl(var(--v2-accent) / 0.45);
+      box-shadow: 0 22px 50px -34px hsl(var(--v2-shadow) / 0.8);
+    }
+  }
+
+  /* Theme toggle shows the mode it switches TO. Three states to cover:
+     system light, system dark, and either one pinned by [data-theme]. */
+  .v2-icon-sun {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    .v2-icon-moon {
+      display: none;
+    }
+    .v2-icon-sun {
+      display: block;
+    }
+  }
+  :root[data-theme="dark"] .v2-icon-moon {
+    display: none;
+  }
+  :root[data-theme="dark"] .v2-icon-sun {
+    display: block;
+  }
+  :root[data-theme="light"] .v2-icon-moon {
+    display: block;
+  }
+  :root[data-theme="light"] .v2-icon-sun {
+    display: none;
+  }
+
+  /* Sweep underline for text links. */
+  .v2-sweep {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .v2-sweep:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@layer utilities {
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @keyframes v2-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes v2-unmask {
+    from {
+      clip-path: inset(0 0 105% 0);
+    }
+    to {
+      clip-path: inset(0 0 -12% 0);
+    }
+  }
+
+  @keyframes v2-draw {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes v2-ink {
+    from {
+      opacity: 0.16;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes v2-drift {
+    from {
+      transform: translateY(3%) scale(1.04);
+    }
+    to {
+      transform: translateY(-3%) scale(1.04);
+    }
+  }
+
+  @keyframes v2-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Scroll progress hairline, driven by the document scroll timeline. */
+  .v2-progress {
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .v2-enter {
+      animation: v2-rise 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--d, 0ms);
+    }
+
+    .v2-unmask {
+      animation: v2-unmask 0.95s cubic-bezier(0.76, 0, 0.24, 1) both;
+      animation-delay: var(--d, 0ms);
+    }
+
+    .v2-marquee-track {
+      animation: v2-marquee 42s linear infinite;
+      will-change: transform;
+    }
+    .v2-marquee:hover .v2-marquee-track {
+      animation-play-state: paused;
+    }
+
+    /* Scroll-driven CSS, so there is no scroll listener anywhere on the page.
+       Browsers without view() timelines simply render the content in place. */
+    @supports (animation-timeline: view()) {
+      .v2-reveal {
+        animation: v2-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 4% cover 20%;
+      }
+
+      .v2-rule {
+        animation: v2-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 10% cover 26%;
+      }
+
+      /* Word-by-word ink-in: --i staggers each word's slice of the range. */
+      .v2-ink > span {
+        animation: v2-ink linear both;
+        animation-timeline: view();
+        animation-range: entry calc(4% + var(--i, 0) * 0.8%) entry
+          calc(46% + var(--i, 0) * 0.8%);
+      }
+
+      .v2-parallax {
+        animation: v2-drift linear both;
+        animation-timeline: view();
+        animation-range: cover;
+      }
+    }
+
+    @supports (animation-timeline: scroll()) {
+      .v2-progress {
+        animation: v2-draw linear both;
+        animation-timeline: scroll();
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .v2-progress {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+---
+import { getTechStack } from "../../services";
+import type { Lang } from "../../i18n";
+import { getUi } from "./ui";
+import { CORE_LOGOS } from "./logos";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tech = getTechStack(lang);
+const ui = getUi(lang);
+---
+
+<section
+  id="stack"
+  class="mx-auto max-w-[1240px] scroll-mt-24 border-t border-v2-line px-5 py-20 sm:px-8 md:py-28"
+>
+  <h2
+    class="v2-reveal max-w-[14ch] text-[clamp(2rem,5vw,3.4rem)] leading-[1.05] font-semibold tracking-[-0.035em]"
+  >
+    {ui.stack}
+  </h2>
+
+  <!-- Day-to-day tools as real brand marks, not text chips -->
+  <ul
+    class="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-v2 border border-v2-line bg-v2-line sm:grid-cols-3 lg:grid-cols-4"
+  >
+    {
+      CORE_LOGOS.map((logo, i) => (
+        <li
+          class="v2-reveal flex items-center gap-3 bg-v2-bg px-4 py-4 transition-colors duration-300 hover:bg-v2-surface"
+          style={`--d:${(i % 4) * 45}ms`}
+        >
+          <svg role="img" viewBox="0 0 24 24" class="h-5 w-5 shrink-0 fill-v2-accent">
+            <title>{logo.name}</title>
+            <path d={logo.path} />
+          </svg>
+          <span class="truncate text-[13.5px]">{logo.name}</span>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="mt-14 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      tech.categories.map((cat, i) => (
+        <div class="v2-reveal" style={`--d:${(i % 3) * 50}ms`}>
+          <h3 class="text-[13px] font-semibold tracking-tight">{cat.title}</h3>
+          <p class="mt-2 text-[14px] leading-relaxed text-v2-mut">
+            {cat.items.join(", ")}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

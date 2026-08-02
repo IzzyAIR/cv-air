@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+import profilePhoto from "../../assets/profile-photo.jpg";
+import { getHero, getContact } from "../../services";
+import { langHref, type Lang } from "../../i18n";
+import { getUi, leadFrom, noDash } from "./ui";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const hero = getHero(lang);
+const contact = getContact(lang);
+const ui = getUi(lang);
+
+const lead = noDash(leadFrom(hero.summary));
+const resumeHref = `${langHref(lang)}resume`.replace("//", "/");
+---
+
+<section class="relative mx-auto max-w-[1240px] px-5 pt-12 pb-14 sm:px-8 md:pt-16 md:pb-20">
+  <div class="grid items-end gap-10 md:gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+    <div>
+      <h1
+        class="text-[clamp(3rem,9.5vw,7rem)] leading-[0.92] font-semibold tracking-[-0.045em]"
+      >
+        <span class="v2-unmask block">{hero.firstName}</span>
+        <span class="v2-unmask block text-v2-mut" style="--d:120ms">
+          {hero.lastName}
+        </span>
+      </h1>
+
+      <p
+        class="v2-enter mt-7 max-w-[44ch] text-[17px] leading-relaxed text-v2-mut md:text-[19px]"
+        style="--d:420ms"
+      >
+        {lead}
+      </p>
+
+      <div class="v2-enter mt-9 flex flex-wrap items-center gap-3" style="--d:520ms">
+        <a
+          href={`mailto:${contact.email}`}
+          data-magnetic
+          class="rounded-full bg-v2-accent px-6 py-3 text-[15px] font-medium whitespace-nowrap text-v2-accent-ink transition-[filter,transform] duration-300 hover:brightness-110 active:translate-y-px"
+        >
+          {ui.contact}
+        </a>
+        <a
+          href={resumeHref}
+          class="rounded-full border border-v2-line bg-v2-surface px-6 py-3 text-[15px] font-medium whitespace-nowrap transition hover:border-v2-accent/50 active:translate-y-px"
+        >
+          {ui.resume}
+        </a>
+      </div>
+    </div>
+
+    <figure
+      class="v2-enter v2-frame relative mx-auto w-full max-w-[420px] overflow-hidden rounded-v2-lg"
+      style="--d:220ms"
+    >
+      <Image
+        src={profilePhoto}
+        alt={hero.photoAlt}
+        widths={[420, 640, 840]}
+        sizes="(max-width: 1024px) 90vw, 420px"
+        class="v2-parallax aspect-[4/5] w-full object-cover saturate-[0.92]"
+        loading="eager"
+      />
+    </figure>
+  </div>
+</section>

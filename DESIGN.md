@@ -1,6 +1,8 @@
 # Design system — cv-air
 
-A personal-CV / portfolio that reads like a **printed editorial** and behaves like a **modern web engineering tool**. Senior in tone, restrained in ornament, decisive in detail.
+Two systems live in this repo. **§11 is the live site** (v2, at `/`). **§1 to §9 document v1**, the first design, now archived at `/v1`. §10 covers the printable résumé, which is its own thing again.
+
+What follows in §1 to §9: a personal-CV / portfolio that reads like a **printed editorial** and behaves like a **modern web engineering tool**. Senior in tone, restrained in ornament, decisive in detail.
 
 ## 1. Philosophy
 
@@ -139,3 +141,44 @@ Rules specific to this document:
 2. **One page box, two outputs.** Content is laid out into A4 `.page` elements by script and those same boxes are printed, so the preview *is* the PDF. Anything added must be a top-level `.block` inside `#flow` or it won't paginate.
 3. **Bronze is the only colour.** Section labels, company names, bullet markers. Everything else is ink, body or muted grey.
 4. **Nothing decorative.** No grain, no glow, no corner brackets. A recruiter's eye budget is ~6 seconds; every mark on the sheet must be doing navigational work.
+
+## 11. v2 — the live system (`/`)
+
+> **Sections 1 to 9 describe v1, which now lives at `/v1` as an archive.** It is kept for reference and for the record of how the accent and the editorial grammar were arrived at. Do not evolve it; new design work happens here in §11.
+
+v2 is a **complete redesign**, not a reskin, generated against the `design-taste-frontend` skill. It shares only the content pipeline with v1. Everything below is deliberate and recorded so it does not get "corrected" back toward v1.
+
+**Design read:** senior engineer portfolio for hiring managers and recruiters, premium-consumer language, native CSS plus Tailwind utilities and scroll-driven animation.
+
+**Dials:** `DESIGN_VARIANCE 9` · `MOTION_INTENSITY 8` · `VISUAL_DENSITY 3`.
+
+**Palette — Cold Luxury.** Cool silver-grey neutrals, chrome surfaces, smoke lines, one cobalt accent (`230 68% 51%` light, `227 72% 74%` dark). Chosen against two bans: it is not v1's warm honey system, and it is not the beige/brass/espresso family that premium-consumer briefs default to. One accent, whole page, both themes.
+
+**Two themes, one system.** The system preference is the default (`@media (prefers-color-scheme: dark)`); the nav toggle pins a choice by writing `data-theme` on `<html>` and storing it. `:root[data-theme="…"]` outranks the bare `:root` inside the media query, so the manual choice always wins without `!important`. A blocking inline script in `V2Layout` applies the stored value before first paint, so a pinned theme never flashes. Removing the stored value hands control back to the system. Section-level inversion is still forbidden: whichever theme is active, the entire page is in it.
+
+**Type.** Geist and Geist Mono, self-hosted through `@fontsource-variable` (no `<link>` to Google Fonts). No serif at all: the skill bans Instrument Serif by name, which is v1's signature face.
+
+**Shape lock.** Panels 16px, media 20px, interactive full pill. No other radii.
+
+**What v2 refuses on purpose** (all of these are v1 signatures): numbered section eyebrows, any eyebrow at all, middle dots as a default separator, em-dashes anywhere in rendered copy, hairline decoration, film grain, cursor blob, marquee, live clock.
+
+**Signature moves.** Real Simple Icons brand marks (never hand-drawn paths): a logo-only marquee under the hero, and a hairline grid of named marks in the stack section. Sticky rails carry the section label plus, in Experience, the whole six-role track while the detail column scrolls. The hero portrait sits in a chrome frame (cool sheen plus a 1px inner highlight) and drifts on its own scroll timeline.
+
+**Motion inventory** (each has one job):
+
+| Effect | Job | How |
+| --- | --- | --- |
+| Name unmask | hierarchy, first impression | `clip-path` keyframes, staggered per line |
+| Portrait drift | depth | `animation-timeline: view()`, ±3% |
+| Reading progress | orientation | `animation-timeline: scroll()` on a 1px accent line |
+| Word-by-word ink-in | pacing the opening claim | per-word `--i` offsets the `animation-range` |
+| Rule draw | section arrival | `scaleX` on the accent underline |
+| Scroll reveals | rhythm | `view()` timelines, no scroll listener |
+| Count-up stats | draws the eye to the numbers | `IntersectionObserver`, cubic ease-out |
+| Magnetic CTA | feedback | `pointermove` transform, no state |
+| Card lift, sweep underline, `<details>` rotate | feedback and state | CSS transitions |
+
+Everything is wrapped in `prefers-reduced-motion`; the count-up and magnetic script bail out entirely when motion is reduced, and the scroll-driven reveals degrade to plain visible content where view timelines are unsupported.
+
+**The one script.** `V2Page.astro` carries a single inline island for the count-up and the magnetic CTA. Both need per-frame values, which CSS scroll timelines cannot express. Nothing else on the page uses JavaScript.
+

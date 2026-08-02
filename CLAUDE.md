@@ -33,10 +33,17 @@ Content flows in a strict one-direction chain. Do not bypass it.
 
 ### Routing
 
-- `src/pages/index.astro` — `/` (English, default).
-- `src/pages/[lang]/index.astro` — `/ru/` and `/uz/`. `getStaticPaths` returns only `ru` and `uz` (English is NOT routed via this file, it lives at the root).
-- Both pages render `<CvPage lang={lang} />`. To add a fourth language: create `src/i18n/xx.ts`, add it to `translations` in `i18n/index.ts`, add it to `LANGUAGES`, and add `{ params: { lang: "xx" } }` to `getStaticPaths` (in both `[lang]/index.astro` and `[lang]/resume.astro`). No component changes needed.
-- `src/pages/resume.astro` (`/resume`) and `src/pages/[lang]/resume.astro` (`/ru/resume`, `/uz/resume`) render `<ResumePage lang={lang} />` — the printable, downloadable CV.
+Three surfaces, all built from the same content:
+
+| Route | Renders | Indexed |
+| --- | --- | --- |
+| `/`, `/ru/`, `/uz/` | `<V2Page>` — **the site** | yes |
+| `/v1`, `/ru/v1`, `/uz/v1` | `<CvPage>` — the archived first design | no |
+| `/resume`, `/ru/resume`, `/uz/resume` | `<ResumePage>` — printable CV | no |
+
+- English is never routed through `[lang]/`; it lives at the root of each pair. `getStaticPaths` in every `[lang]/*.astro` returns only `ru` and `uz`.
+- To add a fourth language: create `src/i18n/xx.ts`, add it to `translations` in `i18n/index.ts`, add it to `LANGUAGES`, and add `{ params: { lang: "xx" } }` to `getStaticPaths` in **all three** `[lang]/` routes (`index`, `v1`, `resume`). No component changes needed.
+- Canonicals and hreflang: v2 uses `pathFor()`, v1 uses `v1PathFor()` (both in `src/consts.ts`). The sitemap filter in `astro.config.mjs` drops `/v1` and `/resume`, matching their `noindex`. If a route stops being noindex, update the filter in the same change.
 
 ### Components
 
@@ -53,6 +60,22 @@ Content flows in a strict one-direction chain. Do not bypass it.
 **ATS.** The layout is deliberately single-column with standard section names ("Professional Summary", "Work Experience", "Technical Skills", "Education", "Languages"), real text (no icons/images/tables carrying data) and contacts as `mailto:`/`tel:`/https links, so applicant-tracking parsers and AI screeners read it cleanly.
 
 UI strings (button/section labels) are inlined per-locale in the component. Some shared content is trimmed for the CV via local filters (e.g. the `HIDDEN_SKILLS` list drops the "Forms & Validation" tech category, per-locale) — the main site is unaffected. Highlights written as `"Project — description"` are auto-split into a bold lead-in by `splitHighlight`.
+
+### v2 — the current site (`/`, `/ru/`, `/uz/`)
+
+The live design, built with the `design-taste-frontend` skill. v1 is kept at `/v1` as an archive, not as an alternative: it is `noindex`, out of the sitemap, and linked only from v2's nav and footer. Both share the content pipeline — same services, same locale bundles, no content duplication.
+
+- `src/pages/index.astro` + `src/pages/[lang]/index.astro` → `src/components/v2/V2Page.astro` → `src/layouts/V2Layout.astro` + section components in `src/components/v2/`.
+- `V2Layout` carries the full SEO head (canonical, hreflang, OG, Twitter, JSON-LD). `BaseLayout` still carries v1's, pointed at the `/v1` paths.
+- Two themes: system preference by default, plus a nav toggle that pins one via `data-theme` on `<html>` + `localStorage` (`v2-theme`). The pre-paint script lives in `V2Layout`, the click handler in `V2Page`'s island, the icons come from `@tabler/icons` as raw SVG. Dark values exist twice on purpose (media query and `[data-theme="dark"]`) — keep them in sync.
+- `src/styles/v2.css` owns the v2 tokens (`--v2-*`, light and dark via `prefers-color-scheme` and `[data-theme]`) and self-hosted Geist / Geist Mono. It does **not** import `global.css`, so v1 and v2 cannot leak into each other. Tailwind exposes the tokens as `bg-v2-bg`, `text-v2-ink`, `border-v2-line`, `bg-v2-accent`, plus `font-geist` / `font-geist-mono` and `rounded-v2` / `rounded-v2-lg` — all additive, v1 utilities untouched.
+- `src/components/v2/ui.ts` holds the per-locale chrome strings plus the shared helpers: `v2Href`, `noDash` (the skill bans the em-dash, the content bundles are full of them), `leadFrom` (hero subtext capped at 20 words), `splitLead` (bold project lead-in).
+- `src/components/v2/logos.ts` maps curated `simple-icons` exports to `{ name, path }`; the marquee and the stack grid render them as inline SVG at build time. Never hand-draw an icon path here.
+- Motion is CSS first: entry keyframes, `animation-timeline: view()` reveals, `animation-timeline: scroll()` for the reading-progress line. **No scroll listeners.** One inline script in `V2Page.astro` covers the two things CSS cannot do (stat count-up, magnetic CTA) and exits early under `prefers-reduced-motion`.
+- Experience is a native `<details>` list beside a sticky rail; no JavaScript is involved in opening entries.
+- v2 is the indexed surface; `/v1` and `/resume` are `noindex` so the same content never competes with itself in search.
+
+Constraints that override the skill inside this repo: Astro + Tailwind 3 (the skill defaults to React/Next + Tailwind v4 + the Motion library), and no client framework per the architecture rule above. Everything else in the skill was applied.
 
 ### Styling
 
