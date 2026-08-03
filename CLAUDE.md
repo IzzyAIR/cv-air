@@ -13,6 +13,18 @@ npm run astro     # Direct Astro CLI access (e.g. `npm run astro check` for type
 
 There is no test runner, linter, or formatter configured. Type-checking is via `astro check` (run through `npm run astro check`).
 
+## Documentation
+
+`docs/` is the project map: what lives where, how a layer works, how to extend it. Start at
+[`docs/README.md`](docs/README.md) and walk down the tree — `docs/project/README.md` indexes the
+technical files (`pages`, `components`, `content`, `logic`, `design`, `resume`, `deploy`),
+`docs/changes/README.md` indexes the dated notes.
+
+[`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) has the rules for writing it: links only ever point
+parent → child (no back-links, no sibling links), and `docs/` never duplicates this file or
+`DESIGN.md` — it links to them. After a structural change, update the matching file in
+`docs/project/`; after a non-obvious behavior change, add a day file under `docs/changes/`.
+
 ## Skills
 
 `.claude/skills/design-taste-frontend/` — [tasteskill](https://www.tasteskill.dev/docs) (MIT, `Leonxlnx/taste-skill`), an anti-slop frontend ruleset for landing pages, portfolios and redesigns. Useful for **new** surfaces.
@@ -21,7 +33,7 @@ There is no test runner, linter, or formatter configured. Type-checking is via `
 
 ## Architecture
 
-Static, trilingual (`en` / `ru` / `uz`) personal CV site built with Astro 5 + Tailwind 3. Output is pure HTML/CSS with one small inline `<script>` in the Navbar — no React, no hydration, no client framework.
+Static, trilingual (`en` / `ru` / `uz`) personal CV site built with Astro 5 + Tailwind 3. Output is pure HTML/CSS plus a handful of inline `<script>` islands (v2 theme + micro-interactions, v1 navbar, résumé pagination) — no React, no hydration, no client framework, no client bundle.
 
 ### Three-layer content pipeline
 
@@ -83,7 +95,7 @@ Constraints that override the skill inside this repo: Astro + Tailwind 3 (the sk
 
 - Tailwind 3 with `darkMode: ["class"]` and `applyBaseStyles: false` (base styles come from `src/styles/global.css`, imported once by `BaseLayout`).
 - All theme colors are HSL CSS variables (`--background`, `--primary`, `--border`, etc.) defined in `global.css`. Use Tailwind utilities like `bg-background`, `text-primary`, `border-border` — do not hardcode hex values.
-- Fonts: `font-heading` (Space Grotesk), `font-mono` (JetBrains Mono).
+- Fonts (v1): `font-sans` (Inter), `font-display` (Instrument Serif), `font-mono` (JetBrains Mono) — pulled from Google Fonts by an `@import` at the top of `global.css`. v2 and `/resume` use self-hosted Geist / Geist Mono instead (`font-geist`, `font-geist-mono`).
 - `@/*` path alias maps to `src/*` (configured in `tsconfig.json`, extends `astro/tsconfigs/strict`).
 
 ### When editing content

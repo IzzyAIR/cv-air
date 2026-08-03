@@ -83,6 +83,12 @@ const hero = getHero(lang);
 
 Adding a fourth language = one new file in `src/i18n/`, one entry in `LANGUAGES`, one path in `getStaticPaths`. No component changes.
 
+## 📚 Documentation
+
+The project map lives in [`docs/`](docs/README.md) — routes, components, the content pipeline,
+client logic, design tokens, the A4 résumé and deployment, one file per layer.
+[`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) explains how it is written and kept current.
+
 ## 🚀 Getting started
 
 ```bash
