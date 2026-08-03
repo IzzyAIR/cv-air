@@ -123,24 +123,26 @@ When changing copy, **only edit the locale file**. Section components must keep 
 
 ## 10. The résumé document (`/resume`)
 
-A **separate visual system on purpose.** The site is a dark editorial artifact; the résumé is a printed business document read by recruiters and parsed by machines. It does not inherit the tokens, the Tailwind layer or `BaseLayout` — it owns its own `<html>` and an unscoped `<style is:inline>`.
+**The v2 system rendered on paper.** The résumé speaks the same language as the live site (§11) — Geist, cobalt, hairlines, mono micro-type — but it is a printed business document read by recruiters and parsed by machines, so it does not inherit the tokens, the Tailwind layer or `V2Layout`. It owns its own `<html>` and an unscoped `<style is:inline>`, and it duplicates only the handful of values it needs.
 
-What carries over, and what deliberately doesn't:
+Two surfaces, one language:
 
-| | Site | Résumé |
+| | Site (v2) | Résumé |
 | --- | --- | --- |
-| Canvas | warm near-black | white A4 sheet |
-| Accent | honey-gold `38 92% 62%` | bronze `#8a5c0d` — the same hue darkened until it holds contrast on white and survives greyscale printing |
-| Type | Inter + Instrument Serif italic + JetBrains Mono | Inter only — display italic and mono micro-type don't survive ATS parsing or a fax-grade print |
-| Hierarchy | hairlines, italic, weight | same instinct: 1px rules under uppercase section labels, weight and colour for rank, no fills or shadows |
-| Motion | §5 | none |
+| Canvas | themed `--v2-bg` | white A4 sheet, always — a dark résumé is unreadable printed and wasteful in ink |
+| Accent | cobalt `230 68% 51%` / `227 72% 74%` dark | cobalt `230 68% 48%` — the same hue, two points darker so it holds on white and survives greyscale printing |
+| Type | Geist + Geist Mono | same, self-hosted through the same `@fontsource-variable` packages |
+| Mono role | eyebrows, counters, meta | identical: dates, location, stack line, page footer, section labels |
+| Hierarchy | hairline + accent gradient segment | same `.v2-rule` gesture, redrawn in `mm` under the header and every section label |
+| Chrome | themed | toolbar and stage read `v2-theme` from `localStorage` and follow the site's pinned theme; the sheet itself never changes |
+| Motion | §11 | none |
 
 Rules specific to this document:
 
-1. **Machine-readability outranks styling.** Single column, standard section names, real text, contacts as links. No icons, tables or images carrying information — an ATS reads the text layer, not the layout.
+1. **Machine-readability outranks styling.** Single column, standard section names, real text, contacts as links. No icons, tables or images carrying information — an ATS reads the text layer, not the layout. Uppercase is confined to labels the parser doesn't score (section names, stack label, page footer); the job title stays sentence case.
 2. **One page box, two outputs.** Content is laid out into A4 `.page` elements by script and those same boxes are printed, so the preview *is* the PDF. Anything added must be a top-level `.block` inside `#flow` or it won't paginate.
-3. **Bronze is the only colour.** Section labels, company names, bullet markers. Everything else is ink, body or muted grey.
-4. **Nothing decorative.** No grain, no glow, no corner brackets. A recruiter's eye budget is ~6 seconds; every mark on the sheet must be doing navigational work.
+3. **Cobalt is the only colour.** Section labels, company names, bullet markers, the rule segments. Everything else is ink, body or muted grey.
+4. **Nothing decorative.** No sheen, no glow, no corner brackets — the chrome treatments from §11 stop at the edge of the sheet. A recruiter's eye budget is ~6 seconds; every mark on the paper must be doing navigational work.
 
 ## 11. v2 — the live system (`/`)
 
