@@ -83,6 +83,12 @@ const hero = getHero(lang);
 
 Adding a fourth language = one new file in `src/i18n/`, one entry in `LANGUAGES`, one path in `getStaticPaths`. No component changes.
 
+## 📚 Documentation
+
+The project map lives in [`docs/`](docs/README.md) — routes, components, the content pipeline,
+client logic, design tokens, the A4 résumé and deployment, one file per layer.
+[`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) explains how it is written and kept current.
+
 ## 🚀 Getting started
 
 ```bash
@@ -136,6 +142,7 @@ The live site is **v2** — a full redesign that replaced the original warm-dark
 
 `/resume` renders the same content as an A4 document — no PDF dependency, "Download PDF" just calls `window.print()`.
 
+- **Same design language as the site.** Geist + Geist Mono, the cobalt accent darkened for white paper, hairline rules with an accent segment. The toolbar follows the theme pinned on the site; the sheet itself is always white.
 - **Paginated preview.** An inline script measures the content blocks and lays them out into real A4 page boxes. The same boxes are what the browser prints, so **what you see is page-for-page the PDF**. Section and entry headings are pushed to the next page instead of being orphaned; every page carries a `Name — N / M` footer.
 - **ATS-friendly.** Single column, standard section names (Professional Summary / Work Experience / Technical Skills / Education / Languages), plain selectable text, contacts as `mailto:` / `tel:` / https links — no icons, tables or images carrying data, so applicant-tracking parsers and AI screeners read it cleanly.
 - Content comes through the same services as the site; only résumé-specific trimming (e.g. hidden skill categories) lives in the component.
