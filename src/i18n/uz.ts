@@ -200,7 +200,7 @@ export const uz: CvContent = {
     title: "Ishlagan joylarim",
     items: [
       {
-        role: "Senior FullStack Dasturchi",
+        role: "Team Lead / Senior Fullstack Dasturchi",
         company: "Uzcloud",
         location: "Toshkent · Gibrid",
         period: "Mart 2026 — hozir",
@@ -239,9 +239,20 @@ export const uz: CvContent = {
           "Docker",
           "Traefik",
         ],
+        resume: {
+          description:
+            "Kompaniyaning asosiy mahsulotlari boʻyicha Team Lead: marketing sayti, biznes platforma, Android ilova va Frappe asosidagi elektron hujjat aylanmasi tizimi (EDOC). Vazifalarni rejalashtirish, code review, mentorlik va texnik suhbatlar; arxitektura va kod standartlarini belgilayman, majburiy review bilan agentli AI-workflow’ni joriy qildim.",
+          highlights: [
+            "EDOC — React frontendni noldan loyihaladim: Feature Modules + Registry arxitekturasi, tiplashtirilgan entiti qatlami, dinamik forma dvigateli, TanStack Query + Zustand, WebSocket orqali presence",
+            "EDOC Mobile — Capacitor asosidagi Android ilovani oʻsha React SPA ustida moslashuvchan mobil UI qatlami bilan chiqardim",
+            "Biznes platforma — Vue 3 + Quasar asosidagi CMSni ichki platformaga aylantirdim: kalkulyatorli shartnomalar reestri, versiyalanadigan shablonlar, PDF generatsiyasi, STIR boʻyicha kontragentni avtomatik toʻldirish, RBAC",
+            "Backend — httpOnly-cookie refresh bilan JWT’ga ega NestJS + Prisma + PostgreSQL REST API, ru/uz/en tillaridagi Astro SSR sayti va Frappe uchun deklarativ workflow-engine yaratdim",
+          ],
+          stack: ["TypeScript", "React", "Vue 3", "Quasar", "NestJS", "Prisma", "PostgreSQL", "Frappe", "Capacitor", "Docker"],
+        },
       },
       {
-        role: "Senior FullStack Dasturchi",
+        role: "Team Lead / Senior Fullstack Dasturchi",
         company: "UZINFOCOM",
         location: "Toshkent · Ofis",
         period: "Aprel 2024 — Fevral 2026",
@@ -293,6 +304,17 @@ export const uz: CvContent = {
           "PostgreSQL",
           "Docker",
         ],
+        resume: {
+          description:
+            "5 nafar dasturchidan iborat jamoaga rahbarlik qildim: sudlar, mehnat inspeksiyasi va Oʻzbekiston Futbol Assotsiatsiyasi uchun davlat platformalari. Rejalashtirish, code review, mentorlik va texnik suhbatlar; frontend arxitekturasi, maʼlumotlar bazasi sxemasi va API dizayni uchun javobgar boʻldim; SSR/SEO shablonlari va umumiy UI kutubxonalarini, AI-driven development’ni joriy qildim.",
+          highlights: [
+            "Web Video Editor (UFA) — Vue 3 + Fabric.js + HLS.js asosida brauzer ichidagi chiziqsiz video muharrirni loyihaladim: kanva dvigateli, koʻp qatlamli timeline, JSON hujjat modeli, HLS orqali yuklash va ijro, jamoaviy ish",
+            "Sudlar platformasi — Angular 20 asosida administratorlar va fuqarolar uchun portal yaratdim: OneID OAuth2 va E-IMZO ERI, WebRTC video qoʻngʻiroqlar, OnlyOffice hujjatlari, yuz biometriyasi va LLM chat-yordamchi",
+            "Mehnat inspeksiyasi (Mehnat) — 7 ta forma va 4 ta rolga ega murojaatlar workflow’i bilan inspektorlar admin panelini (Vue 3 + Quasar) va OneID SSO bilan Astro SSR + Svelte ommaviy portalini chiqardim",
+            "Genadi — Go’da kod generatori yozdim: Swagger/OpenAPI spetsifikatsiyalaridan tayyor Vue 3 + TypeScript CRUD modullarini yaratadi va yangi admin ekranlaridan qoʻlda yoziladigan boilerplate’ni olib tashlaydi",
+          ],
+          stack: ["TypeScript", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro", "Go", "NestJS", "WebRTC", "PostgreSQL"],
+        },
       },
       {
         role: "Senior Frontend Dasturchi",
@@ -311,6 +333,12 @@ export const uz: CvContent = {
           "Mahsulot ishi — jamoa bilan birga yangi funksiyalar va stsenariylar mantigʻi muhokamalarida qatnashdim",
         ],
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
+        resume: {
+          description:
+            "Rassomlar va brendlar butun bitimni platforma ichida oʻtkazadigan britaniyalik marketpleys. React + Redux Toolkit + Firebase asosida ikkala tomonni yaratdim: moderatsiyali onboarding, kengaytirilgan filtrli rassom qidiruvi, briflar va javoblar, brif boʻyicha chat va platformaning 15% komissiyasi bilan karta orqali toʻlov.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
+        },
       },
       {
         role: "Frontend Dasturchi",
@@ -329,6 +357,12 @@ export const uz: CvContent = {
           "Akkaunt kabineti — telefon raqami boʻyicha roʻyxatdan oʻtish, profil, balans, tariflar va operatsiyalar tarixi",
         ],
         stack: ["React", "MobX", "MVVM", "REST API"],
+        resume: {
+          description:
+            "Oʻzbekiston bozori uchun bulutli telefoniya. React + MobX (MVVM) asosida mijoz kabinetini yaratdim: bitta forma bilan virtual ATS ochish, ichki raqamlar, SIP-liniyalar, ovozli menyular, navbatlar, yozuvli qoʻngʻiroqlar jurnali va CRM integratsiyalari (amoCRM, Bitrix24, webhook).",
+          highlights: [],
+          stack: ["React", "MobX", "MVVM", "REST API"],
+        },
       },
       {
         role: "Frontend Dasturchi",
@@ -355,6 +389,12 @@ export const uz: CvContent = {
           "react-big-calendar",
           "1C REST API",
         ],
+        resume: {
+          description:
+            "Kosmetologiya klinikalari tarmogʻi administratori kabineti: mutaxassislar boʻyicha jadval, tashrif statuslari, fiskal chek bilan toʻlov, filiallar boʻyicha mijozlar bazasi va xodimlar.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "MUI"],
+        },
       },
       {
         role: "Veb-dasturchi",
@@ -364,6 +404,9 @@ export const uz: CvContent = {
         description:
           "Zamonaviy saytlar yaratish, taʼlim platformasini qoʻllab-quvvatlash va rivojlantirish, talabalar hisobini yuritish tizimini qurish.",
         stack: ["JavaScript", "HTML5", "CSS3"],
+        resume: {
+          stack: [],
+        },
       },
     ],
   },
@@ -403,6 +446,47 @@ export const uz: CvContent = {
       { type: "telegram", href: "https://t.me/izzy2105", label: "Telegram" },
       { type: "phone", href: "tel:+998946436555", label: "📞 +998 94 643 6555" },
       { type: "portfolio", href: "https://izzycode-two.vercel.app/", label: "Portfolio" },
+    ],
+  },
+  resume: {
+    title: "Lead Frontend Engineer",
+    headline:
+      "Frontend arxitekturasi · React · Vue.js · TypeScript · Fullstack (Node.js, NestJS) · Mobil (Capacitor) · AI-Driven Development",
+    summary:
+      "Lead Frontend Engineer, 7 yillik tajriba: React, Vue 3, Angular va TypeScript asosida katta hajmdagi maʼlumotlar bilan ishlaydigan biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar, shuningdek Node.js, NestJS va PostgreSQL boʻyicha toʻliq fullstack amaliyoti. UZINFOCOM va Uzcloud’da Team Lead: frontend arxitekturasini noldan loyihalayman, dasturchilarga mentorlik qilaman, texnik suhbatlar oʻtkazaman, jamoa jarayoniga AI-driven development — agentli AI-workflow va majburiy review bilan LLM yordamida ishlab chiqishni joriy qildim. Oʻzbekiston va Buyuk Britaniyadagi davlat idoralari, sudlar va xususiy kompaniyalar uchun mahsulotlar yaratganman.",
+    skills: [
+      {
+        title: "Frontend",
+        items: ["TypeScript", "JavaScript (ES6+)", "React", "Next.js", "Vue.js 3", "Angular", "Svelte", "Astro", "HTML5", "CSS3", "Tailwind CSS", "Quasar", "Ant Design", "MUI"],
+      },
+      {
+        title: "Holat va maʼlumotlar",
+        items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query (React Query)"],
+      },
+      {
+        title: "Arxitektura",
+        items: ["Frontend arxitekturasi", "SPA", "SSR", "MVVM", "Modulli arxitektura", "RBAC", "i18n", "UI komponentlar kutubxonalari", "OpenAPI asosida kod generatsiyasi"],
+      },
+      {
+        title: "Backend va API",
+        items: ["Node.js", "NestJS", "Express.js", "REST API", "GraphQL", "Prisma", "PostgreSQL", "Firebase", "Frappe / ERPNext", "Python", "Go"],
+      },
+      {
+        title: "Real-time va mobil",
+        items: ["WebSockets", "Socket.IO", "WebRTC", "SSE", "Capacitor", "Android (WebView)"],
+      },
+      {
+        title: "DevOps va vositalar",
+        items: ["Docker", "Traefik", "CI/CD", "Vite", "Git"],
+      },
+      {
+        title: "AI muhandisligi",
+        items: ["AI-Driven Development (AIDD)", "Agentli AI-workflow", "LLM integratsiyasi", "Prompt engineering"],
+      },
+      {
+        title: "Yetakchilik",
+        items: ["Texnik yetakchilik", "Mentorlik", "Code review", "Texnik suhbatlar", "Arxitektura qarorlari"],
+      },
     ],
   },
 };

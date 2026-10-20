@@ -10,7 +10,7 @@ src/types/cv.ts  →  src/i18n/{en,ru,uz}.ts  →  src/i18n/index.ts  →  src/s
 ## 1. Форма — `src/types/cv.ts`
 
 Интерфейсы всех секций: `SiteMeta`, `NavLink`, `Hero`, `About`, `TechStack`, `Experience`,
-`Education`, `Contact` и вложенные (`HeroCta`, `AboutStat`, `TechCategory`,
+`Education`, `Contact`, `Resume` и вложенные (`HeroCta`, `AboutStat`, `TechCategory`,
 `ExperienceItem`, `EducationItem`, `LanguageItem`, `ContactLink`).
 
 Меняем форму **первой**: три локальных бандла перестают компилироваться, пока все три не
@@ -22,6 +22,8 @@ src/types/cv.ts  →  src/i18n/{en,ru,uz}.ts  →  src/i18n/index.ts  →  src/s
   ссылки по нему, а не по порядку в массиве.
 - `HeroCta.variant` — `"primary" | "outline"`; вариант выбирает контент, не компонент.
 - `ExperienceItem.location` и `highlights` — опциональные, разметка обязана это переживать.
+- `ExperienceItem.resume` и секция `Resume` — краткая ATS-копия для `/resume`; сайт их не
+  читает. `resume` у записи — `Partial` от ее же полей, пустое поле откатывается на копию сайта.
 - `SiteMeta.jsonLd` — `Record<string, unknown>`, вставляется в `<head>` через `set:html`.
 
 ## 2. Контент — `src/i18n/en.ts`, `ru.ts`, `uz.ts`
@@ -33,7 +35,7 @@ src/types/cv.ts  →  src/i18n/{en,ru,uz}.ts  →  src/i18n/index.ts  →  src/s
 
 ```ts
 interface CvContent {
-  siteMeta; navLinks; brand; hero; about; techStack; experience; education; contact;
+  siteMeta; navLinks; brand; hero; about; techStack; experience; education; contact; resume;
 }
 ```
 
@@ -64,7 +66,7 @@ export function getHero(lang: Lang) {
 ```
 
 Файлы: `site.service.ts` (`getSiteMeta`), `navigation.service.ts` (`getNavLinks`,
-`getBrand`), `hero`, `about`, `tech-stack`, `experience`, `education`, `contact`.
+`getBrand`), `hero`, `about`, `tech-stack`, `experience`, `education`, `contact`, `resume`.
 Все реэкспортированы из `src/services/index.ts` — компоненты импортируют только оттуда.
 
 **Инвариант:** компонент не импортирует `src/i18n/` ради контента. Слой сервисов — точка,

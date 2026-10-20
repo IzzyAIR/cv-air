@@ -200,7 +200,7 @@ export const ru: CvContent = {
     title: "Где работал",
     items: [
       {
-        role: "Senior FullStack-разработчик",
+        role: "Тимлид / Senior Fullstack-разработчик",
         company: "Uzcloud",
         location: "Ташкент · Гибрид",
         period: "Март 2026 — настоящее время",
@@ -239,9 +239,20 @@ export const ru: CvContent = {
           "Docker",
           "Traefik",
         ],
+        resume: {
+          description:
+            "Тимлид основных продуктов компании: маркетинговый сайт, бизнес-платформа, Android-приложение и система электронного документооборота (EDOC) на Frappe. Планирование задач, code review, менторинг и технические собеседования; задаю архитектуру и стандарты кода, внедрил агентные AI-воркфлоу с обязательным ревью.",
+          highlights: [
+            "EDOC — спроектировал React-фронтенд с нуля: архитектура Feature Modules + Registry, типизированный слой сущностей, движок динамических форм, TanStack Query + Zustand, присутствие пользователей через WebSocket",
+            "EDOC Mobile — выпустил Android-приложение на Capacitor поверх того же React SPA с адаптивным мобильным UI-слоем",
+            "Бизнес-платформа — вырастил CMS на Vue 3 + Quasar во внутреннюю платформу: реестр договоров с калькулятором, версионируемые шаблоны, генерация PDF, автозаполнение контрагента по ИНН, RBAC",
+            "Бэкенд — сделал REST API на NestJS + Prisma + PostgreSQL с JWT и refresh в httpOnly-cookie, SSR-сайт на Astro на ru/uz/en и декларативный workflow-движок для Frappe",
+          ],
+          stack: ["TypeScript", "React", "Vue 3", "Quasar", "NestJS", "Prisma", "PostgreSQL", "Frappe", "Capacitor", "Docker"],
+        },
       },
       {
-        role: "Senior FullStack-разработчик",
+        role: "Тимлид / Senior Fullstack-разработчик",
         company: "UZINFOCOM",
         location: "Ташкент · Офис",
         period: "Апрель 2024 — Февраль 2026",
@@ -293,6 +304,17 @@ export const ru: CvContent = {
           "PostgreSQL",
           "Docker",
         ],
+        resume: {
+          description:
+            "Руководил командой из 5 разработчиков: государственные платформы для судов, трудовой инспекции и Ассоциации футбола Узбекистана. Планирование, code review, менторинг и технические собеседования; отвечал за фронтенд-архитектуру, схему БД и дизайн API; задал SSR/SEO-паттерны и общие UI-библиотеки; внедрил AI-driven development.",
+          highlights: [
+            "Web Video Editor (UFA) — спроектировал браузерный нелинейный видеоредактор на Vue 3 + Fabric.js + HLS.js: canvas-движок, многослойный таймлайн, JSON-модель документа, загрузка и воспроизведение через HLS, командная работа",
+            "Платформа для судов — сделал портал на Angular 20 для администраторов и граждан: OneID OAuth2 и ЭЦП E-IMZO, видеозвонки на WebRTC, документы в OnlyOffice, биометрия лица и чат-ассистент на LLM",
+            "Трудовая инспекция (Mehnat) — выпустил админку инспекторов с workflow обращений на 7 форм и 4 роли (Vue 3 + Quasar) и публичный портал на Astro SSR + Svelte с OneID SSO",
+            "Genadi — написал на Go генератор кода: из Swagger/OpenAPI собирает готовые CRUD-модули на Vue 3 + TypeScript и убирает ручной бойлерплейт из новых админ-экранов",
+          ],
+          stack: ["TypeScript", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro", "Go", "NestJS", "WebRTC", "PostgreSQL"],
+        },
       },
       {
         role: "Senior Frontend-разработчик",
@@ -311,6 +333,12 @@ export const ru: CvContent = {
           "Продуктовая работа — участвовал в обсуждениях новых фич и логики сценариев вместе с командой",
         ],
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
+        resume: {
+          description:
+            "Британский маркетплейс, где художники и бренды проводят всю сделку внутри платформы. Сделал обе стороны на React + Redux Toolkit + Firebase: онбординг с модерацией, поиск художников с расширенными фильтрами, брифы и отклики, чат по брифу и оплату картой с комиссией платформы 15%.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
+        },
       },
       {
         role: "Frontend-разработчик",
@@ -329,6 +357,12 @@ export const ru: CvContent = {
           "Кабинет аккаунта — регистрация по номеру телефона, профиль, баланс, тарифы и история операций",
         ],
         stack: ["React", "MobX", "MVVM", "REST API"],
+        resume: {
+          description:
+            "Облачная телефония для рынка Узбекистана. Сделал кабинет клиента на React + MobX (MVVM): создание виртуальной АТС одной формой, внутренние номера, SIP-линии, голосовые меню, очереди, журнал звонков с записями и интеграции с CRM (amoCRM, Bitrix24, webhook).",
+          highlights: [],
+          stack: ["React", "MobX", "MVVM", "REST API"],
+        },
       },
       {
         role: "Frontend-разработчик",
@@ -355,6 +389,12 @@ export const ru: CvContent = {
           "react-big-calendar",
           "1C REST API",
         ],
+        resume: {
+          description:
+            "Кабинет администратора сети косметологических клиник: расписание по специалистам, статусы визитов, оплата с фискальным чеком, база клиентов и сотрудники по филиалам.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "MUI"],
+        },
       },
       {
         role: "Веб-разработчик",
@@ -364,6 +404,9 @@ export const ru: CvContent = {
         description:
           "Создание современных сайтов, поддержка и развитие обучающей платформы, разработка системы учёта студентов.",
         stack: ["JavaScript", "HTML5", "CSS3"],
+        resume: {
+          stack: [],
+        },
       },
     ],
   },
@@ -403,6 +446,47 @@ export const ru: CvContent = {
       { type: "telegram", href: "https://t.me/izzy2105", label: "Telegram" },
       { type: "phone", href: "tel:+998946436555", label: "📞 +998 94 643 6555" },
       { type: "portfolio", href: "https://izzycode-two.vercel.app/", label: "Портфолио" },
+    ],
+  },
+  resume: {
+    title: "Lead Frontend Engineer",
+    headline:
+      "Фронтенд-архитектура · React · Vue.js · TypeScript · Fullstack (Node.js, NestJS) · Mobile (Capacitor) · AI-Driven Development",
+    summary:
+      "Lead Frontend Engineer с 7 годами опыта: бизнес-платформы с большим объёмом данных, государственные системы и SaaS-продукты на React, Vue 3, Angular и TypeScript, плюс полноценная fullstack-практика на Node.js, NestJS и PostgreSQL. Тимлид в UZINFOCOM и Uzcloud: проектирую фронтенд-архитектуру с нуля, менторю разработчиков, провожу технические собеседования, внедрил в процесс команды AI-driven development — агентные AI-воркфлоу и LLM-ассистированную разработку с обязательным ревью. Делал продукты для госорганов, судов и частных компаний Узбекистана и Великобритании.",
+    skills: [
+      {
+        title: "Фронтенд",
+        items: ["TypeScript", "JavaScript (ES6+)", "React", "Next.js", "Vue.js 3", "Angular", "Svelte", "Astro", "HTML5", "CSS3", "Tailwind CSS", "Quasar", "Ant Design", "MUI"],
+      },
+      {
+        title: "Состояние и данные",
+        items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query (React Query)"],
+      },
+      {
+        title: "Архитектура",
+        items: ["Фронтенд-архитектура", "SPA", "SSR", "MVVM", "Модульная архитектура", "RBAC", "i18n", "Библиотеки UI-компонентов", "Генерация кода из OpenAPI"],
+      },
+      {
+        title: "Бэкенд и API",
+        items: ["Node.js", "NestJS", "Express.js", "REST API", "GraphQL", "Prisma", "PostgreSQL", "Firebase", "Frappe / ERPNext", "Python", "Go"],
+      },
+      {
+        title: "Real-time и мобильная",
+        items: ["WebSockets", "Socket.IO", "WebRTC", "SSE", "Capacitor", "Android (WebView)"],
+      },
+      {
+        title: "DevOps и инструменты",
+        items: ["Docker", "Traefik", "CI/CD", "Vite", "Git"],
+      },
+      {
+        title: "AI-инженерия",
+        items: ["AI-Driven Development (AIDD)", "Агентные AI-воркфлоу", "Интеграция LLM", "Prompt engineering"],
+      },
+      {
+        title: "Лидерство",
+        items: ["Техническое лидерство", "Менторинг", "Code review", "Технические собеседования", "Архитектурные решения"],
+      },
     ],
   },
 };
