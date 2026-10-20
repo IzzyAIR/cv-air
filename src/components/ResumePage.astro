@@ -370,7 +370,9 @@ const splitHighlight = (h: string) => {
         height: calc(var(--page-h) - var(--pad-t) - var(--pad-b));
         overflow: hidden;
       }
-      .page-body > * { flex: none; }
+      /* every block positioned: Chrome writes positioned boxes to the PDF after in-flow ones,
+         so a mix puts the header after the body in the text layer ATS parsers read */
+      .page-body > * { flex: none; position: relative; }
       .page-num {
         position: absolute;
         left: var(--pad-x);
@@ -455,7 +457,8 @@ const splitHighlight = (h: string) => {
         font-size: 8.6pt;
         font-weight: 500;
         text-transform: uppercase;
-        letter-spacing: 0.2em;
+        /* wider tracking splits the heading into single letters in the PDF text layer */
+        letter-spacing: 0.1em;
         color: var(--accent);
         border-bottom: 1px solid var(--line);
       }
