@@ -3,11 +3,10 @@ import "@fontsource-variable/geist/index.css";
 import "@fontsource-variable/geist-mono/index.css";
 import {
   getHero,
-  getAbout,
-  getTechStack,
   getExperience,
   getEducation,
   getContact,
+  getResume,
 } from "../services";
 import { langHref, type Lang } from "../i18n";
 
@@ -17,8 +16,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const hero = getHero(lang);
-const about = getAbout(lang);
-const tech = getTechStack(lang);
+const resume = getResume(lang);
 const experience = getExperience(lang);
 const education = getEducation(lang);
 const contact = getContact(lang);
@@ -29,7 +27,6 @@ const ui = {
   uz: { download: "PDF yuklab olish", back: "Saytga qaytish", summary: "Men haqimda", experience: "Ish tajribasi", education: "Ta'lim", skills: "Texnik ko‘nikmalar", languages: "Tillar", stack: "Stek", pages: "bet" },
 }[lang];
 
-const title = hero.tagline.replace(/[<>/]/g, "").trim();
 const [location, ...availability] = hero.meta
   .replace(/^📍\s*/, "")
   .split("·")
@@ -41,8 +38,8 @@ const clean = (url: string) => url.replace(/^https?:\/\//, "").replace(/\/$/, ""
 const fullName = `${hero.firstName} ${hero.lastName}`;
 const fileName = `${hero.firstName}-${hero.lastName}-CV-${lang.toUpperCase()}`;
 
-const HIDDEN_SKILLS = ["Forms & Validation", "Формы и валидация", "Formalar va validatsiya"];
-const skillCategories = tech.categories.filter((c) => !HIDDEN_SKILLS.includes(c.title));
+// the site copy, with the résumé's shorter fields laid over it
+const entries = experience.items.map((item) => ({ ...item, ...item.resume }));
 
 // "Project — description" → bold lead-in, keeps bullets scannable for a 6-second HR pass
 const splitHighlight = (h: string) => {
@@ -57,7 +54,7 @@ const splitHighlight = (h: string) => {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>{`${fullName} — ${title}`}</title>
+    <title>{`${fullName} — ${resume.title}`}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     {/* chrome follows the theme pinned on the site; the sheet itself stays white */}
     <script is:inline>
@@ -80,8 +77,8 @@ const splitHighlight = (h: string) => {
         <div id="flow">
           <header class="block head">
             <h1>{fullName}</h1>
-            <p class="role">{title}</p>
-            <p class="headline">{hero.headline}</p>
+            <p class="role">{resume.title}</p>
+            <p class="headline">{resume.headline}</p>
             <ul class="contacts">
               <li><a href={`mailto:${contact.email}`}>{contact.email}</a></li>
               {phone && <li><a href={phone.href}>{phone.label.replace(/^📞\s*/, "")}</a></li>}
@@ -93,11 +90,10 @@ const splitHighlight = (h: string) => {
           </header>
 
           <h2 class="block sec">{ui.summary}</h2>
-          <p class="block lead">{hero.summary}</p>
-          {about.paragraphs.map((p) => <p class="block">{p}</p>)}
+          <p class="block lead">{resume.summary}</p>
 
           <h2 class="block sec">{ui.skills}</h2>
-          {skillCategories.map((c) => (
+          {resume.skills.map((c) => (
             <div class="block skill-row">
               <span class="skill-title">{c.title}</span>
               <span class="skill-items">{c.items.join(", ")}</span>
@@ -105,7 +101,7 @@ const splitHighlight = (h: string) => {
           ))}
 
           <h2 class="block sec">{ui.experience}</h2>
-          {experience.items.map((item) => (
+          {entries.map((item) => (
             <>
               <div class="block entry-head">
                 <div class="entry-line">
@@ -126,7 +122,9 @@ const splitHighlight = (h: string) => {
                   </p>
                 );
               })}
-              <p class="block entry-stack"><span class="stack-label">{ui.stack}:</span> {item.stack.join(" · ")}</p>
+              {item.stack.length > 0 && (
+                <p class="block entry-stack"><span class="stack-label">{ui.stack}:</span> {item.stack.join(" · ")}</p>
+              )}
             </>
           ))}
 

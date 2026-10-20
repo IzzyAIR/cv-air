@@ -205,7 +205,7 @@ export const en: CvContent = {
     title: "Where I've Worked",
     items: [
       {
-        role: "Senior FullStack Developer",
+        role: "Team Lead / Senior Full-Stack Developer",
         company: "Uzcloud",
         location: "Tashkent · Hybrid",
         period: "Mar 2026 — Present",
@@ -244,9 +244,20 @@ export const en: CvContent = {
           "Docker",
           "Traefik",
         ],
+        resume: {
+          description:
+            "Team lead for the company's core products: marketing site, business platform, Android app and an electronic document management system (EDOC) on Frappe. Task planning, code review, mentoring and technical interviews; set architecture and coding standards and introduced agentic AI workflows with mandatory review.",
+          highlights: [
+            "EDOC — designed the React frontend from scratch: Feature Modules + Registry architecture, typed entity layer, dynamic form engine, TanStack Query + Zustand, real-time presence over WebSockets",
+            "EDOC Mobile — shipped the Android app on Capacitor on top of the same React SPA, with an adaptive mobile UI layer",
+            "Business platform — grew a Vue 3 + Quasar CMS into an internal platform: contract registry with a pricing calculator, versioned templates, PDF generation, counterparty autofill by TIN, RBAC",
+            "Backend — built the NestJS + Prisma + PostgreSQL REST API with JWT and httpOnly refresh, the Astro SSR site in ru/uz/en and a declarative workflow engine for Frappe",
+          ],
+          stack: ["TypeScript", "React", "Vue 3", "Quasar", "NestJS", "Prisma", "PostgreSQL", "Frappe", "Capacitor", "Docker"],
+        },
       },
       {
-        role: "Senior FullStack Developer",
+        role: "Team Lead / Senior Full-Stack Developer",
         company: "UZINFOCOM",
         location: "Tashkent · On-site",
         period: "Apr 2024 — Feb 2026",
@@ -298,6 +309,17 @@ export const en: CvContent = {
           "PostgreSQL",
           "Docker",
         ],
+        resume: {
+          description:
+            "Led a team of 5 developers building government platforms for the courts, the labour inspectorate and the Uzbekistan Football Association. Task planning, code review, mentoring and technical interviews; owned frontend architecture, database schema and API design; set SSR/SEO patterns and shared UI libraries; introduced AI-driven development.",
+          highlights: [
+            "Web Video Editor (UFA) — architected a browser-based non-linear video editor on Vue 3 + Fabric.js + HLS.js: canvas engine, multi-layer timeline, JSON document model, HLS upload and playback, team collaboration",
+            "Court platform — built an Angular 20 admin and citizen portal with OneID OAuth2 and E-IMZO digital signatures, WebRTC video calls, OnlyOffice documents, face biometrics and an LLM chat assistant",
+            "Labour inspection (Mehnat) — delivered the inspectors' admin with a 7-form appeal workflow across 4 roles (Vue 3 + Quasar) and the public Astro SSR + Svelte portal with OneID SSO",
+            "Genadi — wrote a Go code generator that turns Swagger/OpenAPI specs into ready Vue 3 + TypeScript CRUD modules, removing hand-written boilerplate from new admin screens",
+          ],
+          stack: ["TypeScript", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro", "Go", "NestJS", "WebRTC", "PostgreSQL"],
+        },
       },
       {
         role: "Senior Frontend Developer",
@@ -316,6 +338,12 @@ export const en: CvContent = {
           "Product work — took part in team discussions of new features and of how the scenarios should behave",
         ],
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
+        resume: {
+          description:
+            "UK marketplace where artists and brands run the whole deal inside the platform. Built both sides in React + Redux Toolkit + Firebase: onboarding with moderation, artist discovery with advanced filters, briefs and applications, brief-linked chat and card payments with a 15% platform commission.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
+        },
       },
       {
         role: "Frontend Developer",
@@ -334,6 +362,12 @@ export const en: CvContent = {
           "Account cabinet — signup by phone number, profile, balance, tariffs and the history of operations",
         ],
         stack: ["React", "MobX", "MVVM", "REST API"],
+        resume: {
+          description:
+            "Cloud telephony for the Uzbek market. Built the customer cabinet in React + MobX (MVVM): one-form virtual PBX provisioning, extensions, SIP lines, voice menus, queues, call log with recordings and CRM integrations (amoCRM, Bitrix24, webhooks).",
+          highlights: [],
+          stack: ["React", "MobX", "MVVM", "REST API"],
+        },
       },
       {
         role: "Frontend Developer",
@@ -360,6 +394,12 @@ export const en: CvContent = {
           "react-big-calendar",
           "1C REST API",
         ],
+        resume: {
+          description:
+            "Admin back office for a network of aesthetic-medicine clinics: multi-specialist scheduling, visit statuses, payments with fiscal receipts, client base and staff management across branches.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "MUI"],
+        },
       },
       {
         role: "Web Developer",
@@ -369,6 +409,9 @@ export const en: CvContent = {
         description:
           "Creating modern websites, supporting and developing a learning platform, and building a student accounting system.",
         stack: ["JavaScript", "HTML5", "CSS3"],
+        resume: {
+          stack: [],
+        },
       },
     ],
   },
@@ -408,6 +451,47 @@ export const en: CvContent = {
       { type: "telegram", href: "https://t.me/izzy2105", label: "Telegram" },
       { type: "phone", href: "tel:+998946436555", label: "📞 +998 94 643 6555" },
       { type: "portfolio", href: "https://izzycode-two.vercel.app/", label: "Portfolio" },
+    ],
+  },
+  resume: {
+    title: "Lead Frontend Engineer",
+    headline:
+      "Frontend Architecture · React · Vue.js · TypeScript · Full-Stack (Node.js, NestJS) · Mobile (Capacitor) · AI-Driven Development",
+    summary:
+      "Lead Frontend Engineer with 7 years of experience building data-heavy business platforms, government systems and SaaS products with React, Vue 3, Angular and TypeScript, backed by hands-on full-stack work in Node.js, NestJS and PostgreSQL. Team lead at UZINFOCOM and Uzcloud: designs frontend architecture from scratch, mentors developers, runs technical interviews, and introduced AI-driven development (agentic workflows, LLM-assisted coding with mandatory review) into team delivery. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
+    skills: [
+      {
+        title: "Frontend",
+        items: ["TypeScript", "JavaScript (ES6+)", "React", "Next.js", "Vue.js 3", "Angular", "Svelte", "Astro", "HTML5", "CSS3", "Tailwind CSS", "Quasar", "Ant Design", "MUI"],
+      },
+      {
+        title: "State & Data",
+        items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query (React Query)"],
+      },
+      {
+        title: "Architecture",
+        items: ["Frontend architecture", "SPA", "SSR", "MVVM", "Modular architecture", "RBAC", "i18n", "UI component libraries", "OpenAPI code generation"],
+      },
+      {
+        title: "Backend & API",
+        items: ["Node.js", "NestJS", "Express.js", "REST API", "GraphQL", "Prisma", "PostgreSQL", "Firebase", "Frappe / ERPNext", "Python", "Go"],
+      },
+      {
+        title: "Real-time & Mobile",
+        items: ["WebSockets", "Socket.IO", "WebRTC", "SSE", "Capacitor", "Android (WebView)"],
+      },
+      {
+        title: "DevOps & Tooling",
+        items: ["Docker", "Traefik", "CI/CD", "Vite", "Git"],
+      },
+      {
+        title: "AI Engineering",
+        items: ["AI-Driven Development (AIDD)", "Agentic AI workflows", "LLM integration", "Prompt engineering"],
+      },
+      {
+        title: "Leadership",
+        items: ["Technical leadership", "Mentoring", "Code review", "Technical interviewing", "Architecture decisions"],
+      },
     ],
   },
 };
