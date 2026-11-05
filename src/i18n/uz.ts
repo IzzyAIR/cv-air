@@ -2,17 +2,17 @@ import type { CvContent } from "./index";
 
 export const uz: CvContent = {
   siteMeta: {
-    title: "Izzatilla Aliyev — Senior Software Engineer · Tech Lead | TypeScript, React, Vue, Angular, Node.js",
+    title: "Izzatilla Aliyev — Staff Software Engineer | TypeScript, React, Vue, Angular, Node.js",
     description:
-      "7 yillik tajribaga ega Senior Software Engineer va texnik lider: TypeScript, React, Vue, Angular, Node.js va NestJS asosida biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar. Toshkent, Oʻzbekiston.",
+      "7 yillik tajribaga ega Staff Software Engineer: TypeScript, React, Vue, Angular, Node.js va NestJS asosida biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar. Toshkent, Oʻzbekiston.",
     keywords:
       "software engineer, dasturiy taʼminot muhandisi, senior software engineer, tech lead, team lead, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Toshkent, Oʻzbekiston, Izzatilla Aliyev",
     author: "Izzatilla Aliyev",
-    ogTitle: "Izzatilla Aliyev — Senior Software Engineer · Tech Lead",
+    ogTitle: "Izzatilla Aliyev — Staff Software Engineer",
     ogDescription:
       "7 yildan beri TypeScript, React, Vue, Angular, Node.js va NestJS asosida mahsulotlar yarataman. Team Lead, masofaviy ishga ochiqman.",
     ogLocale: "uz_UZ",
-    twitterTitle: "Izzatilla Aliyev — Senior Software Engineer · Tech Lead",
+    twitterTitle: "Izzatilla Aliyev — Staff Software Engineer",
     twitterDescription:
       "7 yildan beri TypeScript, React, Vue, Angular, Node.js va NestJS asosida mahsulotlar yarataman.",
     jsonLd: {
@@ -23,9 +23,9 @@ export const uz: CvContent = {
       givenName: "Izzatilla",
       familyName: "Aliyev",
       alternateName: ["Izzy", "Izzatilla Aliev", "Иззатилла Алиев"],
-      jobTitle: "Senior Software Engineer",
+      jobTitle: "Staff Software Engineer",
       description:
-        "7 yillik tajribaga ega Senior Software Engineer va texnik lider: React, Vue, Angular, Svelte, Astro, Node.js, NestJS va Frappe asosida biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar.",
+        "7 yillik tajribaga ega Staff Software Engineer: React, Vue, Angular, Svelte, Astro, Node.js, NestJS va Frappe asosida biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar.",
       url: "https://izzycode-two.vercel.app/uz/",
       image: "https://izzycode-two.vercel.app/og-image.svg",
       email: "mailto:izzycode2105@gmail.com",
@@ -48,7 +48,7 @@ export const uz: CvContent = {
       ],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior Software Engineer",
+        name: "Staff Software Engineer",
         occupationLocation: { "@type": "City", name: "Toshkent" },
         skills:
           "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
@@ -104,13 +104,13 @@ export const uz: CvContent = {
   brand: { prefix: "dev", suffix: ".portfolio" },
   hero: {
     brand: { prefix: "dev", suffix: ".portfolio" },
-    tagline: "<Senior Software Engineer />",
+    tagline: "<Staff Software Engineer />",
     firstName: "Izzatilla",
     lastName: "Aliyev",
     headline:
-      "Senior Software Engineer · Tech Lead | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development va agentli AI-workflow",
+      "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development va agentli AI-workflow",
     summary:
-      "Senior Software Engineer va texnik lider. Mahsulotlarni toʻliq loyihalayman va yarataman — arxitektura, API va maʼlumotlar modelidan tortib odamlar har kuni ishlatadigan interfeyslargacha: klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
+      "Staff Software Engineer. Mahsulotlarni toʻliq loyihalayman va yarataman — arxitektura, API va maʼlumotlar modelidan tortib odamlar har kuni ishlatadigan interfeyslargacha: klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
     meta: "📍 Toshkent · Remote · Full-time / Part-time / Loyiha asosida",
     ctas: [
       { label: "Bogʻlanish", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -124,7 +124,7 @@ export const uz: CvContent = {
     titleHighlighted: "AIDD",
     titleTrailing: " bilan kuchaytirilgan.",
     paragraphs: [
-      "7 yillik tajribaga ega Senior Software Engineer: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar. Butun mahsulot ustida ishlayman: interfeyslar uchun React, Next.js, Vue 3, Angular, Svelte va Astro, ularning ortida esa Node.js, NestJS, Express, GraphQL, REST, PostgreSQL va MongoDB.",
+      "7 yillik tajribaga ega Staff Software Engineer: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlar. Butun mahsulot ustida ishlayman: interfeyslar uchun React, Next.js, Vue 3, Angular, Svelte va Astro, ularning ortida esa Node.js, NestJS, Express, GraphQL, REST, PostgreSQL va MongoDB.",
       "Dizayn va muhandislik birlashgan joyda oʻzimni topaman, murakkab talablarni nafis, qulay mahsulotlarga aylantiraman. Soʻnggi yillarda men shuningdek AI-first ishlab chiqish yondashuvini oʻrganib, joriy qilyapman — jamoalarga sifat, xavfsizlik va kengaytiriluvchanlikni yoʻqotmasdan tezroq yetkazib berishga yordam beradigan agentic AI-workflow va AIDD (AI-Driven Development) jarayonlarini quryapman.",
     ],
     stats: [
@@ -451,11 +451,11 @@ export const uz: CvContent = {
     ],
   },
   resume: {
-    title: "Senior Software Engineer · Tech Lead",
+    title: "Staff Software Engineer",
     headline:
       "Tizim arxitekturasi · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobil (Capacitor) · AI-Driven Development",
     summary:
-      "7 yillik tajribaga ega Senior Software Engineer va texnik lider: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlarni arxitektura va APIʼdan interfeyslar va mobil ilovalargacha toʻliq yaratganman. UZINFOCOM (5 muhandis) va Uzcloudʼda Team Lead: tizimlarni loyihalash, rejalashtirish, code review, mentorlik, texnik suhbatlar; agentli AI-workflow bilan AI-driven developmentʼni joriy qildim. Oʻzbekiston va Buyuk Britaniyadagi davlat idoralari, sudlar va kompaniyalar uchun mahsulotlar.",
+      "7 yillik tajribaga ega Staff Software Engineer: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlarni arxitektura va APIʼdan interfeyslar va mobil ilovalargacha toʻliq yaratganman. UZINFOCOM (5 muhandis) va Uzcloudʼda Team Lead: tizimlarni loyihalash, rejalashtirish, code review, mentorlik, texnik suhbatlar; agentli AI-workflow bilan AI-driven developmentʼni joriy qildim. Oʻzbekiston va Buyuk Britaniyadagi davlat idoralari, sudlar va kompaniyalar uchun mahsulotlar.",
     links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
     skills: [
       {

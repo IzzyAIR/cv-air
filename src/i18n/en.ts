@@ -2,17 +2,17 @@ import type { CvContent } from "./index";
 
 export const en: CvContent = {
   siteMeta: {
-    title: "Izzatilla Aliev — Senior Software Engineer · Tech Lead | TypeScript, React, Vue, Angular, Node.js",
+    title: "Izzatilla Aliev — Staff Software Engineer | TypeScript, React, Vue, Angular, Node.js",
     description:
-      "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products in TypeScript, React, Vue, Angular, Node.js and NestJS. Based in Tashkent, Uzbekistan.",
+      "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products in TypeScript, React, Vue, Angular, Node.js and NestJS. Based in Tashkent, Uzbekistan.",
     keywords:
-      "software engineer, senior software engineer, tech lead, team lead, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Tashkent, Uzbekistan, Izzatilla Aliev",
+      "software engineer, staff software engineer, senior software engineer, tech lead, team lead, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Tashkent, Uzbekistan, Izzatilla Aliev",
     author: "Izzatilla Aliev",
-    ogTitle: "Izzatilla Aliev — Senior Software Engineer · Tech Lead",
+    ogTitle: "Izzatilla Aliev — Staff Software Engineer",
     ogDescription:
       "7 years building products with TypeScript, React, Vue, Angular, Node.js and NestJS. Team lead, open to remote roles.",
     ogLocale: "en_US",
-    twitterTitle: "Izzatilla Aliev — Senior Software Engineer · Tech Lead",
+    twitterTitle: "Izzatilla Aliev — Staff Software Engineer",
     twitterDescription:
       "7 years building products with TypeScript, React, Vue, Angular, Node.js and NestJS.",
     jsonLd: {
@@ -23,9 +23,9 @@ export const en: CvContent = {
       givenName: "Izzatilla",
       familyName: "Aliev",
       alternateName: ["Izzy", "Иззатилла Алиев", "Izzatilla Aliyev"],
-      jobTitle: "Senior Software Engineer",
+      jobTitle: "Staff Software Engineer",
       description:
-        "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products across React, Vue, Angular, Svelte, Astro, Node.js, NestJS and Frappe.",
+        "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products across React, Vue, Angular, Svelte, Astro, Node.js, NestJS and Frappe.",
       url: "https://izzycode-two.vercel.app/",
       image: "https://izzycode-two.vercel.app/og-image.svg",
       email: "mailto:izzycode2105@gmail.com",
@@ -48,7 +48,7 @@ export const en: CvContent = {
       ],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior Software Engineer",
+        name: "Staff Software Engineer",
         occupationLocation: { "@type": "City", name: "Tashkent" },
         skills:
           "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
@@ -109,13 +109,13 @@ export const en: CvContent = {
   brand: { prefix: "dev", suffix: ".portfolio" },
   hero: {
     brand: { prefix: "dev", suffix: ".portfolio" },
-    tagline: "<Senior Software Engineer />",
+    tagline: "<Staff Software Engineer />",
     firstName: "Izzatilla",
     lastName: "Aliev",
     headline:
-      "Senior Software Engineer · Tech Lead | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development & Agentic Workflows",
+      "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development & Agentic Workflows",
     summary:
-      "Senior Software Engineer and tech lead. I design and build products end to end, from architecture, APIs and data models to the interfaces people use every day: React, Vue, Angular, Svelte and Astro on the client; Node.js, NestJS, GraphQL, PostgreSQL and Frappe on the server.",
+      "Staff Software Engineer. I design and build products end to end, from architecture, APIs and data models to the interfaces people use every day: React, Vue, Angular, Svelte and Astro on the client; Node.js, NestJS, GraphQL, PostgreSQL and Frappe on the server.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",
     ctas: [
       { label: "Get in Touch", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -129,7 +129,7 @@ export const en: CvContent = {
     titleHighlighted: "AIDD",
     titleTrailing: ".",
     paragraphs: [
-      "Senior Software Engineer with 7 years of experience building business platforms, government systems and SaaS products. I work across the whole product: React, Next.js, Vue 3, Angular, Svelte and Astro for the interfaces, and Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB behind them.",
+      "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products. I work across the whole product: React, Next.js, Vue 3, Angular, Svelte and Astro for the interfaces, and Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB behind them.",
       "I thrive where design meets engineering, turning complex requirements into elegant, user-friendly products. Over the last few years I've also been exploring and adopting an AI-first approach to development, building agentic AI workflows and AIDD (AI-Driven Development) pipelines that help teams ship faster while keeping quality, security and scalability uncompromised.",
     ],
     stats: [
@@ -456,11 +456,11 @@ export const en: CvContent = {
     ],
   },
   resume: {
-    title: "Senior Software Engineer · Tech Lead",
+    title: "Staff Software Engineer",
     headline:
       "System Architecture · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobile (Capacitor) · AI-Driven Development",
     summary:
-      "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products end to end, from architecture and APIs to user interfaces and mobile apps. Team lead at UZINFOCOM (5 engineers) and Uzcloud: system design, planning, code review, mentoring and technical interviews; introduced AI-driven development with agentic workflows. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
+      "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products end to end, from architecture and APIs to user interfaces and mobile apps. Team lead at UZINFOCOM (5 engineers) and Uzcloud: system design, planning, code review, mentoring and technical interviews; introduced AI-driven development with agentic workflows. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
     links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
     skills: [
       {
