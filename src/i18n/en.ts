@@ -322,10 +322,10 @@ export const en: CvContent = {
         },
       },
       {
-        role: "Senior Software Engineer",
+        role: "Lead Software Engineer",
         company: "abcollab",
-        location: "United Kingdom · Remote",
-        period: "Jul 2023 — Aug 2024",
+        location: "United Kingdom · Remote · Part-time",
+        period: "Sep 2023 — Sep 2024",
         description:
           '"abcollab" — a UK platform where artists and brands find each other and work together: the artist keeps a portfolio, the brand looks for an author or posts a brief, and the whole deal runs inside the service — from the first message to the payment.',
         highlights: [

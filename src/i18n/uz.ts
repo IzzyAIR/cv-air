@@ -317,10 +317,10 @@ export const uz: CvContent = {
         },
       },
       {
-        role: "Senior Software Engineer",
+        role: "Lead Software Engineer",
         company: "abcollab",
-        location: "Buyuk Britaniya · Remote",
-        period: "Iyul 2023 — Avgust 2024",
+        location: "Buyuk Britaniya · Remote · Part-time",
+        period: "Sentabr 2023 — Sentabr 2024",
         description:
           "«abcollab» — rassomlar va brendlar bir-birini topib, birga ishlaydigan britaniyalik platforma: rassom portfolio yuritadi, brend muallif qidiradi yoki brif eʼlon qiladi, bitim esa birinchi xabardan toʻlovgacha butunlay xizmat ichida oʻtadi.",
         highlights: [
