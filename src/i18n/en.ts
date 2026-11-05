@@ -249,7 +249,7 @@ export const en: CvContent = {
           description:
             "Marketing site, internal business platform, Android app and the EDOC document system on Frappe.",
           highlights: [
-            "Team leadership — planning, code review, mentoring and technical interviews; set architecture and coding standards, introduced agentic AI workflows with mandatory review",
+            "Engineering leadership — set architecture and engineering standards for the company's products, ran hiring interviews, mentored engineers and moved the team to agentic AI workflows with review gates",
             "EDOC — designed the React application from scratch (Feature Modules + Registry, typed entities, dynamic forms, WebSocket presence) and shipped it to Android on Capacitor",
             "Business platform — grew a Vue 3 CMS into an internal platform: contract registry, pricing calculator, versioned templates, PDF, RBAC; NestJS + Prisma API",
           ],
@@ -313,7 +313,7 @@ export const en: CvContent = {
           description:
             "Government platforms for the courts, the labour inspectorate and the Uzbekistan Football Association.",
           highlights: [
-            "Team leadership — led 5 engineers: planning, code review, mentoring, technical interviews; owned architecture, database schema and API design",
+            "Engineering leadership — led the team across several government platforms: owned architecture, database schema and API design, hiring and mentoring; introduced AI-driven development",
             "Web Video Editor (UFA) — architected a browser-based non-linear video editor: canvas engine, multi-layer timeline, JSON document model, HLS playback",
             "Court platform — Angular 20 portal with OneID, E-IMZO signatures, WebRTC calls, OnlyOffice",
             "Genadi — wrote a Go generator of Vue 3 + TypeScript CRUD modules from OpenAPI specs",
@@ -460,7 +460,7 @@ export const en: CvContent = {
     headline:
       "System Architecture · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobile (Capacitor) · AI-Driven Development",
     summary:
-      "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products end to end, from architecture and APIs to user interfaces and mobile apps. Team lead at UZINFOCOM (5 engineers) and Uzcloud: system design, planning, code review, mentoring and technical interviews; introduced AI-driven development with agentic workflows. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
+      "Staff Software Engineer with 7 years of experience building business platforms, government systems and SaaS products end to end, from architecture and APIs to user interfaces and mobile apps. Led engineering teams at UZINFOCOM and Uzcloud: owned architecture and engineering standards, hired and mentored engineers, and moved delivery to AI-driven development with agentic workflows. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
     links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
     skills: [
       {
@@ -477,11 +477,11 @@ export const en: CvContent = {
       },
       {
         title: "AI Engineering",
-        items: ["AI-driven development (AIDD)", "Agentic AI workflows", "LLM integration", "LLM-assisted coding"],
+        items: ["AI-driven development (AIDD)", "Agentic engineering workflows", "AI code-generation pipelines with review gates", "LLM features in products"],
       },
       {
-        title: "Leadership",
-        items: ["Technical leadership", "Code review", "Mentoring", "Technical interviewing"],
+        title: "Engineering Leadership",
+        items: ["Architecture ownership", "Engineering standards", "Hiring and technical interviews", "Mentoring engineers", "Delivery planning", "AI adoption in teams"],
       },
     ],
   },

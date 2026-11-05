@@ -244,7 +244,7 @@ export const uz: CvContent = {
           description:
             "Marketing sayti, biznes-platforma, Android ilova va Frappe asosidagi EDOC hujjat aylanmasi.",
           highlights: [
-            "Jamoaga rahbarlik — rejalashtirish, code review, mentorlik, texnik suhbatlar; arxitektura va kod standartlari, majburiy review bilan agentli AI-workflow",
+            "Muhandislik yetakchiligi — kompaniya mahsulotlari uchun arxitektura va muhandislik standartlarini belgiladim, texnik suhbatlar oʻtkazdim, muhandislarga mentorlik qildim, jamoani majburiy review bilan agentli AI-workflowʼga oʻtkazdim",
             "EDOC — React-ilovani noldan loyihaladim (Feature Modules + Registry, tiplashtirilgan entitilar, dinamik formalar, WebSocket) va Capacitorʼda Android uchun chiqardim",
             "Biznes-platforma — Vue 3 dagi CMSʼni ichki platformaga aylantirdim: shartnomalar reyestri, kalkulyator, shablonlar, PDF, RBAC; NestJS + Prisma API",
           ],
@@ -308,7 +308,7 @@ export const uz: CvContent = {
           description:
             "Sudlar, mehnat inspeksiyasi va Oʻzbekiston Futbol Assotsiatsiyasi uchun davlat platformalari.",
           highlights: [
-            "Jamoaga rahbarlik — 5 muhandis: rejalashtirish, code review, mentorlik, texnik suhbatlar; arxitektura, MB sxemasi va API dizayni",
+            "Muhandislik yetakchiligi — bir nechta davlat platformalarida jamoaga rahbarlik qildim: arxitektura, MB sxemasi va API dizayni, yollash va mentorlik; AI-driven developmentʼni joriy qildim",
             "Web Video Editor (UFA) — brauzerdagi videomuharrirni loyihaladim: canvas-dvigatel, koʻp qatlamli taymlayn, JSON hujjat modeli, HLS",
             "Sud platformasi — Angular 20 portal: OneID, E-IMZO imzosi, WebRTC, OnlyOffice",
             "Genadi — OpenAPI asosida Vue 3 + TypeScript CRUD modullari generatorini Goʻda yozdim",
@@ -335,7 +335,7 @@ export const uz: CvContent = {
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
         resume: {
           description:
-            "Rassomlar va brendlar uchun britaniyalik marketpleys: React + Redux Toolkit + Firebase asosida ikkala tomonni yaratdim — moderatsiyali onboardingdan bitim chati va karta orqali toʻlovgacha.",
+            "Rassomlar va brendlar uchun britaniyalik marketpleys: React + Redux Toolkit + Firebase asosida ikkala tomon.",
           highlights: [],
           stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
         },
@@ -359,7 +359,7 @@ export const uz: CvContent = {
         stack: ["React", "MobX", "MVVM", "REST API"],
         resume: {
           description:
-            "Oʻzbekiston bozori uchun bulutli telefoniya. React + MobX asosida mijoz kabinetini yaratdim: bitta forma bilan virtual ATS, ichki raqamlar, ovozli menyular, navbatlar, qoʻngʻiroq yozuvlari va CRM integratsiyalari.",
+            "Bulutli telefoniya: React + MobX asosida mijoz kabineti — ATS, raqamlar, ovozli menyular, navbatlar, CRM.",
           highlights: [],
           stack: ["React", "MobX", "MVVM", "REST API"],
         },
@@ -455,7 +455,7 @@ export const uz: CvContent = {
     headline:
       "Tizim arxitekturasi · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobil (Capacitor) · AI-Driven Development",
     summary:
-      "7 yillik tajribaga ega Staff Software Engineer: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlarni arxitektura va APIʼdan interfeyslar va mobil ilovalargacha toʻliq yaratganman. UZINFOCOM (5 muhandis) va Uzcloudʼda Team Lead: tizimlarni loyihalash, rejalashtirish, code review, mentorlik, texnik suhbatlar; agentli AI-workflow bilan AI-driven developmentʼni joriy qildim. Oʻzbekiston va Buyuk Britaniyadagi davlat idoralari, sudlar va kompaniyalar uchun mahsulotlar.",
+      "7 yillik tajribaga ega Staff Software Engineer: biznes-platformalar, davlat tizimlari va SaaS-mahsulotlarni arxitektura va APIʼdan interfeyslar va mobil ilovalargacha toʻliq yaratganman. UZINFOCOM va Uzcloudʼda muhandislik jamoalariga rahbarlik qildim: arxitektura va muhandislik standartlari, yollash va mentorlik; ishlab chiqishni agentli AI-workflow bilan AI-driven developmentʼga oʻtkazdim. Oʻzbekiston va Buyuk Britaniyadagi davlat idoralari, sudlar va kompaniyalar uchun mahsulotlar.",
     links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
     skills: [
       {
@@ -472,11 +472,11 @@ export const uz: CvContent = {
       },
       {
         title: "AI muhandisligi",
-        items: ["AI-driven development (AIDD)", "Agentli AI-workflow", "LLM integratsiyasi"],
+        items: ["AI-driven development (AIDD)", "Agentli muhandislik workflowʼlari", "Review bilan AI kod generatsiyasi pipelineʼlari", "Mahsulotlarda LLM funksiyalari"],
       },
       {
-        title: "Yetakchilik",
-        items: ["Texnik yetakchilik", "Code review", "Mentorlik", "Texnik suhbatlar"],
+        title: "Muhandislik yetakchiligi",
+        items: ["Arxitektura uchun masʼuliyat", "Muhandislik standartlari", "Yollash va texnik suhbatlar", "Mentorlik", "Yetkazib berishni rejalashtirish", "Jamoalarda AI joriy etish"],
       },
     ],
   },
