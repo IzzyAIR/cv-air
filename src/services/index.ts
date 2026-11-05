@@ -6,3 +6,4 @@ export { getTechStack } from "./tech-stack.service";
 export { getExperience } from "./experience.service";
 export { getEducation } from "./education.service";
 export { getContact } from "./contact.service";
+export { getResume } from "./resume.service";

@@ -2,19 +2,19 @@ import type { CvContent } from "./index";
 
 export const ru: CvContent = {
   siteMeta: {
-    title: "Иззатилла Алиев — Senior FullStack-разработчик | React, Vue, Angular, Node.js",
+    title: "Иззатилла Алиев — Senior Software Engineer · Tech Lead | TypeScript, React, Vue, Angular, Node.js",
     description:
-      "Senior FullStack-разработчик с опытом 6+ лет: React, Vue.js, Angular, TypeScript, Node.js, NestJS, Frappe и современные веб-технологии. Ташкент, Узбекистан.",
+      "Senior Software Engineer и техлид, 7 лет опыта: бизнес-платформы, государственные системы и SaaS-продукты на TypeScript, React, Vue, Angular, Node.js и NestJS. Ташкент, Узбекистан.",
     keywords:
-      "fullstack разработчик, senior разработчик, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, Capacitor, Android, мобильная разработка, веб-разработчик, Ташкент, Узбекистан, Иззатилла Алиев",
+      "software engineer, инженер-программист, senior software engineer, техлид, тимлид, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Ташкент, Узбекистан, Иззатилла Алиев",
     author: "Иззатилла Алиев",
-    ogTitle: "Иззатилла Алиев — Senior FullStack-разработчик",
+    ogTitle: "Иззатилла Алиев — Senior Software Engineer · Tech Lead",
     ogDescription:
-      "6+ лет создаю современные веб-приложения на React, Vue, Angular, Node.js, NestJS и Frappe. Открыт к предложениям.",
+      "7 лет создаю продукты на TypeScript, React, Vue, Angular, Node.js и NestJS. Тимлид, открыт к удалённой работе.",
     ogLocale: "ru_RU",
-    twitterTitle: "Иззатилла Алиев — Senior FullStack-разработчик",
+    twitterTitle: "Иззатилла Алиев — Senior Software Engineer · Tech Lead",
     twitterDescription:
-      "6+ лет создаю современные веб-приложения на React, Vue, Angular, Node.js и NestJS.",
+      "7 лет создаю продукты на TypeScript, React, Vue, Angular, Node.js и NestJS.",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -23,9 +23,9 @@ export const ru: CvContent = {
       givenName: "Иззатилла",
       familyName: "Алиев",
       alternateName: ["Izzy", "Izzatilla Aliev", "Izzatilla Aliyev"],
-      jobTitle: "Senior FullStack-разработчик",
+      jobTitle: "Senior Software Engineer",
       description:
-        "Senior FullStack-разработчик с опытом 6+ лет: высоконагруженные и современные веб-приложения на React, Vue, Angular, Svelte, Astro, Node.js, NestJS и Frappe.",
+        "Senior Software Engineer и техлид с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты на React, Vue, Angular, Svelte, Astro, Node.js, NestJS и Frappe.",
       url: "https://izzycode-two.vercel.app/ru/",
       image: "https://izzycode-two.vercel.app/og-image.svg",
       email: "mailto:izzycode2105@gmail.com",
@@ -48,7 +48,7 @@ export const ru: CvContent = {
       ],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior FullStack-разработчик",
+        name: "Senior Software Engineer",
         occupationLocation: { "@type": "City", name: "Ташкент" },
         skills:
           "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
@@ -89,6 +89,7 @@ export const ru: CvContent = {
         "https://t.me/izzy2105",
         "https://izzycode-two.vercel.app/",
         "https://github.com/IzzyAIR",
+        "https://www.linkedin.com/in/izzatilla-aliev-7023b0254/",
       ],
     },
     footerText: "© 2026 Иззатилла Алиев — Сделано со страстью к современному вебу",
@@ -103,13 +104,13 @@ export const ru: CvContent = {
   brand: { prefix: "dev", suffix: ".portfolio" },
   hero: {
     brand: { prefix: "dev", suffix: ".portfolio" },
-    tagline: "<Senior FullStack-разработчик />",
+    tagline: "<Senior Software Engineer />",
     firstName: "Иззатилла",
     lastName: "Алиев",
     headline:
-      "Senior Frontend разработчик | Фундамент Full-Stack | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Software Engineer · Tech Lead | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development и агентные AI-воркфлоу",
     summary:
-      "Senior FullStack-разработчик. Создаю high-load и современные веб-приложения. Глубокая экспертиза во фронтенде — React, Vue, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, GraphQL, PostgreSQL, Frappe.",
+      "Senior Software Engineer и техлид. Проектирую и строю продукты целиком — от архитектуры, API и моделей данных до интерфейсов, с которыми люди работают каждый день: React, Vue, Angular, Svelte и Astro на клиенте; Node.js, NestJS, GraphQL, PostgreSQL и Frappe на сервере.",
     meta: "📍 Ташкент · Remote · Full-time / Part-time / Project",
     ctas: [
       { label: "Связаться", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -123,12 +124,12 @@ export const ru: CvContent = {
     titleHighlighted: "AIDD",
     titleTrailing: ".",
     paragraphs: [
-      "Senior FullStack-разработчик с опытом более 6 лет в создании high-load и современных веб-приложений. Уверенно работаю во фронтенде — React, Next.js, Vue 3, Angular, Svelte, Astro — и в бэкенде — Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, MongoDB.",
+      "Senior Software Engineer с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты. Работаю со всем продуктом: React, Next.js, Vue 3, Angular, Svelte и Astro — для интерфейсов, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL и MongoDB — за ними.",
       "Мне интересно там, где дизайн встречается с инженерией, превращаю сложные требования в элегантные, удобные продукты. Последние годы я так же изучаю и внедряю подход на AI-first разработку, выстраиваю agentic AI-workflow и процессы AIDD (AI-Driven Development), которые помогают командам поставлять быстрее, не жертвуя качеством, безопасностью и масштабируемостью.",
     ],
     stats: [
       { label: "Фреймворков", value: "6+" },
-      { label: "Лет опыта", value: "6+" },
+      { label: "Лет опыта", value: "7+" },
       { label: "Компаний", value: "6" },
       { label: "Технологий", value: "25+" },
     ],
@@ -146,7 +147,7 @@ export const ru: CvContent = {
         items: ["JavaScript (ES6+)", "TypeScript", "Go", "Python", "HTML5", "CSS3"],
       },
       {
-        title: "Фронтенд-фреймворки",
+        title: "UI-фреймворки",
         items: ["React", "Next.js", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro"],
       },
       {
@@ -158,7 +159,7 @@ export const ru: CvContent = {
         items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query", "Nanostores"],
       },
       {
-        title: "Бэкенд и API",
+        title: "Сервер и API",
         items: ["Node.js", "NestJS", "Express.js", "Prisma", "Frappe / ERPNext", "REST API", "GraphQL"],
       },
       {
@@ -179,7 +180,7 @@ export const ru: CvContent = {
       },
       {
         title: "Рендеринг и архитектура",
-        items: ["SSR", "SPA", "MVVM", "Feature Modules + Registry", "Clean Architecture (Frontend)"],
+        items: ["SSR", "SPA", "MVVM", "Feature Modules + Registry", "Clean Architecture"],
       },
       {
         title: "Авторизация и безопасность",
@@ -196,21 +197,21 @@ export const ru: CvContent = {
     ],
   },
   experience: {
-    kicker: "// опыт · 6+ лет",
+    kicker: "// опыт · 7+ лет",
     title: "Где работал",
     items: [
       {
-        role: "Senior FullStack-разработчик",
+        role: "Тимлид / Senior Software Engineer",
         company: "Uzcloud",
         location: "Ташкент · Гибрид",
         period: "Март 2026 — настоящее время",
         description:
-          "Fullstack-разработка ключевых веб- и мобильных продуктов компании: маркетинговый сайт, админ-платформа/CMS, Android-приложение, внутренняя платформа электронного документооборота и декларативный workflow-движок поверх Frappe.",
+          "Разработка ключевых веб- и мобильных продуктов компании: маркетинговый сайт, админ-платформа/CMS, Android-приложение, внутренняя платформа электронного документооборота и декларативный workflow-движок поверх Frappe.",
         highlights: [
           "UzCloud Web — SSR-маркетинговый сайт на Astro 5 + React 19 islands + Tailwind 4 с полной локализацией ru/uz/en через middleware и [lang]-роутинг, Express SSR-runtime в Docker за Traefik",
           "UzCloud CMS Backend — REST API на NestJS 11 + Prisma 6 + PostgreSQL: раздельные admin/public-контроллеры, i18n через отдельные таблицы, транзакционные мутации, JWT + httpOnly-cookie refresh, файловое хранилище и домен автогенерации договоров (каталог, версионируемые шаблоны, PDF, задачи в Asana)",
           "UzCloud Admin Platform — панель на Vue 3 + Quasar 2 + Pinia + Vite, выросшая из контент-менеджера во внутреннюю бизнес-платформу: реестр договоров с мастером и каталогом-калькулятором, версионируемые шаблоны с плейсхолдерами, генератор коммерческих предложений, автозаполнение контрагента по ИНН (Didox / Soliq), выгрузка PDF и передача задач в Asana, RBAC (admin / manager × организации), медиабиблиотека, блог на Quill и вход через Telegram Mini App; плоские сервисы с @SimpleTry, автоматический sidebar из route meta, формы VeeValidate + Zod, зеркалирующие валидацию бэка",
-          "EDOC v2 — React-фронтенд системы электронного документооборота на Frappe; архитектура Feature Modules + Registry, ручной типизированный слой сущностей, движок динамических форм, TanStack Query v5 + Zustand, presence через WebSocket",
+          "EDOC v2 — React-клиент системы электронного документооборота на Frappe; архитектура Feature Modules + Registry, ручной типизированный слой сущностей, движок динамических форм, TanStack Query v5 + Zustand, presence через WebSocket",
           "EDOC Mobile — Android-приложение EDOC на Capacitor 8: WebView-оболочка над тем же React-SPA (same-origin API, переключение стендов через env) плюс мобильный UI-слой — три адаптивных режима layout, плавающая нижняя навигация, свайпаемые bottom sheets с reference-counted блокировкой скролла, работа с safe-area",
           "edoc_workflow — декларативный версионируемый workflow-движок для Frappe: DocTypes статусов/переходов, паттерн адаптеров, реестр conditions/validators/post-functions, whitelisted API переходов",
           "AI-first разработка — внедрил agentic AI-workflow и практики AIDD (AI-Driven Development) в команде, опираясь на LLM-ассистированные пайплайны с почти 100% AI-сгенерированным кодом, чтобы поставлять быстрее без потери качества ревью",
@@ -239,14 +240,24 @@ export const ru: CvContent = {
           "Docker",
           "Traefik",
         ],
+        resume: {
+          description:
+            "Маркетинговый сайт, бизнес-платформа, Android-приложение и документооборот EDOC на Frappe.",
+          highlights: [
+            "Руководство командой — планирование, code review, менторинг, собеседования; стандарты архитектуры и кода, агентные AI-воркфлоу с обязательным ревью",
+            "EDOC — спроектировал React-приложение с нуля (Feature Modules + Registry, типизированные сущности, динамические формы, WebSocket) и выпустил под Android на Capacitor",
+            "Бизнес-платформа — развил CMS на Vue 3 во внутреннюю платформу: реестр договоров, калькулятор, шаблоны, PDF, RBAC; API на NestJS + Prisma",
+          ],
+          stack: ["TypeScript", "React", "Vue 3", "Quasar", "NestJS", "Prisma", "PostgreSQL", "Frappe", "Capacitor", "Docker"],
+        },
       },
       {
-        role: "Senior FullStack-разработчик",
+        role: "Тимлид / Senior Software Engineer",
         company: "UZINFOCOM",
         location: "Ташкент · Офис",
         period: "Апрель 2024 — Февраль 2026",
         description:
-          "Проектировал и реализовывал fullstack-решения для государственных платформ: архитектура БД, дизайн API, серверная логика и современные frontend-интерфейсы с жёсткими требованиями к безопасности, стабильности и масштабируемости.",
+          "Проектировал и реализовывал государственные платформы целиком: архитектура БД, дизайн API, серверная логика и современные интерфейсы с жёсткими требованиями к безопасности, стабильности и масштабируемости.",
         highlights: [
           "Web Video Editor (UFA) — флагманский проект. Браузерный нелинейный видеоредактор на Vue 3 + Quasar + Pinia + Fabric.js + HLS.js. Построил canvas на Fabric (FabricCanvasService), гибкий таймлайн со слоями и клипами, динамическую JSON-модель документа как источник правды редактора, пайплайн загрузки и HLS-плейбэка (VideoService), систему хайлайтов/маркеров (HighlightsService) и совместную работу команды (TeamService) поверх OneID-авторизации с динамическим роутингом по правам",
           "Sud Dashboard — платформа судов на Angular 20: админка и клиентский портал в одном приложении с раздельной авторизацией, OneID OAuth2 и ЭЦП E-IMZO, standalone-компоненты и модульная CRUD-архитектура, динамический sidebar из route metadata, кастомная i18n на Transloco с загрузкой из API, WebRTC-видеозвонки (simple-peer), запись аудио, биометрия face-api, OnlyOffice-редактор и просмотр документов, HLS-видео, AI-чат (LLM) и сервисы гражданских обращений",
@@ -293,9 +304,20 @@ export const ru: CvContent = {
           "PostgreSQL",
           "Docker",
         ],
+        resume: {
+          description:
+            "Государственные платформы для судов, трудовой инспекции и Ассоциации футбола Узбекистана.",
+          highlights: [
+            "Руководство командой — 5 инженеров: планирование, code review, менторинг, собеседования; архитектура, схема БД и дизайн API",
+            "Web Video Editor (UFA) — видеоредактор в браузере: canvas, многослойный таймлайн, HLS",
+            "Судебная платформа — портал на Angular 20: OneID, подпись E-IMZO, WebRTC-звонки, OnlyOffice",
+            "Genadi — написал на Go генератор CRUD-модулей Vue 3 + TypeScript по OpenAPI",
+          ],
+          stack: ["TypeScript", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro", "Go", "NestJS", "WebRTC", "PostgreSQL"],
+        },
       },
       {
-        role: "Senior Frontend-разработчик",
+        role: "Senior Software Engineer",
         company: "abcollab",
         location: "Великобритания · Remote",
         period: "Июль 2023 — Август 2024",
@@ -311,9 +333,15 @@ export const ru: CvContent = {
           "Продуктовая работа — участвовал в обсуждениях новых фич и логики сценариев вместе с командой",
         ],
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
+        resume: {
+          description:
+            "Британский маркетплейс художников и брендов: обе стороны на React + Redux Toolkit + Firebase.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
+        },
       },
       {
-        role: "Frontend-разработчик",
+        role: "Software Engineer",
         company: "Alovoice",
         location: "Ташкент · Гибрид",
         period: "Сентябрь 2022 — Июль 2023",
@@ -329,9 +357,15 @@ export const ru: CvContent = {
           "Кабинет аккаунта — регистрация по номеру телефона, профиль, баланс, тарифы и история операций",
         ],
         stack: ["React", "MobX", "MVVM", "REST API"],
+        resume: {
+          description:
+            "Облачная телефония: кабинет клиента на React + MobX — АТС, номера, голосовые меню, очереди, CRM.",
+          highlights: [],
+          stack: ["React", "MobX", "MVVM", "REST API"],
+        },
       },
       {
-        role: "Frontend-разработчик",
+        role: "Software Engineer",
         company: "MedYuMed",
         location: "Ташкент · Remote",
         period: "Январь 2022 — Август 2022",
@@ -355,15 +389,26 @@ export const ru: CvContent = {
           "react-big-calendar",
           "1C REST API",
         ],
+        resume: {
+          description:
+            "Бэк-офис сети клиник: расписание, визиты, оплата с фискальным чеком, клиенты и персонал.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "MUI"],
+        },
       },
       {
-        role: "Веб-разработчик",
+        role: "Software Engineer",
         company: "Korea Academy",
         location: "Ташкент · Офис",
         period: "Сентябрь 2019 — Декабрь 2021",
         description:
           "Создание современных сайтов, поддержка и развитие обучающей платформы, разработка системы учёта студентов.",
         stack: ["JavaScript", "HTML5", "CSS3"],
+        resume: {
+          description:
+            "Сайты, обучающая платформа и система учёта студентов.",
+          stack: [],
+        },
       },
     ],
   },
@@ -403,6 +448,36 @@ export const ru: CvContent = {
       { type: "telegram", href: "https://t.me/izzy2105", label: "Telegram" },
       { type: "phone", href: "tel:+998946436555", label: "📞 +998 94 643 6555" },
       { type: "portfolio", href: "https://izzycode-two.vercel.app/", label: "Портфолио" },
+    ],
+  },
+  resume: {
+    title: "Senior Software Engineer · Tech Lead",
+    headline:
+      "Архитектура систем · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobile (Capacitor) · AI-Driven Development",
+    summary:
+      "Senior Software Engineer и техлид с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты целиком — от архитектуры и API до интерфейсов и мобильных приложений. Тимлид в UZINFOCOM (5 инженеров) и Uzcloud: проектирование систем, планирование, code review, менторинг, собеседования; внедрил AI-driven development с агентными воркфлоу. Продукты для госорганов, судов и частных компаний Узбекистана и Великобритании.",
+    links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
+    skills: [
+      {
+        title: "Архитектура ПО",
+        items: ["Проектирование систем", "Модульная архитектура", "Дизайн API (REST, GraphQL)", "Схема БД", "RBAC", "SSR / SPA", "Real-time (WebSockets, WebRTC)"],
+      },
+      {
+        title: "Технологии",
+        items: ["TypeScript", "JavaScript", "Go", "Python", "React", "Next.js", "Vue.js 3", "Angular", "Svelte", "Astro", "Node.js", "NestJS", "Express.js", "Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query", "Tailwind CSS", "Capacitor (Android)"],
+      },
+      {
+        title: "Данные и поставка",
+        items: ["PostgreSQL", "Prisma", "Firebase", "Frappe / ERPNext", "Docker", "Traefik", "CI/CD", "Vite", "Git"],
+      },
+      {
+        title: "AI-инженерия",
+        items: ["AI-driven development (AIDD)", "Агентные AI-воркфлоу", "Интеграция LLM"],
+      },
+      {
+        title: "Лидерство",
+        items: ["Техническое лидерство", "Code review", "Менторинг", "Собеседования"],
+      },
     ],
   },
 };

@@ -68,6 +68,8 @@ export interface ExperienceItem {
   description: string;
   highlights?: string[];
   stack: string[];
+  /** Shorter copy for the printed résumé; omitted fields fall back to the site copy. */
+  resume?: Partial<Pick<ExperienceItem, "description" | "highlights" | "stack">>;
 }
 
 export interface Experience {
@@ -110,4 +112,14 @@ export interface Contact {
   emailLabel: string;
   email: string;
   links: ContactLink[];
+}
+
+/** ATS-facing header, summary and skills of the printed résumé. */
+export interface Resume {
+  title: string;
+  headline: string;
+  summary: string;
+  /** Profile URLs printed beside the contacts (LinkedIn, GitHub). */
+  links: string[];
+  skills: TechCategory[];
 }

@@ -5,6 +5,7 @@ import type {
   Experience,
   Hero,
   NavLink,
+  Resume,
   SiteMeta,
   TechStack,
 } from "../types/cv";
@@ -32,6 +33,7 @@ export interface CvContent {
   experience: Experience;
   education: Education;
   contact: Contact;
+  resume: Resume;
 }
 
 const translations: Record<Lang, CvContent> = { en, ru, uz };

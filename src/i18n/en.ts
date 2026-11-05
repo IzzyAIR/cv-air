@@ -2,19 +2,19 @@ import type { CvContent } from "./index";
 
 export const en: CvContent = {
   siteMeta: {
-    title: "Izzatilla Aliev — Senior FullStack Developer | React, Vue, Angular, Node.js",
+    title: "Izzatilla Aliev — Senior Software Engineer · Tech Lead | TypeScript, React, Vue, Angular, Node.js",
     description:
-      "Senior FullStack Developer with 6+ years of experience in React, Vue.js, Angular, TypeScript, Node.js, NestJS, Frappe and modern web technologies. Based in Tashkent, Uzbekistan.",
+      "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products in TypeScript, React, Vue, Angular, Node.js and NestJS. Based in Tashkent, Uzbekistan.",
     keywords:
-      "fullstack developer, senior developer, React, Vue.js, Angular, TypeScript, JavaScript, Node.js, NestJS, Frappe, Capacitor, Android, mobile development, web developer, Tashkent, Uzbekistan, Izzatilla Aliev",
+      "software engineer, senior software engineer, tech lead, team lead, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Tashkent, Uzbekistan, Izzatilla Aliev",
     author: "Izzatilla Aliev",
-    ogTitle: "Izzatilla Aliev — Senior FullStack Developer",
+    ogTitle: "Izzatilla Aliev — Senior Software Engineer · Tech Lead",
     ogDescription:
-      "6+ years building modern web apps with React, Vue, Angular, Node.js, NestJS & Frappe. Open to opportunities.",
+      "7 years building products with TypeScript, React, Vue, Angular, Node.js and NestJS. Team lead, open to remote roles.",
     ogLocale: "en_US",
-    twitterTitle: "Izzatilla Aliev — Senior FullStack Developer",
+    twitterTitle: "Izzatilla Aliev — Senior Software Engineer · Tech Lead",
     twitterDescription:
-      "6+ years building modern web apps with React, Vue, Angular, Node.js & NestJS.",
+      "7 years building products with TypeScript, React, Vue, Angular, Node.js and NestJS.",
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -23,9 +23,9 @@ export const en: CvContent = {
       givenName: "Izzatilla",
       familyName: "Aliev",
       alternateName: ["Izzy", "Иззатилла Алиев", "Izzatilla Aliyev"],
-      jobTitle: "Senior FullStack Developer",
+      jobTitle: "Senior Software Engineer",
       description:
-        "Senior FullStack Developer with 6+ years of experience building high-load and modern web applications across React, Vue, Angular, Svelte, Astro, Node.js, NestJS and Frappe.",
+        "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products across React, Vue, Angular, Svelte, Astro, Node.js, NestJS and Frappe.",
       url: "https://izzycode-two.vercel.app/",
       image: "https://izzycode-two.vercel.app/og-image.svg",
       email: "mailto:izzycode2105@gmail.com",
@@ -48,7 +48,7 @@ export const en: CvContent = {
       ],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior FullStack Developer",
+        name: "Senior Software Engineer",
         occupationLocation: { "@type": "City", name: "Tashkent" },
         skills:
           "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
@@ -94,6 +94,7 @@ export const en: CvContent = {
         "https://t.me/izzy2105",
         "https://izzycode-two.vercel.app/",
         "https://github.com/IzzyAIR",
+        "https://www.linkedin.com/in/izzatilla-aliev-7023b0254/",
       ],
     },
     footerText: "© 2026 Izzatilla Aliev — Built with passion & modern web tech",
@@ -108,13 +109,13 @@ export const en: CvContent = {
   brand: { prefix: "dev", suffix: ".portfolio" },
   hero: {
     brand: { prefix: "dev", suffix: ".portfolio" },
-    tagline: "<Senior FullStack Developer />",
+    tagline: "<Senior Software Engineer />",
     firstName: "Izzatilla",
     lastName: "Aliev",
     headline:
-      "Senior Frontend Developer | Full-Stack Foundation | Mobile (Capacitor) | AI Engineering | Agentic AI Workflows & AI-First Development | AIDD",
+      "Senior Software Engineer · Tech Lead | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development & Agentic Workflows",
     summary:
-      "Senior FullStack developer focused on high-load and modern web applications. Deep expertise across React, Vue, Angular, Svelte, Astro on the frontend and Node.js, NestJS, GraphQL, PostgreSQL, Frappe on the backend.",
+      "Senior Software Engineer and tech lead. I design and build products end to end, from architecture, APIs and data models to the interfaces people use every day: React, Vue, Angular, Svelte and Astro on the client; Node.js, NestJS, GraphQL, PostgreSQL and Frappe on the server.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",
     ctas: [
       { label: "Get in Touch", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -128,12 +129,12 @@ export const en: CvContent = {
     titleHighlighted: "AIDD",
     titleTrailing: ".",
     paragraphs: [
-      "Senior FullStack developer with 6+ years of experience building high-load and modern web applications. Strong on the frontend across React, Next.js, Vue 3, Angular, Svelte and Astro — and equally comfortable on the backend with Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB.",
+      "Senior Software Engineer with 7 years of experience building business platforms, government systems and SaaS products. I work across the whole product: React, Next.js, Vue 3, Angular, Svelte and Astro for the interfaces, and Node.js, NestJS, Express, GraphQL, REST, PostgreSQL and MongoDB behind them.",
       "I thrive where design meets engineering, turning complex requirements into elegant, user-friendly products. Over the last few years I've also been exploring and adopting an AI-first approach to development, building agentic AI workflows and AIDD (AI-Driven Development) pipelines that help teams ship faster while keeping quality, security and scalability uncompromised.",
     ],
     stats: [
       { label: "Frameworks", value: "6+" },
-      { label: "Years Exp.", value: "6+" },
+      { label: "Years Exp.", value: "7+" },
       { label: "Companies", value: "6" },
       { label: "Technologies", value: "25+" },
     ],
@@ -151,7 +152,7 @@ export const en: CvContent = {
         items: ["JavaScript (ES6+)", "TypeScript", "Go", "Python", "HTML5", "CSS3"],
       },
       {
-        title: "Frontend Frameworks",
+        title: "UI Frameworks",
         items: ["React", "Next.js", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro"],
       },
       {
@@ -163,7 +164,7 @@ export const en: CvContent = {
         items: ["Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query", "Nanostores"],
       },
       {
-        title: "Backend & API",
+        title: "Server & API",
         items: ["Node.js", "NestJS", "Express.js", "Prisma", "Frappe / ERPNext", "REST API", "GraphQL"],
       },
       {
@@ -184,7 +185,7 @@ export const en: CvContent = {
       },
       {
         title: "Rendering & Architecture",
-        items: ["SSR", "SPA", "MVVM", "Feature Modules + Registry", "Clean Architecture (Frontend)"],
+        items: ["SSR", "SPA", "MVVM", "Feature Modules + Registry", "Clean Architecture"],
       },
       {
         title: "Auth & Security",
@@ -201,21 +202,21 @@ export const en: CvContent = {
     ],
   },
   experience: {
-    kicker: "// experience · 6+ years",
+    kicker: "// experience · 7+ years",
     title: "Where I've Worked",
     items: [
       {
-        role: "Senior FullStack Developer",
+        role: "Team Lead / Senior Software Engineer",
         company: "Uzcloud",
         location: "Tashkent · Hybrid",
         period: "Mar 2026 — Present",
         description:
-          "Fullstack work across the company's core web and mobile products — marketing site, admin/CMS platform, an Android app, an internal document-management platform and a declarative workflow engine on top of Frappe.",
+          "Engineering across the company's core web and mobile products — marketing site, admin/CMS platform, an Android app, an internal document-management platform and a declarative workflow engine on top of Frappe.",
         highlights: [
           "UzCloud Web — SSR marketing site on Astro 5 + React 19 islands + Tailwind 4 with full ru/uz/en i18n via middleware-driven [lang] routing, Express SSR runtime in Docker behind Traefik",
           "UzCloud CMS Backend — NestJS 11 + Prisma 6 + PostgreSQL REST API with split admin/public controllers, per-language i18n tables, transactional mutations, JWT + httpOnly-cookie refresh auth, media storage and a contract-generation domain (catalog, versioned templates, PDF, Asana tasks)",
           "UzCloud Admin Platform — Vue 3 + Quasar 2 + Pinia + Vite panel grown from a content manager into an internal business platform: contract registry with a catalog-calculator wizard, versioned templates with placeholder rendering, commercial-offer generator, counterparty autofill by TIN (Didox / Soliq), PDF export and Asana hand-off, RBAC (admin / manager × organizations), media library, Quill-based blog and Telegram Mini App sign-in; flat @SimpleTry services, sidebar auto-built from route meta, VeeValidate + Zod forms mirroring backend validation",
-          "EDOC v2 — React frontend for an electronic document management system on Frappe; Feature Modules + Registry architecture, hand-written typed entity layer, dynamic form engine, TanStack Query v5 + Zustand, WebSocket presence",
+          "EDOC v2 — React client for an electronic document management system on Frappe; Feature Modules + Registry architecture, hand-written typed entity layer, dynamic form engine, TanStack Query v5 + Zustand, WebSocket presence",
           "EDOC Mobile — Android app for EDOC on Capacitor 8: WebView shell over the same React SPA (same-origin API, stand switching via env) plus the mobile UI layer — three adaptive layout modes, floating bottom navigation, swipeable bottom sheets with reference-counted scroll lock, safe-area handling",
           "edoc_workflow — declarative versioned workflow engine for Frappe: status/transition DocTypes, adapter pattern, condition/validator/post-function registry, whitelisted transition API",
           "AI-first delivery — drove agentic AI workflows and AIDD (AI-Driven Development) across the team, leaning on LLM-assisted, near-100% AI-generated code pipelines to ship faster without compromising review quality",
@@ -244,14 +245,24 @@ export const en: CvContent = {
           "Docker",
           "Traefik",
         ],
+        resume: {
+          description:
+            "Marketing site, internal business platform, Android app and the EDOC document system on Frappe.",
+          highlights: [
+            "Team leadership — planning, code review, mentoring and technical interviews; set architecture and coding standards, introduced agentic AI workflows with mandatory review",
+            "EDOC — designed the React application from scratch (Feature Modules + Registry, typed entities, dynamic forms, WebSocket presence) and shipped it to Android on Capacitor",
+            "Business platform — grew a Vue 3 CMS into an internal platform: contract registry, pricing calculator, versioned templates, PDF, RBAC; NestJS + Prisma API",
+          ],
+          stack: ["TypeScript", "React", "Vue 3", "Quasar", "NestJS", "Prisma", "PostgreSQL", "Frappe", "Capacitor", "Docker"],
+        },
       },
       {
-        role: "Senior FullStack Developer",
+        role: "Team Lead / Senior Software Engineer",
         company: "UZINFOCOM",
         location: "Tashkent · On-site",
         period: "Apr 2024 — Feb 2026",
         description:
-          "Designed and built fullstack web solutions for state-level platforms — database architecture, API design, server-side logic and modern frontend interfaces with strict security, stability and scalability requirements.",
+          "Designed and built state-level platforms end to end — database architecture, API design, server-side logic and modern user interfaces with strict security, stability and scalability requirements.",
         highlights: [
           "Web Video Editor (UFA) — flagship project. Browser-based non-linear video editor on Vue 3 + Quasar + Pinia + Fabric.js + HLS.js. Built the Fabric-driven canvas (FabricCanvasService), flexible timeline with layers and clips, dynamic JSON document model used as the editor's source of truth, video upload/HLS playback pipeline (VideoService), highlights/markers system (HighlightsService) and multi-user team collaboration (TeamService) on top of OneID auth, with role/permission-driven dynamic routing",
           "Sud Dashboard — Angular 20 platform for the courts: dual admin + client portal in one app with separate auth, OneID OAuth2 and E-IMZO digital signatures, standalone components and modular CRUD architecture, dynamic sidebar built from route metadata, custom Transloco i18n loaded from the API, WebRTC video calls (simple-peer), audio recording, face-api biometrics, OnlyOffice document editor/viewer, HLS video, AI-chat (LLM) and citizen-appeal services",
@@ -298,9 +309,20 @@ export const en: CvContent = {
           "PostgreSQL",
           "Docker",
         ],
+        resume: {
+          description:
+            "Government platforms for the courts, the labour inspectorate and the Uzbekistan Football Association.",
+          highlights: [
+            "Team leadership — led 5 engineers: planning, code review, mentoring, technical interviews; owned architecture, database schema and API design",
+            "Web Video Editor (UFA) — architected a browser-based non-linear video editor: canvas engine, multi-layer timeline, JSON document model, HLS playback",
+            "Court platform — Angular 20 portal with OneID, E-IMZO signatures, WebRTC calls, OnlyOffice",
+            "Genadi — wrote a Go generator of Vue 3 + TypeScript CRUD modules from OpenAPI specs",
+          ],
+          stack: ["TypeScript", "Vue 3", "Quasar", "Angular 20", "Svelte", "Astro", "Go", "NestJS", "WebRTC", "PostgreSQL"],
+        },
       },
       {
-        role: "Senior Frontend Developer",
+        role: "Senior Software Engineer",
         company: "abcollab",
         location: "United Kingdom · Remote",
         period: "Jul 2023 — Aug 2024",
@@ -316,9 +338,15 @@ export const en: CvContent = {
           "Product work — took part in team discussions of new features and of how the scenarios should behave",
         ],
         stack: ["React", "Redux Toolkit", "Firebase", "TypeScript"],
+        resume: {
+          description:
+            "UK artist–brand marketplace: built both sides in React + Redux Toolkit + Firebase, from onboarding with moderation to deal chat and card payments.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "Firebase"],
+        },
       },
       {
-        role: "Frontend Developer",
+        role: "Software Engineer",
         company: "Alovoice",
         location: "Tashkent · Hybrid",
         period: "Sep 2022 — Jul 2023",
@@ -334,9 +362,15 @@ export const en: CvContent = {
           "Account cabinet — signup by phone number, profile, balance, tariffs and the history of operations",
         ],
         stack: ["React", "MobX", "MVVM", "REST API"],
+        resume: {
+          description:
+            "Cloud telephony for the Uzbek market. Built the customer cabinet in React + MobX: one-form virtual PBX setup, extensions, voice menus, queues, call recordings and CRM integrations.",
+          highlights: [],
+          stack: ["React", "MobX", "MVVM", "REST API"],
+        },
       },
       {
-        role: "Frontend Developer",
+        role: "Software Engineer",
         company: "MedYuMed",
         location: "Tashkent · Remote",
         period: "Jan 2022 — Aug 2022",
@@ -360,15 +394,26 @@ export const en: CvContent = {
           "react-big-calendar",
           "1C REST API",
         ],
+        resume: {
+          description:
+            "Back office for a clinic network: scheduling, visit statuses, payments with fiscal receipts, clients and staff.",
+          highlights: [],
+          stack: ["React", "TypeScript", "Redux Toolkit", "MUI"],
+        },
       },
       {
-        role: "Web Developer",
+        role: "Software Engineer",
         company: "Korea Academy",
         location: "Tashkent · On-site",
         period: "Sep 2019 — Dec 2021",
         description:
           "Creating modern websites, supporting and developing a learning platform, and building a student accounting system.",
         stack: ["JavaScript", "HTML5", "CSS3"],
+        resume: {
+          description:
+            "Built websites, a learning platform and a student accounting system.",
+          stack: [],
+        },
       },
     ],
   },
@@ -408,6 +453,36 @@ export const en: CvContent = {
       { type: "telegram", href: "https://t.me/izzy2105", label: "Telegram" },
       { type: "phone", href: "tel:+998946436555", label: "📞 +998 94 643 6555" },
       { type: "portfolio", href: "https://izzycode-two.vercel.app/", label: "Portfolio" },
+    ],
+  },
+  resume: {
+    title: "Senior Software Engineer · Tech Lead",
+    headline:
+      "System Architecture · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobile (Capacitor) · AI-Driven Development",
+    summary:
+      "Senior Software Engineer and Tech Lead with 7 years of experience building business platforms, government systems and SaaS products end to end, from architecture and APIs to user interfaces and mobile apps. Team lead at UZINFOCOM (5 engineers) and Uzcloud: system design, planning, code review, mentoring and technical interviews; introduced AI-driven development with agentic workflows. Delivered products for government agencies, courts and private companies in Uzbekistan and the UK.",
+    links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
+    skills: [
+      {
+        title: "Software Architecture",
+        items: ["System design", "Modular architecture", "API design (REST, GraphQL)", "Database schema design", "RBAC", "SSR / SPA", "Real-time (WebSockets, WebRTC)"],
+      },
+      {
+        title: "Technology Stack",
+        items: ["TypeScript", "JavaScript", "Go", "Python", "React", "Next.js", "Vue.js 3", "Angular", "Svelte", "Astro", "Node.js", "NestJS", "Express.js", "Redux Toolkit", "MobX", "Zustand", "Pinia", "TanStack Query", "Tailwind CSS", "Capacitor (Android)"],
+      },
+      {
+        title: "Data & Delivery",
+        items: ["PostgreSQL", "Prisma", "Firebase", "Frappe / ERPNext", "Docker", "Traefik", "CI/CD", "Vite", "Git"],
+      },
+      {
+        title: "AI Engineering",
+        items: ["AI-driven development (AIDD)", "Agentic AI workflows", "LLM integration", "LLM-assisted coding"],
+      },
+      {
+        title: "Leadership",
+        items: ["Technical leadership", "Code review", "Mentoring", "Technical interviewing"],
+      },
     ],
   },
 };
