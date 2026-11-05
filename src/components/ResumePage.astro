@@ -84,6 +84,7 @@ const splitHighlight = (h: string) => {
               {phone && <li><a href={phone.href}>{phone.label.replace(/^📞\s*/, "")}</a></li>}
               {telegram && <li><a href={telegram}>{clean(telegram)}</a></li>}
               {portfolio && <li><a href={portfolio}>{clean(portfolio)}</a></li>}
+              {resume.links.map((url) => <li><a href={url}>{clean(url)}</a></li>)}
               <li>{location}</li>
             </ul>
             {availability.length > 0 && <p class="availability">{availability.join(" · ")}</p>}
@@ -130,7 +131,7 @@ const splitHighlight = (h: string) => {
 
           <h2 class="block sec">{ui.education}</h2>
           {education.education.map((e) => (
-            <div class="block entry-head">
+            <div class="block entry-head edu">
               <div class="entry-line">
                 <span class="entry-role">{e.school}</span>
                 <span class="entry-period">{e.period}</span>
@@ -141,8 +142,9 @@ const splitHighlight = (h: string) => {
 
           <h2 class="block sec">{ui.languages}</h2>
           <div class="block langs">
+            {/* CEFR code only ("C2 — Proficient" → "C2"): the four languages fit on one line */}
             {education.languages.map((l) => (
-              <span class="lang"><strong>{l.name}</strong> — {l.level}</span>
+              <span class="lang"><strong>{l.name}</strong> — {l.level.split(" — ")[0]}</span>
             ))}
           </div>
         </div>
@@ -183,9 +185,10 @@ const splitHighlight = (h: string) => {
           const prev = body;
           addPage();
           body.append(block);
-          // never leave a section/entry heading orphaned at the bottom of a page
+          // never leave a section/entry heading orphaned at the bottom of a page;
+          // an education entry is complete on its own, so it stays where it is
           let last = prev.lastElementChild;
-          while (last && prev.children.length > 1 && /\b(sec|entry-head)\b/.test(last.className)) {
+          while (last && prev.children.length > 1 && /\b(sec|entry-head)\b/.test(last.className) && !last.classList.contains("edu")) {
             body.prepend(last);
             last = prev.lastElementChild;
           }

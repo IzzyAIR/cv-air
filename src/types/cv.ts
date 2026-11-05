@@ -119,5 +119,7 @@ export interface Resume {
   title: string;
   headline: string;
   summary: string;
+  /** Profile URLs printed beside the contacts (LinkedIn, GitHub). */
+  links: string[];
   skills: TechCategory[];
 }
