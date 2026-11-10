@@ -110,7 +110,7 @@ export const uz: CvContent = {
     headline:
       "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development va agentli AI-workflow",
     summary:
-      "Staff Software Engineer. Mahsulotlarni toʻliq loyihalayman va yarataman — arxitektura, API va maʼlumotlar modelidan tortib odamlar har kuni ishlatadigan interfeyslargacha: klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
+      "Staff Software Engineer. Muhandislik jamoalariga rahbarlik qilaman va mahsulotlarni arxitekturadan interfeysgacha toʻliq yarataman. Klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
     meta: "📍 Toshkent · Remote · Full-time / Part-time / Loyiha asosida",
     ctas: [
       { label: "Bogʻlanish", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
