@@ -2,17 +2,17 @@ import type { CvContent } from "./index";
 
 export const ru: CvContent = {
   siteMeta: {
-    title: "Иззатилла Алиев — Senior Software Engineer · Tech Lead | TypeScript, React, Vue, Angular, Node.js",
+    title: "Иззатилла Алиев — Staff Software Engineer | TypeScript, React, Vue, Angular, Node.js",
     description:
-      "Senior Software Engineer и техлид, 7 лет опыта: бизнес-платформы, государственные системы и SaaS-продукты на TypeScript, React, Vue, Angular, Node.js и NestJS. Ташкент, Узбекистан.",
+      "Staff Software Engineer, 7 лет опыта: бизнес-платформы, государственные системы и SaaS-продукты на TypeScript, React, Vue, Angular, Node.js и NestJS. Ташкент, Узбекистан.",
     keywords:
       "software engineer, инженер-программист, senior software engineer, техлид, тимлид, TypeScript, React, Vue.js, Angular, JavaScript, Node.js, NestJS, PostgreSQL, Frappe, Capacitor, Android, AI-driven development, Ташкент, Узбекистан, Иззатилла Алиев",
     author: "Иззатилла Алиев",
-    ogTitle: "Иззатилла Алиев — Senior Software Engineer · Tech Lead",
+    ogTitle: "Иззатилла Алиев — Staff Software Engineer",
     ogDescription:
       "7 лет создаю продукты на TypeScript, React, Vue, Angular, Node.js и NestJS. Тимлид, открыт к удалённой работе.",
     ogLocale: "ru_RU",
-    twitterTitle: "Иззатилла Алиев — Senior Software Engineer · Tech Lead",
+    twitterTitle: "Иззатилла Алиев — Staff Software Engineer",
     twitterDescription:
       "7 лет создаю продукты на TypeScript, React, Vue, Angular, Node.js и NestJS.",
     jsonLd: {
@@ -23,9 +23,9 @@ export const ru: CvContent = {
       givenName: "Иззатилла",
       familyName: "Алиев",
       alternateName: ["Izzy", "Izzatilla Aliev", "Izzatilla Aliyev"],
-      jobTitle: "Senior Software Engineer",
+      jobTitle: "Staff Software Engineer",
       description:
-        "Senior Software Engineer и техлид с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты на React, Vue, Angular, Svelte, Astro, Node.js, NestJS и Frappe.",
+        "Staff Software Engineer с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты на React, Vue, Angular, Svelte, Astro, Node.js, NestJS и Frappe.",
       url: "https://izzycode-two.vercel.app/ru/",
       image: "https://izzycode-two.vercel.app/og-image.svg",
       email: "mailto:izzycode2105@gmail.com",
@@ -48,7 +48,7 @@ export const ru: CvContent = {
       ],
       hasOccupation: {
         "@type": "Occupation",
-        name: "Senior Software Engineer",
+        name: "Staff Software Engineer",
         occupationLocation: { "@type": "City", name: "Ташкент" },
         skills:
           "React, Next.js, Vue 3, Angular 20, Svelte, Astro, TypeScript, JavaScript, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL, Frappe, Capacitor, Android, Docker",
@@ -104,13 +104,13 @@ export const ru: CvContent = {
   brand: { prefix: "dev", suffix: ".portfolio" },
   hero: {
     brand: { prefix: "dev", suffix: ".portfolio" },
-    tagline: "<Senior Software Engineer />",
+    tagline: "<Staff Software Engineer />",
     firstName: "Иззатилла",
     lastName: "Алиев",
     headline:
-      "Senior Software Engineer · Tech Lead | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development и агентные AI-воркфлоу",
+      "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development и агентные AI-воркфлоу",
     summary:
-      "Senior Software Engineer и техлид. Проектирую и строю продукты целиком — от архитектуры, API и моделей данных до интерфейсов, с которыми люди работают каждый день: React, Vue, Angular, Svelte и Astro на клиенте; Node.js, NestJS, GraphQL, PostgreSQL и Frappe на сервере.",
+      "Staff Software Engineer. Проектирую и строю продукты целиком — от архитектуры, API и моделей данных до интерфейсов, с которыми люди работают каждый день: React, Vue, Angular, Svelte и Astro на клиенте; Node.js, NestJS, GraphQL, PostgreSQL и Frappe на сервере.",
     meta: "📍 Ташкент · Remote · Full-time / Part-time / Project",
     ctas: [
       { label: "Связаться", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -124,7 +124,7 @@ export const ru: CvContent = {
     titleHighlighted: "AIDD",
     titleTrailing: ".",
     paragraphs: [
-      "Senior Software Engineer с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты. Работаю со всем продуктом: React, Next.js, Vue 3, Angular, Svelte и Astro — для интерфейсов, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL и MongoDB — за ними.",
+      "Staff Software Engineer с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты. Работаю со всем продуктом: React, Next.js, Vue 3, Angular, Svelte и Astro — для интерфейсов, Node.js, NestJS, Express, GraphQL, REST, PostgreSQL и MongoDB — за ними.",
       "Мне интересно там, где дизайн встречается с инженерией, превращаю сложные требования в элегантные, удобные продукты. Последние годы я так же изучаю и внедряю подход на AI-first разработку, выстраиваю agentic AI-workflow и процессы AIDD (AI-Driven Development), которые помогают командам поставлять быстрее, не жертвуя качеством, безопасностью и масштабируемостью.",
     ],
     stats: [
@@ -244,7 +244,7 @@ export const ru: CvContent = {
           description:
             "Маркетинговый сайт, бизнес-платформа, Android-приложение и документооборот EDOC на Frappe.",
           highlights: [
-            "Руководство командой — планирование, code review, менторинг, собеседования; стандарты архитектуры и кода, агентные AI-воркфлоу с обязательным ревью",
+            "Инженерное лидерство — задал архитектуру и инженерные стандарты продуктов компании, проводил собеседования, менторил инженеров, перевёл команду на агентные AI-воркфлоу с обязательным ревью",
             "EDOC — спроектировал React-приложение с нуля (Feature Modules + Registry, типизированные сущности, динамические формы, WebSocket) и выпустил под Android на Capacitor",
             "Бизнес-платформа — развил CMS на Vue 3 во внутреннюю платформу: реестр договоров, калькулятор, шаблоны, PDF, RBAC; API на NestJS + Prisma",
           ],
@@ -308,7 +308,7 @@ export const ru: CvContent = {
           description:
             "Государственные платформы для судов, трудовой инспекции и Ассоциации футбола Узбекистана.",
           highlights: [
-            "Руководство командой — 5 инженеров: планирование, code review, менторинг, собеседования; архитектура, схема БД и дизайн API",
+            "Инженерное лидерство — руководил командой на нескольких госплатформах: архитектура, схема БД и дизайн API, найм и менторинг; внедрил AI-driven development",
             "Web Video Editor (UFA) — видеоредактор в браузере: canvas, многослойный таймлайн, HLS",
             "Судебная платформа — портал на Angular 20: OneID, подпись E-IMZO, WebRTC-звонки, OnlyOffice",
             "Genadi — написал на Go генератор CRUD-модулей Vue 3 + TypeScript по OpenAPI",
@@ -317,10 +317,10 @@ export const ru: CvContent = {
         },
       },
       {
-        role: "Senior Software Engineer",
+        role: "Lead Software Engineer",
         company: "abcollab",
-        location: "Великобритания · Remote",
-        period: "Июль 2023 — Август 2024",
+        location: "Великобритания · Remote · Part-time",
+        period: "Сентябрь 2023 — Сентябрь 2024",
         description:
           "«abcollab» — британская платформа, где художники и бренды находят друг друга и работают вместе: художник ведёт портфолио, бренд ищет автора или публикует бриф, а сделка целиком проходит внутри сервиса — от первого сообщения до оплаты.",
         highlights: [
@@ -451,11 +451,11 @@ export const ru: CvContent = {
     ],
   },
   resume: {
-    title: "Senior Software Engineer · Tech Lead",
+    title: "Staff Software Engineer",
     headline:
       "Архитектура систем · TypeScript · React · Vue · Angular · Node.js / NestJS · Mobile (Capacitor) · AI-Driven Development",
     summary:
-      "Senior Software Engineer и техлид с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты целиком — от архитектуры и API до интерфейсов и мобильных приложений. Тимлид в UZINFOCOM (5 инженеров) и Uzcloud: проектирование систем, планирование, code review, менторинг, собеседования; внедрил AI-driven development с агентными воркфлоу. Продукты для госорганов, судов и частных компаний Узбекистана и Великобритании.",
+      "Staff Software Engineer с 7 годами опыта: бизнес-платформы, государственные системы и SaaS-продукты целиком — от архитектуры и API до интерфейсов и мобильных приложений. Руководил инженерными командами в UZINFOCOM и Uzcloud: архитектура и инженерные стандарты, найм и менторинг; перевёл разработку на AI-driven development с агентными воркфлоу. Продукты для госорганов, судов и частных компаний Узбекистана и Великобритании.",
     links: ["https://www.linkedin.com/in/izzatilla-aliev-7023b0254", "https://github.com/IzzyAIR"],
     skills: [
       {
@@ -472,11 +472,11 @@ export const ru: CvContent = {
       },
       {
         title: "AI-инженерия",
-        items: ["AI-driven development (AIDD)", "Агентные AI-воркфлоу", "Интеграция LLM"],
+        items: ["AI-driven development (AIDD)", "Агентные инженерные воркфлоу", "Пайплайны AI-генерации кода с ревью", "LLM-функции в продуктах"],
       },
       {
-        title: "Лидерство",
-        items: ["Техническое лидерство", "Code review", "Менторинг", "Собеседования"],
+        title: "Инженерное лидерство",
+        items: ["Ответственность за архитектуру", "Инженерные стандарты", "Найм и собеседования", "Менторинг", "Планирование поставки", "Внедрение AI в командах"],
       },
     ],
   },
