@@ -206,7 +206,7 @@ export const en: CvContent = {
     title: "Where I've Worked",
     items: [
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "Uzcloud",
         location: "Tashkent · Hybrid",
         period: "Mar 2026 — Present",
@@ -257,7 +257,7 @@ export const en: CvContent = {
         },
       },
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "UZINFOCOM",
         location: "Tashkent · On-site",
         period: "Apr 2024 — Feb 2026",
@@ -322,7 +322,7 @@ export const en: CvContent = {
         },
       },
       {
-        role: "Lead Software Engineer",
+        role: "Staff Software Engineer",
         company: "abcollab",
         location: "United Kingdom · Remote · Part-time",
         period: "Sep 2023 — Sep 2024",

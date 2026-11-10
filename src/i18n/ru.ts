@@ -201,7 +201,7 @@ export const ru: CvContent = {
     title: "Где работал",
     items: [
       {
-        role: "Тимлид / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "Uzcloud",
         location: "Ташкент · Гибрид",
         period: "Март 2026 — настоящее время",
@@ -252,7 +252,7 @@ export const ru: CvContent = {
         },
       },
       {
-        role: "Тимлид / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "UZINFOCOM",
         location: "Ташкент · Офис",
         period: "Апрель 2024 — Февраль 2026",
@@ -317,7 +317,7 @@ export const ru: CvContent = {
         },
       },
       {
-        role: "Lead Software Engineer",
+        role: "Staff Software Engineer",
         company: "abcollab",
         location: "Великобритания · Remote · Part-time",
         period: "Сентябрь 2023 — Сентябрь 2024",

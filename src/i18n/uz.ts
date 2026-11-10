@@ -201,7 +201,7 @@ export const uz: CvContent = {
     title: "Ishlagan joylarim",
     items: [
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "Uzcloud",
         location: "Toshkent · Gibrid",
         period: "Mart 2026 — hozir",
@@ -252,7 +252,7 @@ export const uz: CvContent = {
         },
       },
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "UZINFOCOM",
         location: "Toshkent · Ofis",
         period: "Aprel 2024 — Fevral 2026",
@@ -317,7 +317,7 @@ export const uz: CvContent = {
         },
       },
       {
-        role: "Lead Software Engineer",
+        role: "Staff Software Engineer",
         company: "abcollab",
         location: "Buyuk Britaniya · Remote · Part-time",
         period: "Sentabr 2023 — Sentabr 2024",
