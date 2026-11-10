@@ -110,7 +110,7 @@ export const uz: CvContent = {
     headline:
       "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development va agentli AI-workflow",
     summary:
-      "Staff Software Engineer. Mahsulotlarni toʻliq loyihalayman va yarataman — arxitektura, API va maʼlumotlar modelidan tortib odamlar har kuni ishlatadigan interfeyslargacha: klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
+      "Staff Software Engineer. Muhandislik jamoalariga rahbarlik qilaman va mahsulotlarni arxitekturadan interfeysgacha toʻliq yarataman. Klientda React, Vue, Angular, Svelte va Astro; serverda Node.js, NestJS, GraphQL, PostgreSQL va Frappe.",
     meta: "📍 Toshkent · Remote · Full-time / Part-time / Loyiha asosida",
     ctas: [
       { label: "Bogʻlanish", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -201,7 +201,7 @@ export const uz: CvContent = {
     title: "Ishlagan joylarim",
     items: [
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "Uzcloud",
         location: "Toshkent · Gibrid",
         period: "Mart 2026 — hozir",
@@ -252,7 +252,7 @@ export const uz: CvContent = {
         },
       },
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "UZINFOCOM",
         location: "Toshkent · Ofis",
         period: "Aprel 2024 — Fevral 2026",
@@ -317,7 +317,7 @@ export const uz: CvContent = {
         },
       },
       {
-        role: "Lead Software Engineer",
+        role: "Staff Software Engineer",
         company: "abcollab",
         location: "Buyuk Britaniya · Remote · Part-time",
         period: "Sentabr 2023 — Sentabr 2024",

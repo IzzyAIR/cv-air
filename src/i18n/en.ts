@@ -115,7 +115,7 @@ export const en: CvContent = {
     headline:
       "Staff Software Engineer | TypeScript · React · Vue · Angular · Node.js | Mobile (Capacitor) | AI-Driven Development & Agentic Workflows",
     summary:
-      "Staff Software Engineer. I design and build products end to end, from architecture, APIs and data models to the interfaces people use every day: React, Vue, Angular, Svelte and Astro on the client; Node.js, NestJS, GraphQL, PostgreSQL and Frappe on the server.",
+      "Staff Software Engineer. I lead engineering teams and build products end to end, from architecture to interface. React, Vue, Angular, Svelte and Astro on the client; Node.js, NestJS, GraphQL, PostgreSQL and Frappe on the server.",
     meta: "📍 Tashkent · Remote · Full-time / Part-time / Project-based",
     ctas: [
       { label: "Get in Touch", href: "mailto:izzycode2105@gmail.com", variant: "primary" },
@@ -206,7 +206,7 @@ export const en: CvContent = {
     title: "Where I've Worked",
     items: [
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "Uzcloud",
         location: "Tashkent · Hybrid",
         period: "Mar 2026 — Present",
@@ -257,7 +257,7 @@ export const en: CvContent = {
         },
       },
       {
-        role: "Team Lead / Senior Software Engineer",
+        role: "Staff Software Engineer",
         company: "UZINFOCOM",
         location: "Tashkent · On-site",
         period: "Apr 2024 — Feb 2026",
@@ -322,7 +322,7 @@ export const en: CvContent = {
         },
       },
       {
-        role: "Lead Software Engineer",
+        role: "Staff Software Engineer",
         company: "abcollab",
         location: "United Kingdom · Remote · Part-time",
         period: "Sep 2023 — Sep 2024",
