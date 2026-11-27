@@ -23,6 +23,11 @@
     --v2-accent-ink: 0 0% 100%;
     --v2-shadow: 220 30% 12%;
     --v2-sheen: 220 40% 88%;
+    /* An alpha, not a colour: the card spotlight's share of the accent. Dark
+       needs about twice as much, or the pool vanishes on the near-black card. */
+    --v2-spotlight: 0.09;
+    /* Glare lights the photo, not the page, so it is the same in both themes. */
+    --v2-glare: 220 40% 98%;
     color-scheme: light;
   }
 
@@ -40,6 +45,7 @@
       --v2-accent-ink: 227 60% 12%;
       --v2-shadow: 216 40% 2%;
       --v2-sheen: 220 30% 22%;
+      --v2-spotlight: 0.2;
       color-scheme: dark;
     }
   }
@@ -54,6 +60,7 @@
     --v2-accent-ink: 227 60% 12%;
     --v2-shadow: 216 40% 2%;
     --v2-sheen: 220 30% 22%;
+    --v2-spotlight: 0.2;
     color-scheme: dark;
   }
 
@@ -67,6 +74,7 @@
     --v2-accent-ink: 0 0% 100%;
     --v2-shadow: 220 30% 12%;
     --v2-sheen: 220 40% 88%;
+    --v2-spotlight: 0.09;
     color-scheme: light;
   }
 
@@ -122,6 +130,37 @@
       inset 0 1px 0 hsl(0 0% 100% / 0.14);
   }
 
+  /* Glare: a cold band of light crosses the portrait on hover, the chrome frame
+     catching light. It waits off-frame on the left, sweeps out to the right on
+     hover and snaps back unseen on leave (the transition lives on :hover only),
+     so it never runs backwards. Translate is in band widths: at -200% / 300% the
+     skewed corners clear the frame on both sides. */
+  .v2-frame::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% 0;
+    z-index: 1;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--v2-glare) / 0.14) 30%,
+      hsl(var(--v2-glare) / 0.5),
+      hsl(var(--v2-glare) / 0.14) 70%,
+      transparent
+    );
+    transform: translateX(-200%) skewX(-18deg);
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .v2-frame:hover::after {
+      transform: translateX(300%) skewX(-18deg);
+      /* Ease-in-out, not the site's ease-out: most of the travel is off-frame,
+         and an ease-out would spend the visible stretch in the first 200ms. */
+      transition: transform 0.9s cubic-bezier(0.45, 0, 0.25, 1);
+    }
+  }
+
   /* Section headline rule that draws itself as the heading enters. */
   .v2-rule {
     display: block;
@@ -146,6 +185,35 @@
       transform: translateY(-3px);
       border-color: hsl(var(--v2-accent) / 0.45);
       box-shadow: 0 22px 50px -34px hsl(var(--v2-shadow) / 0.8);
+    }
+  }
+
+  /* Spotlight: a soft accent pool that follows the pointer inside the card.
+     The island in V2Page.astro writes --mx/--my; everything else is here.
+     z-index -1 inside an isolated card keeps the light above the card's own
+     background but under its text, so copy is never tinted. */
+  [data-spotlight] {
+    position: relative;
+    isolation: isolate;
+  }
+  [data-spotlight]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    pointer-events: none;
+    background: radial-gradient(
+      380px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--v2-accent) / var(--v2-spotlight)),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    [data-spotlight]:hover::before {
+      opacity: 1;
     }
   }
 
