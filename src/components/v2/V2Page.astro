@@ -32,8 +32,9 @@ const { lang } = Astro.props;
   </main>
 
   <script is:inline>
-    // One island: count-up on the stats and a magnetic pull on the primary CTA.
-    // Both are feedback/hierarchy devices; everything else on the page is CSS.
+    // One island: count-up on the stats, a magnetic pull on the primary CTA and
+    // the pointer position for the card spotlight. All three need per-frame
+    // values CSS cannot express; everything else on the page is CSS.
     (() => {
       const root = document.documentElement;
       document.getElementById("v2-theme")?.addEventListener("click", () => {
@@ -81,6 +82,17 @@ const { lang } = Astro.props;
           btn.style.transform = "";
         });
       });
+
+      // Touch has no hover, so the spotlight would never show; skip the listeners.
+      if (matchMedia("(hover: hover)").matches) {
+        document.querySelectorAll("[data-spotlight]").forEach((card) => {
+          card.addEventListener("pointermove", (e) => {
+            const r = card.getBoundingClientRect();
+            card.style.setProperty("--mx", `${e.clientX - r.left}px`);
+            card.style.setProperty("--my", `${e.clientY - r.top}px`);
+          });
+        });
+      }
     })();
   </script>
 </V2Layout>
