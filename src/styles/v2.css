@@ -23,6 +23,8 @@
     --v2-accent-ink: 0 0% 100%;
     --v2-shadow: 220 30% 12%;
     --v2-sheen: 220 40% 88%;
+    /* Glare lights the photo, not the page, so it is the same in both themes. */
+    --v2-glare: 220 40% 98%;
     color-scheme: light;
   }
 
@@ -120,6 +122,37 @@
     box-shadow:
       0 36px 90px -40px hsl(var(--v2-shadow) / 0.65),
       inset 0 1px 0 hsl(0 0% 100% / 0.14);
+  }
+
+  /* Glare: a cold band of light crosses the portrait on hover, the chrome frame
+     catching light. It waits off-frame on the left, sweeps out to the right on
+     hover and snaps back unseen on leave (the transition lives on :hover only),
+     so it never runs backwards. Translate is in band widths: at -200% / 300% the
+     skewed corners clear the frame on both sides. */
+  .v2-frame::after {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% 0;
+    z-index: 1;
+    width: 45%;
+    pointer-events: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      hsl(var(--v2-glare) / 0.14) 30%,
+      hsl(var(--v2-glare) / 0.5),
+      hsl(var(--v2-glare) / 0.14) 70%,
+      transparent
+    );
+    transform: translateX(-200%) skewX(-18deg);
+  }
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .v2-frame:hover::after {
+      transform: translateX(300%) skewX(-18deg);
+      /* Ease-in-out, not the site's ease-out: most of the travel is off-frame,
+         and an ease-out would spend the visible stretch in the first 200ms. */
+      transition: transform 0.9s cubic-bezier(0.45, 0, 0.25, 1);
+    }
   }
 
   /* Section headline rule that draws itself as the heading enters. */
